@@ -1,0 +1,965 @@
+fileFormatVersion: 2
+guid: dee867e3a017f7d4e91cdb8480efbae2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 818808966114431289
+    second: Parada_0
+  - first:
+      213: -708508920380265639
+    second: Parada_1
+  - first:
+      213: 4278376527893232218
+    second: Parada_2
+  - first:
+      213: 5958839016576793286
+    second: Parada_3
+  - first:
+      213: 8473344780694348267
+    second: Parada_4
+  - first:
+      213: -5426077942928178874
+    second: Parada_5
+  - first:
+      213: -7143216485528081603
+    second: Parada_6
+  - first:
+      213: -3503649003974431110
+    second: Parada_7
+  - first:
+      213: -1804425121643367834
+    second: Parada_8
+  - first:
+      213: 8795778262302066118
+    second: Parada_9
+  - first:
+      213: -4148470441905772440
+    second: Parada_10
+  - first:
+      213: 5910387200568711471
+    second: Parada_11
+  - first:
+      213: 7605521739057858746
+    second: Parada_12
+  - first:
+      213: 3205844236188460048
+    second: Parada_13
+  - first:
+      213: -488138837863372259
+    second: Parada_14
+  - first:
+      213: 52913704184678333
+    second: Parada_15
+  - first:
+      213: -930695722463269821
+    second: Parada_16
+  - first:
+      213: -6654737209787951471
+    second: Parada_17
+  - first:
+      213: -1062644217830597531
+    second: Parada_18
+  - first:
+      213: 4971119039216722573
+    second: Parada_19
+  - first:
+      213: -3065960619699372501
+    second: Parada_20
+  - first:
+      213: 3449171725401680675
+    second: Parada_21
+  - first:
+      213: -5611869110981282318
+    second: Parada_22
+  - first:
+      213: 6002024082896876447
+    second: Parada_23
+  - first:
+      213: -595714104296719644
+    second: Parada_24
+  - first:
+      213: 5322892038457195112
+    second: Parada_25
+  - first:
+      213: -8467827969042436349
+    second: Parada_26
+  - first:
+      213: -6959881333387184802
+    second: Parada_27
+  - first:
+      213: -8774498855610490210
+    second: Parada_28
+  - first:
+      213: -9128378198643180035
+    second: Parada_29
+  - first:
+      213: 7154602545803011277
+    second: Parada_30
+  - first:
+      213: 3711277550608774588
+    second: Parada_31
+  - first:
+      213: -4076641364663598043
+    second: Parada_32
+  - first:
+      213: 4248792667077954589
+    second: Parada_33
+  - first:
+      213: 5928796681569287342
+    second: Parada_34
+  - first:
+      213: -7497703133387158406
+    second: Parada_35
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Parada_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1735
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427f95f4dcc9a894b9e35a9392d884b6
+      internalID: 818808966114431289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1735
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8191772fcb10a984c9a4307f515bf4b2
+      internalID: -708508920380265639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1735
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 179a6cc5d23cdaa4abdf83b242948c90
+      internalID: 4278376527893232218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1735
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93004b2dafd84c24fbb2045e93599ee8
+      internalID: 5958839016576793286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1735
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa91e6cdd9bf28c4fadc60b3cee9552f
+      internalID: 8473344780694348267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_5
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1735
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cdb32cf0fb96d440a0249947dca32d7
+      internalID: -5426077942928178874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1388
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d443aa212253174db7cd0f394512668
+      internalID: -7143216485528081603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_7
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1388
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7efe4b4c7dd33d4388fe39f4eab298c
+      internalID: -3503649003974431110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_8
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1388
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740621fda09f09d44ab64f1b9fa086e2
+      internalID: -1804425121643367834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_9
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1388
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8560c232a4c4c114aa9f8a0b6842febe
+      internalID: 8795778262302066118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1388
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c670df85b84b3894aab81e30452066fa
+      internalID: -4148470441905772440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1388
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a508a374bfd6c2244ae88ee6059861f0
+      internalID: 5910387200568711471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1041
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483f00c417658cf478b91844e8771c29
+      internalID: 7605521739057858746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1041
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb08a0f131a45542ac06eaa35f3d86e
+      internalID: 3205844236188460048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1041
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a43dbdc92c66e49b5f39d161142f7b
+      internalID: -488138837863372259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1041
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5da792ae0302549bfd3d31026b7132
+      internalID: 52913704184678333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1041
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee733f50af6205b41ba45d3d4794b356
+      internalID: -930695722463269821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_17
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1041
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30cfc0f1a91bfa641b3615b31e3a4bf9
+      internalID: -6654737209787951471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 694
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d755e5e0e359f49acf18797db34c95
+      internalID: -1062644217830597531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_19
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 694
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec85cfddd30d59e43999b6faf698b02a
+      internalID: 4971119039216722573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_20
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 694
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b6825f6a6241f45b809a87beaf3f3e
+      internalID: -3065960619699372501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_21
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 694
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd68da6eb040f0d4991bc298e37311fe
+      internalID: 3449171725401680675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_22
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 694
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1a52f5c9c11da44893aed433fc3d6a
+      internalID: -5611869110981282318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_23
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 694
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045eebdee14a123448e6b8e4c4f24a1a
+      internalID: 6002024082896876447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 347
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd9962b840b8fea4389f2c2af3700534
+      internalID: -595714104296719644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_25
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 347
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64dcc3d2190065149821219aded6845d
+      internalID: 5322892038457195112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_26
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 347
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12e1f3d9ab119b4486b7801236c1ad6
+      internalID: -8467827969042436349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_27
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 347
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2470c4e101d0749998f9c1cd927e41
+      internalID: -6959881333387184802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_28
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 347
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596d29d5aa21eb9428c163e9bce67216
+      internalID: -8774498855610490210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_29
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 347
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5070c62c2bac96b47a1bc20f9cb386ae
+      internalID: -9128378198643180035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7fece9af70b774194aa54f0daf0c7b
+      internalID: 7154602545803011277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_31
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43bee87590d41e4aaeb4e47f236b93e
+      internalID: 3711277550608774588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_32
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e3dc587f1a762429be60926afb8042
+      internalID: -4076641364663598043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_33
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee3a91353d1dfe4dba3e390819e368a
+      internalID: 4248792667077954589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_34
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6893a45aa51f5048a2daa8adcf0a80e
+      internalID: 5928796681569287342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Parada_35
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 180
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7127933, y: 0.9461864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfdce0f423088f84a9b3979824097a3a
+      internalID: -7497703133387158406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5f972ea0a0c29aa4194fb21dfa4e301d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

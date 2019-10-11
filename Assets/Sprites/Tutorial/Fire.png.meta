@@ -1,0 +1,365 @@
+fileFormatVersion: 2
+guid: 99c30dcab4302274082ac301a6817936
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: fogo pB_0
+  - first:
+      213: 21300002
+    second: fogo pB_1
+  - first:
+      213: 21300004
+    second: fogo pB_2
+  - first:
+      213: 21300006
+    second: fogo pB_3
+  - first:
+      213: 21300008
+    second: fogo pB_4
+  - first:
+      213: 21300010
+    second: fogo pB_5
+  - first:
+      213: 21300012
+    second: fogo pB_6
+  - first:
+      213: 21300014
+    second: fogo pB_7
+  - first:
+      213: 21300016
+    second: fogo pB_8
+  - first:
+      213: 21300018
+    second: fogo pB_9
+  - first:
+      213: 21300020
+    second: fogo pB_10
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fogo pB_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 516
+        width: 171
+        height: 261
+      alignment: 9
+      pivot: {x: 0.503753, y: 0.19017993}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d818781edf505fc4d98155d19dd8d5f8
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 520
+        width: 155
+        height: 260
+      alignment: 9
+      pivot: {x: 0.5207021, y: 0.17911494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6e885aa82a2a348a26f7c51d3415cc
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 518
+        width: 138
+        height: 274
+      alignment: 9
+      pivot: {x: 0.42094135, y: 0.16271928}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a97dab4351e674bbf6b89cced9e2b2
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_3
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 516
+        width: 148
+        height: 266
+      alignment: 9
+      pivot: {x: 0.50867236, y: 0.17911477}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4c1d9545fb85214da5924ba37029cd7
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 280
+        width: 145
+        height: 235
+      alignment: 9
+      pivot: {x: 0.46901798, y: 0.22690637}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5358e2f8560676f4aa4ec888c98ba442
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_5
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 282
+        width: 128
+        height: 234
+      alignment: 9
+      pivot: {x: 0.44986176, y: 0.22299664}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e3db70da417f945b14549197e093c8
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_6
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 280
+        width: 142
+        height: 231
+      alignment: 9
+      pivot: {x: 0.45028538, y: 0.19439512}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ecc91895af90e459795786aba6eb00
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_7
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 274
+        width: 126
+        height: 235
+      alignment: 9
+      pivot: {x: 0.4847199, y: 0.25421572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd9404624744194e852e15d8853986a
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_8
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 35
+        width: 159
+        height: 225
+      alignment: 9
+      pivot: {x: 0.4515645, y: 0.20335962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ae41e1d5067964192c6ccaa1d41e84
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_9
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 32
+        width: 138
+        height: 233
+      alignment: 9
+      pivot: {x: 0.47209698, y: 0.24659716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a59a1cf4c318f45ab1fd1ae2b9c625
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fogo pB_10
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 30
+        width: 155
+        height: 233
+      alignment: 9
+      pivot: {x: 0.53312355, y: 0.21354459}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d7fea78de59bc4780fcf71f9185089
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

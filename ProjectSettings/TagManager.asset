@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Inimigo
+  - Guardachuva
+  - EscudoInimigo
+  - Porta
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Floor
+  - Player
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Scenery
+    uniqueID: 3170630633
+    locked: 0
+  - name: Marjory
+    uniqueID: 2788872743
+    locked: 0
+  - name: Characters
+    uniqueID: 989081817
+    locked: 0
+  - name: Rain
+    uniqueID: 1433768923
+    locked: 0
+  - name: UI
+    uniqueID: 3243188525
+    locked: 0

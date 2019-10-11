@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: 621aa24d14e741f4c8cc2337c04dd88b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3926366084006674693
+    second: Jeter_0
+  - first:
+      213: -5394378067392532286
+    second: Jeter_1
+  - first:
+      213: 6596359503401359158
+    second: Jeter_2
+  - first:
+      213: -3934455163364557513
+    second: Jeter_3
+  - first:
+      213: -4330391388888855585
+    second: Jeter_4
+  - first:
+      213: 3207158557729069522
+    second: Jeter_5
+  - first:
+      213: -2609670330889009515
+    second: Jeter_6
+  - first:
+      213: 3094678850096733366
+    second: Jeter_7
+  - first:
+      213: -6132842497637815750
+    second: Jeter_8
+  - first:
+      213: -2248854885684832247
+    second: Jeter_9
+  - first:
+      213: 6579106096181212845
+    second: Jeter_10
+  - first:
+      213: 6099893567761537816
+    second: Jeter_11
+  - first:
+      213: 7046302957560900250
+    second: Jeter_12
+  - first:
+      213: -8349344661344888895
+    second: Jeter_13
+  - first:
+      213: 955271293779310141
+    second: Jeter_14
+  - first:
+      213: 5037542974826971304
+    second: Jeter_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jeter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1641
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f197b3b01d072f84192774c7787ee44d
+      internalID: 3926366084006674693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_1
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1641
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48da15403f7d764f9b7d9a6a49b1258
+      internalID: -5394378067392532286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_2
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1641
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea37d414ca0665a45b786f5565db1c3b
+      internalID: 6596359503401359158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_3
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 1641
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29271cb1c8a9c94f858f5cda3b4f7a4
+      internalID: -3934455163364557513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1094
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a998a9b1eb259d24a82adbd098068055
+      internalID: -4330391388888855585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_5
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1094
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3657fcf0e0a81554c8e24f08720dae69
+      internalID: 3207158557729069522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_6
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 1094
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310e1ff5e8a5aea449d2cf0798224b45
+      internalID: -2609670330889009515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_7
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 1094
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1123dc21f063d8642b07fbe3b29d59f6
+      internalID: 3094678850096733366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 547
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a38d3c9cea88e47b983584a4c94300
+      internalID: -6132842497637815750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 547
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0daf3fe937eca4392cd3c7bfd5fe5f
+      internalID: -2248854885684832247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_10
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 547
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5234334fbca0d47bd7611a4d31c5c4
+      internalID: 6579106096181212845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_11
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 547
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09f1f6402289b8439f2cf4de889630b
+      internalID: 6099893567761537816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e1e0671bf4f524b9602ca6149931e6
+      internalID: 7046302957560900250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_13
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df55634241bf0d64bb6db53f78f96803
+      internalID: -8349344661344888895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_14
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 0
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c2e3eaf2c3fe447a04fce46a3a8d4f
+      internalID: 955271293779310141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jeter_15
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 0
+        width: 306
+        height: 547
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08adaf8b77fef8740ba6457ff0e14663
+      internalID: 5037542974826971304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0d8cfe4e115c6c445809f3b09304085a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
