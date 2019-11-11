@@ -1,0 +1,517 @@
+fileFormatVersion: 2
+guid: 9fa74a46964ee9f47b9c8880535e6949
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Elvisnator_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 900
+      width: 700
+      height: 288
+    spriteID: d35e38627f14b6a4ca001bc28344a8fd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 894}
+  - name: Elvisnator_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 700
+      height: 294
+    spriteID: d2f9d93c54c4f404ea4dfb3bd1976291
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  - name: Elvisnator_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 306
+      width: 700
+      height: 289
+    spriteID: 15f26cffbef9d2f42831845c58fda154
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 301}
+  - name: Elvisnator_10
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2377
+      width: 700
+      height: 286
+    spriteID: d7a9ac03ecc67f44296665d7a3654b4a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2369}
+  - name: Elvisnator_09
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1492
+      width: 700
+      height: 287
+    spriteID: be02f0dc2a64d4441887b4e4e4547f27
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1485}
+  - name: Elvisnator_08
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2671
+      width: 700
+      height: 286
+    spriteID: 8f53b4102debbfe4daf0b8433dc2addd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2664}
+  - name: Elvisnator_07
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 712
+      y: 4
+      width: 700
+      height: 283
+    spriteID: 4f2155d2131178345a843778608410da
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 712, y: -4}
+  - name: Elvisnator_06
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3258
+      width: 700
+      height: 284
+    spriteID: 304fa71de011edc4897574ba317f98a2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 3249}
+  - name: Elvisnator_05
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3550
+      width: 700
+      height: 284
+    spriteID: 0d363d849fd70694eae019edaac85ee8
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 3543}
+  - name: Elvisnator_04
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1787
+      width: 700
+      height: 287
+    spriteID: 71e9bcf20f439fc46afac0eaed76d395
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1783}
+  - name: Elvisnator_03
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 603
+      width: 700
+      height: 289
+    spriteID: 5ce2f40a744a83e42a136956e49ee04f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 598}
+  - name: Elvisnator_02
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2082
+      width: 700
+      height: 287
+    spriteID: 5786bda69c413db48a2bcee0ecc67e01
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2075}
+  - name: Elvisnator_01
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1196
+      width: 700
+      height: 288
+    spriteID: 6373735df21c9f54e80dfd4601c76158
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1190}
+  - name: Elvisnator_00
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2965
+      width: 700
+      height: 285
+    spriteID: 570a72a765e0570429a898c8430f689f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 2958}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 2048
+  documentSize: {x: 700, y: 294}
+  textureActualWidth: 2048
+  textureActualHeight: 4096
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Elvisnator_13
+    spriteName: Elvisnator_13
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d35e38627f14b6a4ca001bc28344a8fd
+    layerID: 16
+    mosaicPosition: {x: 4, y: 900}
+  - name: Elvisnator_12
+    spriteName: Elvisnator_12
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d2f9d93c54c4f404ea4dfb3bd1976291
+    layerID: 15
+    mosaicPosition: {x: 4, y: 4}
+  - name: Elvisnator_11
+    spriteName: Elvisnator_11
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 15f26cffbef9d2f42831845c58fda154
+    layerID: 14
+    mosaicPosition: {x: 4, y: 306}
+  - name: Elvisnator_10
+    spriteName: Elvisnator_10
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d7a9ac03ecc67f44296665d7a3654b4a
+    layerID: 13
+    mosaicPosition: {x: 4, y: 2377}
+  - name: Elvisnator_09
+    spriteName: Elvisnator_09
+    isGroup: 0
+    parentIndex: -1
+    spriteID: be02f0dc2a64d4441887b4e4e4547f27
+    layerID: 12
+    mosaicPosition: {x: 4, y: 1492}
+  - name: Elvisnator_08
+    spriteName: Elvisnator_08
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8f53b4102debbfe4daf0b8433dc2addd
+    layerID: 11
+    mosaicPosition: {x: 4, y: 2671}
+  - name: Elvisnator_07
+    spriteName: Elvisnator_07
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 4f2155d2131178345a843778608410da
+    layerID: 10
+    mosaicPosition: {x: 712, y: 4}
+  - name: Elvisnator_06
+    spriteName: Elvisnator_06
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 304fa71de011edc4897574ba317f98a2
+    layerID: 9
+    mosaicPosition: {x: 4, y: 3258}
+  - name: Elvisnator_05
+    spriteName: Elvisnator_05
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 0d363d849fd70694eae019edaac85ee8
+    layerID: 8
+    mosaicPosition: {x: 4, y: 3550}
+  - name: Elvisnator_04
+    spriteName: Elvisnator_04
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 71e9bcf20f439fc46afac0eaed76d395
+    layerID: 7
+    mosaicPosition: {x: 4, y: 1787}
+  - name: Elvisnator_03
+    spriteName: Elvisnator_03
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5ce2f40a744a83e42a136956e49ee04f
+    layerID: 6
+    mosaicPosition: {x: 4, y: 603}
+  - name: Elvisnator_02
+    spriteName: Elvisnator_02
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5786bda69c413db48a2bcee0ecc67e01
+    layerID: 5
+    mosaicPosition: {x: 4, y: 2082}
+  - name: Elvisnator_01
+    spriteName: Elvisnator_01
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6373735df21c9f54e80dfd4601c76158
+    layerID: 4
+    mosaicPosition: {x: 4, y: 1196}
+  - name: Elvisnator_00
+    spriteName: Elvisnator_00
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 570a72a765e0570429a898c8430f689f
+    layerID: 2
+    mosaicPosition: {x: 4, y: 2965}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+  boneGOs: []
+  generateGOHierarchy: 0
+  textureAssetName: Elvisnator
+  prefabAssetName: Elvisnator_GO

@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: dcf3dcc19a1956b4db042d979358560f
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1923549088589120422
+    second: Recharging_0
+  - first:
+      213: -5859272395512663716
+    second: Recharging_1
+  - first:
+      213: 1642794503318005116
+    second: Recharging_2
+  - first:
+      213: -5076722307264566350
+    second: Recharging_3
+  - first:
+      213: -6271037928603592217
+    second: Recharging_4
+  - first:
+      213: 1024187585344372521
+    second: Recharging_5
+  - first:
+      213: 19339642799864675
+    second: Recharging_6
+  - first:
+      213: -7588671874923065363
+    second: Recharging_7
+  - first:
+      213: -4422418982587296970
+    second: Recharging_8
+  - first:
+      213: 8123540277559767147
+    second: Recharging_9
+  - first:
+      213: -642964976998399604
+    second: Recharging_10
+  - first:
+      213: 263081940381782845
+    second: Recharging_11
+  - first:
+      213: 3060040507577525909
+    second: Recharging_12
+  - first:
+      213: -5381992407760618178
+    second: Recharging_13
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +82,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +111,314 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Recharging_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5451853, y: 0.5439776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217ceb6a747fb164f857b370a0b78218
+      internalID: -1923549088589120422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 3000
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5451853, y: 0.5439776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552e04402ac82504e9a674c9ed59a479
+      internalID: -5859272395512663716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2500
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5396606, y: 0.5525957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fadfd4cf63b80c4fbb881eef4f98aa2
+      internalID: 1642794503318005116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_3
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2500
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.55142444, y: 0.5556206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ae557c517346e4caa1e8a62507508e
+      internalID: -5076722307264566350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2000
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5438287, y: 0.56459767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7e2bbfbeaf200459b29fda652158b7
+      internalID: -6271037928603592217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2000
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.52873415, y: 0.5648311}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eebe4c88a61fc484d8f32654426e1ff6
+      internalID: 1024187585344372521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5426662, y: 0.57025564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03cd67108c7be2f429fad12a469f7ef4
+      internalID: 19339642799864675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1500
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.545694, y: 0.57326806}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33b2664181d85141bdf1191bb4854e2
+      internalID: -7588671874923065363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1006
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5424227, y: 0.5605542}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c3202e4fc431e44f8e18bbf76210eba
+      internalID: -4422418982587296970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1000
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5422074, y: 0.56859446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8506fedad7d4d9c4c8c6e6eeeb44fc62
+      internalID: 8123540277559767147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.54556185, y: 0.5603562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485f1ee1b76411446a1337ab240a1a0a
+      internalID: -642964976998399604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 500
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5453376, y: 0.5567839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a11453b4e890047b2e4bbf90e00618
+      internalID: 263081940381782845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.54286313, y: 0.5515947}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd42e699ede958d47aa934efce2aa7df
+      internalID: 3060040507577525909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Recharging_13
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 600
+        height: 500
+      alignment: 9
+      pivot: {x: 0.55138487, y: 0.5447214}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f26a0f81b602049a62fcfe834d4158
+      internalID: -5381992407760618178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

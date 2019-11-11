@@ -1,0 +1,317 @@
+fileFormatVersion: 2
+guid: ea3ead3c6190c9e469b2b4b63ce9b2b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: tiros_0
+  - first:
+      213: 21300002
+    second: tiros_1
+  - first:
+      213: 21300004
+    second: tiros_2
+  - first:
+      213: 21300006
+    second: tiros_3
+  - first:
+      213: 21300008
+    second: tiros_4
+  - first:
+      213: 21300010
+    second: tiros_5
+  - first:
+      213: 21300012
+    second: tiros_6
+  - first:
+      213: 21300014
+    second: tiros_7
+  - first:
+      213: 21300016
+    second: tiros_8
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tiros_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 217
+        width: 199
+        height: 44
+      alignment: 9
+      pivot: {x: 0.026039526, y: 0.38223025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3aef3c148d6f84fb3310c5177ca519
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 198
+        height: 45
+      alignment: 9
+      pivot: {x: 0.038127188, y: 0.38103265}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32fff81f1e3bcc4482faba936926741
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 219
+        width: 180
+        height: 46
+      alignment: 9
+      pivot: {x: 0.022245364, y: 0.3719897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cbf1e9fabaae114380aa8ebea7d7e9f
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_3
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 213
+        width: 187
+        height: 46
+      alignment: 9
+      pivot: {x: 0.01511485, y: 0.3719897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2600041bd41e0d4fb5f19549acfca45
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_4
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 112
+        width: 190
+        height: 45
+      alignment: 9
+      pivot: {x: 0.049981046, y: 0.38194886}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090b64061332a6a429f4cc9bce53c737
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_5
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 4
+        width: 185
+        height: 44
+      alignment: 9
+      pivot: {x: 0.073223054, y: 0.3751808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c6d11e5a5fcce4ea00de559d236396
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_6
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 4
+        width: 181
+        height: 44
+      alignment: 9
+      pivot: {x: 0.09147863, y: 0.37250277}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81e82e2334280854f8a4599b735ab298
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 117
+        width: 170
+        height: 46
+      alignment: 9
+      pivot: {x: 0.024391128, y: 0.3270466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2a84fafe23c174087a1ac2e23db69d
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiros_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 189
+        height: 44
+      alignment: 9
+      pivot: {x: 0.06522082, y: 0.35689715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452feb317b88ac743b569c9441d7c92d
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
