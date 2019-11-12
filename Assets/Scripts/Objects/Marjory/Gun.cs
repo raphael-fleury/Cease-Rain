@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
 
     [Space(10)]
     public Transform output;
-    public Transform diagonalOutput;
+    public GameObject fire;
 
     [Header("Options")]
     public float speed;
@@ -19,20 +19,26 @@ public class Gun : MonoBehaviour
     [Header("Status")]
     public int bullets;
 
-    public void Shoot(bool diagonal)
+    public void Shoot()
     {
-        Vector3 pos = diagonal ? diagonalOutput.position : output.position;
-        Vector2 vector = diagonal ? Vector2.one : Vector2.right;
+        //Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x),  7.5f * transform.rotation.eulerAngles.z / 360);
+        Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x), Mathf.Abs(transform.rotation.z) * 2);
 
-        GameObject shot = Instantiate(bullet, pos, Quaternion.identity);
-        shot.GetComponent<Rigidbody2D>().AddForce(vector * speed * Mathf.Sign(Level.marjory.transform.localScale.x) * 100);
+        GameObject shot = Instantiate(bullet, output.position, Quaternion.identity);
+        shot.GetComponent<Rigidbody2D>().AddForce(vector * speed * 100);
+        Debug.Log(transform.rotation + " " + 7.5f * transform.rotation.eulerAngles.z / 360 + " " + vector * speed * 100);
+        
 
         Level.marjory.recharging = rechargeTime;
         if (bullets < 1)
             Level.marjory.SetGun(Marjory.Guns.Codomoon, int.MaxValue);
+
+        if (fire)
+        {
+            ToggleFire();
+            Invoke("ToggleFire", .2f);
+        }
     }
 
-    public void Enable(float time) { Invoke("Activate", time); }
-
-    private void Activate() { gameObject.SetActive(true); }
+    private void ToggleFire() { fire.SetActive(!fire.activeSelf);  }
 }

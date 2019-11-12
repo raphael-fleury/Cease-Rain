@@ -20,6 +20,7 @@ public class Shot : Explosion
     protected virtual void Update()
     {
         transform.localScale.Set(Mathf.Sign(body.velocity.x) * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        transform.right = body.velocity;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

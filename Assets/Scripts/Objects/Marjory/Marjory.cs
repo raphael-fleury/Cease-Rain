@@ -35,7 +35,7 @@ public class Marjory : Character
         if (guns[gun])
         {
             //Debug.Log("Ativando " + guns[gun]);
-            guns[gun].Enable(.25f);
+            guns[gun].gameObject.SetActive(true);
             guns[gun].bullets = bullets;
         }
 
@@ -71,8 +71,10 @@ public class Marjory : Character
         //HUD.canvas.transform.localScale = movement.Flip();
 
         //Shoot
-        if (Input.GetKey(Controls.FindKey("ShootKey")) && (int)currentGun > 1 && recharging <= 0)
-            guns[(int)currentGun - 2].Shoot(Input.GetKey(Controls.FindKey("DiagonalAimKey")));
+        if (Input.GetKey(Controls.FindKey("ShootKey")) && guns[(int)currentGun] && recharging <= 0)
+            guns[(int)currentGun].Shoot();
+
+        mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
 
         #if UNITY_EDITOR
         ChangeGun();
@@ -82,7 +84,7 @@ public class Marjory : Character
 
     protected override void Death() { }
 
-    #region Test
+    #region Tests
     private void ChangeGun()
     {
         int aux = (int)KeyCode.Alpha1;
@@ -90,7 +92,7 @@ public class Marjory : Character
         {
             if (Input.GetKeyDown((KeyCode)i))
             {
-                Debug.Log((KeyCode)i + " " + (Guns)(i - aux));
+                //Debug.Log((KeyCode)i + " " + (Guns)(i - aux));
                 SetGun(i - aux, 60);
             }
         }
