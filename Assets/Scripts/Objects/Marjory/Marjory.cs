@@ -49,6 +49,27 @@ public class Marjory : Character
     }
     #endregion
 
+    #region Defending
+    [Header("Umbrella")]
+    public GameObject umbrella;
+    public GameObject localUmbrella;
+    public string tagUmbrella;
+    public bool canDefend;
+
+    void PickUmbrella()
+    {
+        umbrella.SetActive(false);
+        localUmbrella.SetActive(true);
+    }
+
+    public void ReleaseUmbrella()
+    {
+        umbrella.transform.position = transform.position + new Vector3(umbrella.GetComponent<Umbrella>().height, 0f);
+        umbrella.SetActive(true);
+        localUmbrella.SetActive(false);
+    }
+    #endregion
+
     #region Unity Functions
     void Awake()
     {
@@ -74,12 +95,35 @@ public class Marjory : Character
         if (Input.GetKey(Controls.FindKey("ShootKey")) && guns[(int)currentGun] && recharging <= 0)
             guns[(int)currentGun].Shoot();
 
+        if (Input.GetKey(Controls.FindKey("DefendKey")) && currentGun != Guns.Umbrella && canDefend)
+        {
+            PickUmbrella();
+        }
+
+        if (Input.GetKeyUp(Controls.FindKey("DefendKey")) && currentGun == Guns.Umbrella)
+        {
+            
+        }
+
         mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
 
         #if UNITY_EDITOR
         ChangeGun();
         #endif
     }
+
+    #region Trigger
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        canDefend = collider.gameObject.tag == tagUmbrella;
+    }
+
+    public void OnTriggerExit2D(Collider2D collider)
+    {
+        canDefend = !(collider.gameObject.tag == tagUmbrella);
+    }
+    #endregion
+
     #endregion
 
     protected override void Death() { }

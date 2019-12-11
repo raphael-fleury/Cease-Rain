@@ -1,7 +1,37 @@
 fileFormatVersion: 2
 guid: ea5a389807ea28d489df6990b905014d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7562187447464436102
+    second: Footloose_Ammunition_0
+  - first:
+      213: 1134609962660976282
+    second: Footloose_Ammunition_1
+  - first:
+      213: 5410514899370323869
+    second: Footloose_Ammunition_2
+  - first:
+      213: 5932825063036327241
+    second: Footloose_Ammunition_3
+  - first:
+      213: -1265596626817178799
+    second: Footloose_Ammunition_4
+  - first:
+      213: -6128767809846388314
+    second: Footloose_Ammunition_5
+  - first:
+      213: 1097304946906151400
+    second: Footloose_Ammunition_6
+  - first:
+      213: 5977367296951076824
+    second: Footloose_Ammunition_7
+  - first:
+      213: 2790943891348648069
+    second: Footloose_Ammunition_8
+  - first:
+      213: -4962159392402965506
+    second: Footloose_Ammunition_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +70,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +99,104 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Footloose_Ammunition_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 42
+        width: 105
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e3e9cde7c1584478fca4cd03f4e687
+      internalID: 7562187447464436102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Footloose_Ammunition_1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 51
+        width: 140
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70a706c5924c1c647982c41d287cbec5
+      internalID: 1134609962660976282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Footloose_Ammunition_2
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 54
+        width: 193
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c997e274e380d4bb413b0ed32bf48c
+      internalID: 5410514899370323869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Footloose_Ammunition_3
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 67
+        width: 227
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c77c5d7b98a35b4685c4ba93f7566a0
+      internalID: 5932825063036327241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

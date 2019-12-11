@@ -56,6 +56,7 @@ public class Controls : MonoBehaviour
         List<Key> keylist = new List<Key>();
         keylist.Add(new Key("JumpKey", KeyCode.Space));
         keylist.Add(new Key("ShootKey", KeyCode.Z));
+        keylist.Add(new Key("DefendKey", KeyCode.X));
         keylist.Add(new Key("DiagonalAimKey", KeyCode.UpArrow));
         keylist.Add(new Key("InteractionKey", KeyCode.DownArrow));
         keylist.Add(new Key("PauseKey", KeyCode.P));

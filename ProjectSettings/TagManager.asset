@@ -49,11 +49,11 @@ TagManager:
   - name: Scenery
     uniqueID: 3170630633
     locked: 0
-  - name: Marjory
-    uniqueID: 2788872743
-    locked: 0
   - name: Characters
     uniqueID: 989081817
+    locked: 0
+  - name: Marjory
+    uniqueID: 2788872743
     locked: 0
   - name: Rain
     uniqueID: 1433768923

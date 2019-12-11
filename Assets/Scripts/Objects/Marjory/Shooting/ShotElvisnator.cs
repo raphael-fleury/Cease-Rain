@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ShotElvisnator : Shot
 {
-    [Header("Elvisnator")]
     public float rotation;
 
-    void Update()
+    public override void Update()
     {
+        //Debug.Log(Time.deltaTime + " " + rotation + " " + body.velocity.x);
         transform.Rotate(Vector3.back * Time.deltaTime * rotation * body.velocity.x);
     }
 }
