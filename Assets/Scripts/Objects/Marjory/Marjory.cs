@@ -10,6 +10,7 @@ public class Marjory : Character
     public float toxicity;
 
     public Animator mechArm;
+    public Animator normalArm;
 
     #region Shooting
     [Header("Shooting")]
@@ -20,32 +21,41 @@ public class Marjory : Character
 
     public void SetGun(int gun, int bullets)
     {
-        if ((int)currentGun == gun)
+        if (guns[(int)currentGun]) //if the current is a gun
         {
-            guns[gun].bullets += bullets;
-            return;
+            if ((int)currentGun == gun) //if is the same gun
+            {
+                guns[gun].bullets += bullets;
+                if (guns[gun])
+                    guns[gun].gameObject.SetActive(true);
+                return;
+            }
+            else
+                guns[(int)currentGun].gameObject.SetActive(false);
         }
 
-        if (guns[(int)currentGun])
+        if (guns[gun]) //if it's a gun
         {
-            //Debug.Log("Desativando " + guns[(int)currentGun]);
-            guns[(int)currentGun].gameObject.SetActive(false);
-        }
-
-        if (guns[gun])
-        {
-            //Debug.Log("Ativando " + guns[gun]);
             guns[gun].gameObject.SetActive(true);
             guns[gun].bullets = bullets;
         }
 
         currentGun = (Guns)gun;
         mechArm.SetInteger("gun", gun);
+        normalArm.SetInteger("gun", gun);
     }
 
     public void SetGun(Guns gun, int bullets)
     {
         SetGun((int)gun, bullets);
+    }
+
+    void UpdateShooting()
+    {
+        if (Input.GetKey(Controls.FindKey("ShootKey")) && guns[(int)currentGun] && recharging <= 0 && !defending)
+            guns[(int)currentGun].Shoot();
+
+        mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
     }
     #endregion
 
@@ -55,18 +65,36 @@ public class Marjory : Character
     public GameObject localUmbrella;
     public string tagUmbrella;
     public bool canDefend;
-
-    void PickUmbrella()
-    {
-        umbrella.SetActive(false);
-        localUmbrella.SetActive(true);
-    }
+    public bool defending;
 
     public void ReleaseUmbrella()
     {
-        umbrella.transform.position = transform.position + new Vector3(umbrella.GetComponent<Umbrella>().height, 0f);
+        umbrella.transform.position = localUmbrella.transform.position;
         umbrella.SetActive(true);
         localUmbrella.SetActive(false);
+        SetGun(currentGun, 0);
+    }
+
+    void UpdateDefense(bool def)
+    {
+        defending = Input.GetKey(Controls.FindKey("DefendKey")) && (canDefend || defending);
+        defending = !Input.GetKeyUp(Controls.FindKey("DefendKey")) && defending;
+
+        if (def != defending)
+        {
+            GetComponent<Animator>().SetBool("defending", defending);
+            mechArm.SetInteger("gun", defending ? 1 : (int)currentGun);
+            normalArm.SetInteger("gun", defending ? 1 : (int)currentGun);
+
+            if (defending)
+            {
+                if (guns[(int)currentGun])
+                    guns[(int)currentGun].gameObject.SetActive(false);
+
+                umbrella.SetActive(false);
+                localUmbrella.SetActive(true);
+            }    
+        }
     }
     #endregion
 
@@ -91,21 +119,8 @@ public class Marjory : Character
         base.Update();
         //HUD.canvas.transform.localScale = movement.Flip();
 
-        //Shoot
-        if (Input.GetKey(Controls.FindKey("ShootKey")) && guns[(int)currentGun] && recharging <= 0)
-            guns[(int)currentGun].Shoot();
-
-        if (Input.GetKey(Controls.FindKey("DefendKey")) && currentGun != Guns.Umbrella && canDefend)
-        {
-            PickUmbrella();
-        }
-
-        if (Input.GetKeyUp(Controls.FindKey("DefendKey")) && currentGun == Guns.Umbrella)
-        {
-            
-        }
-
-        mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
+        UpdateShooting();
+        UpdateDefense(defending);
 
         #if UNITY_EDITOR
         ChangeGun();
