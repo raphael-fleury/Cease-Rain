@@ -7,7 +7,7 @@ public class Enemy : Character
 {
     public Image lifeBar;
 
-    void Update()
+    new void Update()
     {
         lifeBar.fillAmount = life / maxLife;
     }

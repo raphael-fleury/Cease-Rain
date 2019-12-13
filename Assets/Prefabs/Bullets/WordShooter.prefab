@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6012205170428669479}
   m_Layer: 0
   m_Name: WordShooter
-  m_TagString: Untagged
+  m_TagString: PlayerShot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

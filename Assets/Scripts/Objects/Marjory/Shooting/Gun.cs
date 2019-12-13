@@ -35,6 +35,8 @@ public class Gun : MonoBehaviour
         Level.marjory.recharging = rechargeTime;
         if (bullets < 1)
             Level.marjory.SetGun(Marjory.Guns.Codomoon, int.MaxValue);
+        else
+            bullets--;
     }
 
 }

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3658172844213263913}
   m_Layer: 11
   m_Name: Footloose
-  m_TagString: Untagged
+  m_TagString: PlayerShot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

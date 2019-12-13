@@ -9,6 +9,7 @@ TagManager:
   - Guardachuva
   - EscudoInimigo
   - Porta
+  - PlayerShot
   layers:
   - Default
   - TransparentFX
