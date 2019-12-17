@@ -9,6 +9,5 @@ public class PuddleEffect : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             collision.gameObject.GetComponent<Marjory>().toxicity += amount;
-
     }
 }

@@ -449,8 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feetRange: 1
-  walkSpeed: 9
-  jumpForce: 22.5
+  walkSpeed: 10
+  jumpForce: 24
   jumpModifier: 0.75
   onFloor: 0
   knockback: 0
@@ -4548,6 +4548,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1198218306387750600, guid: e01f8c59b3da40548ac937dad476ac55,
+        type: 3}
+      propertyPath: marjory
+      value: 
+      objectReference: {fileID: 2505838222024958607}
     - target: {fileID: 1198218306387750601, guid: e01f8c59b3da40548ac937dad476ac55,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -4558,11 +4563,6 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1198218306387750600, guid: e01f8c59b3da40548ac937dad476ac55,
-        type: 3}
-      propertyPath: marjory
-      value: 
-      objectReference: {fileID: 2505838222024958607}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01f8c59b3da40548ac937dad476ac55, type: 3}
 --- !u!1 &2376567995301238815 stripped

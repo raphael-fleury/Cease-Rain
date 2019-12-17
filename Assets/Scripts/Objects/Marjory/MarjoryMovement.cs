@@ -36,15 +36,22 @@ public class MarjoryMovement : Movement
 
     void Movement()
     {
-        if (body.velocity.y < 0)
-            movement = CurrentMovement.Falling;
-        else if (body.velocity.y > 0)
-            movement = CurrentMovement.Jumping;
-        else if (body.velocity.x == 0)
-            movement = CurrentMovement.Idle;
-        else if (knockback > 0)
-            movement = CurrentMovement.Knockbacked;
-        else
-            movement = CurrentMovement.Running;
+        if (!onFloor) {
+            if (body.velocity.y < 0)
+                movement = CurrentMovement.Falling;
+            else if (body.velocity.y > 0)
+                movement = CurrentMovement.Jumping;
+            else
+                onFloor = true;
+        }
+        if (onFloor) {
+            if (body.velocity.x == 0)
+                movement = CurrentMovement.Idle;
+            else if (knockback > 0)
+                movement = CurrentMovement.Knockbacked;
+            else
+                movement = CurrentMovement.Running;
+        }
+        
     }
 }

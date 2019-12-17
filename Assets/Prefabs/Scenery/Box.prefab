@@ -50,7 +50,7 @@ MonoBehaviour:
   tagShot: PlayerShot
   gun: 3
   amount: 10
-  force: 4
+  force: 8
   delay: 3
 --- !u!50 &8861126807728128069
 Rigidbody2D:
@@ -67,7 +67,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

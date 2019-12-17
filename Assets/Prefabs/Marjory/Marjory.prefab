@@ -796,8 +796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feetRange: 1
-  walkSpeed: 9
-  jumpForce: 22.5
+  walkSpeed: 10
+  jumpForce: 24
   jumpModifier: 0.75
   onFloor: 0
   knockback: 0
