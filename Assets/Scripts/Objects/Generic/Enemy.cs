@@ -5,10 +5,19 @@ using UnityEngine.UI;
 
 public class Enemy : Character
 {
+    public Fight fight;
     public Image lifeBar;
 
-    new void Update()
+    protected override void OnLifeChange()
     {
-        lifeBar.fillAmount = life / maxLife;
+        base.OnLifeChange();
+        if (lifeBar)
+            lifeBar.fillAmount = life / maxLife;
+    }
+
+    protected override void Death()
+    {
+        if (fight)
+            fight.EnemyDeath(this);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public static Marjory marjory;
+    public static GameObject activeCamera;
     public static int checkpoint;
 
     #region Pause

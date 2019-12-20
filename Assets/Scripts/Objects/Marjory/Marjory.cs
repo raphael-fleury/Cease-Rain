@@ -108,15 +108,14 @@ public class Marjory : Character
     private void FixedUpdate()
     {
         if (toxicity > 0)
-            toxicity -= 0.02f;
+            toxicity -= 0.01f;
         if (toxicity > 20)
             life -= 0.02f;
         if (recharging > 0) { recharging -= 0.02f; }
     }
 
-    protected override void Update()
+    void Update()
     {
-        base.Update();
         //HUD.canvas.transform.localScale = movement.Flip();
 
         UpdateShooting();

@@ -538,6 +538,7 @@ MonoBehaviour:
   fullscreen: 0
   resolution: {fileID: 6165293592340460411}
   graphics: {fileID: 6165293591212286050}
+  mixer: {fileID: 24100000, guid: 00d0d6a61a49349409cb41558efa0276, type: 2}
   music:
     option: Music
     amount: {fileID: 6165293592121379042}

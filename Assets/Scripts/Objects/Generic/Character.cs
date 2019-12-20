@@ -5,14 +5,32 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     protected float maxLife;
-    public float life;
+    [SerializeField]
+    float _life;
 
     protected virtual void Start() { maxLife = life; }
 
     protected virtual void Death() { }
 
-    protected virtual void Update()
+    protected virtual void OnLifeChange()
     {
-        if (life <= 0) { Death(); }
+        Debug.Log("a");
+        if (isDead)
+            Death();
+    }
+
+    public bool isDead
+    { 
+        get { return life <= 0; } 
+    }
+
+    public float life
+    {
+        get { return _life; }
+        set
+        { 
+            _life = value;
+            OnLifeChange();
+        }
     }
 }

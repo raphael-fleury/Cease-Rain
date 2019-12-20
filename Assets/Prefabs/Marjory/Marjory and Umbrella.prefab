@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b73080b2844404fb1413d50a1331ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  _life: 100
   toxicity: 0
   mechArm: {fileID: 7490666995886053573}
   normalArm: {fileID: 4165041841496913498}

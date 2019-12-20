@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class Game: MonoBehaviour
@@ -8,6 +9,7 @@ public class Game: MonoBehaviour
     #region Fields
     public static int currentScene;
     public static string currentSave;
+    //public static AudioMixer mixer;
     #endregion
 
     #region Load Scene

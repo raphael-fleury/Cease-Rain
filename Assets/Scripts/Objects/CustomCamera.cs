@@ -22,13 +22,11 @@ public class CustomCamera : MonoBehaviour
     public float speed;
     #endregion
 
-    #region Limits
-    [Header("Limits")]
-    public float left;
-    public float right;
-    #endregion
+    public Limits limits;
 
     void Start() { marjory = Level.marjory.transform; }
+
+    void OnEnable() { Level.activeCamera = gameObject; }
 
     void FixedUpdate()
     {
@@ -36,15 +34,14 @@ public class CustomCamera : MonoBehaviour
                 direction = marjory.GetComponent<MarjoryMovement>().direction;
         newPos = new Vector2(marjory.position.x + posPlayer.x * direction, transform.position.y);
         if (marjory.GetComponent<MarjoryMovement>().onFloor && followY)
-            newPos = newPos.ChangeY(marjory.position.y + posPlayer.y);
+            newPos.ChangeY(marjory.position.y + posPlayer.y);
 
-        if (newPos.x <= left)
-            newPos.x = left;
+        if (newPos.x <= limits.lower)
+            newPos.x = limits.lower;
 
-        if (newPos.x >= right)
-            newPos.x = right;
+        if (newPos.x >= limits.higher)
+            newPos.x = limits.higher;
 
-        transform.position = Vector3.Lerp(transform.position, transform.position.ChangeXY(newPos), speed);
-       
+        transform.position = Vector3.Lerp(transform.position, transform.position.ChangeXY(newPos), speed);     
     }
 }

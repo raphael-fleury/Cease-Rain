@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,8 @@ public class Options : MonoBehaviour
         LoadResolutions();
         LoadGraphics();
 
-        music.Load();
-        sound.Load();
+        music.Load(mixer);
+        sound.Load(mixer);
     }
 
     public void Toggle(bool on) { options.SetActive(on); }
@@ -85,6 +86,7 @@ public class Options : MonoBehaviour
 
     #region Audio
     [Header("Audio")]
+    public AudioMixer  mixer;
     public AudioOption music;
     public AudioOption sound;
 
@@ -95,28 +97,30 @@ public class Options : MonoBehaviour
         public Text amount;
         public Slider slider;
 
-        public void Load()
+        public void Load(AudioMixer mixer)
         {
             if (!PlayerPrefs.HasKey(option))
-                Update(60);
+                Update(mixer, 60);
             else {
                 float f = PlayerPrefs.GetFloat(option, 60);
-                Update(f);
+                Update(mixer, f);
                 slider.value = f;
+                mixer.SetFloat(option, f - 80);
             }
                             
         }
 
-        public void Update(float f)
+        public void Update(AudioMixer mixer, float f)
         {
             PlayerPrefs.SetFloat(option, f);
             PlayerPrefs.Save();
 
             amount.text = "" + Mathf.RoundToInt(f / slider.maxValue * 100);
+            mixer.SetFloat(option, f - 80);           
         }
     }
 
-    public void MusicVolume(float f) { music.Update(f); }
-    public void AudioVolume(float f) { sound.Update(f); }
+    public void MusicVolume(float f) { music.Update(mixer, f); }
+    public void AudioVolume(float f) { sound.Update(mixer, f); }
     #endregion
 }
