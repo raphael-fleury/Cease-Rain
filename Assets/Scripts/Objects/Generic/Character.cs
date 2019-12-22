@@ -14,7 +14,6 @@ public class Character : MonoBehaviour
 
     protected virtual void OnLifeChange()
     {
-        Debug.Log("a");
         if (isDead)
             Death();
     }

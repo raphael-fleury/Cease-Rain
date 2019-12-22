@@ -930,6 +930,10 @@ ScriptedImporter:
   importedTextureWidth: 1024
   importedTextureHeight: 2048
   documentSize: {x: 932, y: 2560}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
   textureActualWidth: 2048
   textureActualHeight: 4096
   spritePackingTag: 
@@ -1270,7 +1274,9 @@ ScriptedImporter:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
+    characterGroups: []
   boneGOs: []
   generateGOHierarchy: 0
   textureAssetName: Marjory
   prefabAssetName: Marjory_GO
+  spriteLibAssetName: Marjory Sprite Lib
