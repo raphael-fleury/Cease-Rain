@@ -54,7 +54,7 @@ MonoBehaviour:
     prefab: {fileID: 9021939385484104200, guid: 3f7920914e16a35489ae141b91a76bd0,
       type: 3}
     quantity: 3
-    speed: 6
+    speed: 10
   yOffset: 0
 --- !u!212 &7966295061083353851
 SpriteRenderer:
@@ -81,6 +81,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -126,7 +126,12 @@ public class Marjory : Character
         #endif
     }
 
-    #region Trigger
+    #region Triggers and Collisions
+    private void OnParticleCollision(GameObject other)
+    {
+        toxicity += 0.2f;
+    }
+
     public void OnTriggerEnter2D(Collider2D collider)
     {
         canDefend = collider.gameObject.tag == tagUmbrella;
@@ -134,7 +139,8 @@ public class Marjory : Character
 
     public void OnTriggerExit2D(Collider2D collider)
     {
-        canDefend = !(collider.gameObject.tag == tagUmbrella);
+        if (collider.gameObject.tag == tagUmbrella)
+            canDefend = false;
     }
     #endregion
 

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class Puddle : MonoBehaviour
 {
-    public GameObject effect;
+    public List<ParticleSystem> particles;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x != 0)
-            effect.SetActive(true);
-        else
-            effect.SetActive(false);
-    }
-      
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        effect.SetActive(false);
+        Rigidbody2D body = collision.gameObject.GetComponent<Rigidbody2D>();
+        if (body)
+        {
+            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x != 0)
+                particles.ForEach(p => p.Emit((int)Mathf.Round(Mathf.Abs(body.velocity.x))));
+        }
+        
     }
 
 }
