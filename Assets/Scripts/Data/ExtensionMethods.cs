@@ -5,6 +5,7 @@ using UnityEngine;
 public static class ExtensionMethods
 {
     #region Vector2
+ 
     #region Change Elements
     public static Vector2 ChangeX(this Vector2 vector, float x)
     {
@@ -18,13 +19,22 @@ public static class ExtensionMethods
         return vector;
     }
     #endregion
-    #endregion
 
-    #region Vector3
-    public static Vector3 Parse(this Vector2 vector2)
+    #region ToVector3
+    public static Vector3 ToVector3(this Vector2 vector2)
     {
         return new Vector3(vector2.x, vector2.y, 0f);
     } 
+
+    public static Vector3 ToVector3(this Vector2 vector, float z)
+    {
+        return new Vector3(vector.x, vector.y, z);
+    }
+    #endregion
+
+    #endregion
+
+    #region Vector3
 
     #region Change Elements
     public static Vector3 ChangeX(this Vector3 vector, float x)
@@ -52,9 +62,5 @@ public static class ExtensionMethods
     }
     #endregion
 
-    public static Vector3 ToVector3(this Vector2 vector, float z)
-    {
-        return new Vector3(vector.x, vector.y, z);
-    }
     #endregion
 }

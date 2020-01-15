@@ -16,8 +16,8 @@ public class Jeter : Enemy
         base.Start();
         if (fight)
         {
-            limits.lower = fight.leftLimit.position.x;
-            limits.higher = fight.rightLimit.position.x;
+            limits.lower = fight.limits.lower;
+            limits.higher = fight.limits.higher;
         }
     }
 
@@ -26,6 +26,12 @@ public class Jeter : Enemy
         if(!limits.IsBetween(transform.position.x))
             direction = limits.Compare(transform.position.x) * -1;
 
-        transform.position.ChangeX(transform.position.x + direction * speed);
+        transform.position = transform.position.ChangeX(transform.position.x + direction * (speed / 100));
+    }
+
+    protected override void Death()
+    {
+        base.Death();
+        Destroy(gameObject);
     }
 }

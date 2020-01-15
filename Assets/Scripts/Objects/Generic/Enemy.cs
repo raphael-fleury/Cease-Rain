@@ -18,6 +18,6 @@ public class Enemy : Character
     protected override void Death()
     {
         if (fight)
-            fight.EnemyDeath(this);
+            fight.EnemyDeath(gameObject);
     }
 }

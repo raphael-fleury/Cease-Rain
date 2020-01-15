@@ -30,13 +30,13 @@ public class Limits2D
     public Limits x;
     public Limits y;
 
-    public bool IsBetween(float pos)
+    public bool IsBetween(Vector2 vector)
     {
-        return x.IsBetween(pos) && y.IsBetween(pos);
+        return x.IsBetween(vector.x) && y.IsBetween(vector.y);
     }
 
-    public Vector2 Compare(float pos)
+    public Vector2 Compare(Vector2 vector)
     {
-        return new Vector2(x.Compare(pos), y.Compare(pos));
+        return new Vector2(x.Compare(vector.x), y.Compare(vector.y));
     }
 }
