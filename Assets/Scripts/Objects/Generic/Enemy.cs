@@ -6,14 +6,6 @@ using UnityEngine.UI;
 public class Enemy : Character
 {
     public Fight fight;
-    public Image lifeBar;
-
-    protected override void OnLifeChange()
-    {
-        base.OnLifeChange();
-        if (lifeBar)
-            lifeBar.fillAmount = life / maxLife;
-    }
 
     protected override void Death()
     {
