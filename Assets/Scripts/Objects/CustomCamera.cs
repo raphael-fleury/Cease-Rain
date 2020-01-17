@@ -36,11 +36,15 @@ public class CustomCamera : MonoBehaviour
         if (marjory.GetComponent<MarjoryMovement>().onFloor && followY)
             newPos.ChangeY(marjory.position.y + posPlayer.y);
 
-        if (newPos.x <= limits.lower)
-            newPos.x = limits.lower;
+        float limit = limits.lower + GetComponent<Camera>().GetWidth() / 2f - posPlayer.x;
+        Debug.Log("lower: " + limit);
+        if (newPos.x <= limit)
+            newPos.x  = limit;
 
-        if (newPos.x >= limits.higher)
-            newPos.x = limits.higher;
+        limit = limits.higher - GetComponent<Camera>().GetWidth() / 2f + posPlayer.x;
+        Debug.Log("higher: " + limit);
+        if (newPos.x >= limit)
+            newPos.x  = limit;
 
         transform.position = Vector3.Lerp(transform.position, transform.position.ChangeXY(newPos), speed);     
     }

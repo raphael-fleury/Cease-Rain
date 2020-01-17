@@ -63,4 +63,16 @@ public static class ExtensionMethods
     #endregion
 
     #endregion
+
+    #region Camera
+    public static float GetHeight(this Camera camera)
+    {
+        return camera.orthographicSize * 2;       
+    }
+
+    public static float GetWidth(this Camera camera)
+    {
+        return camera.GetHeight() * camera.aspect;
+    }
+    #endregion
 }
