@@ -18,7 +18,7 @@ public class Fight : MonoBehaviour
 
     [Header("Status")]
     public bool active;
-    public List<GameObject> enemies;
+    public int enemiesAlive;
 
     [Header("Options")]
     public List<EnemySpawn> enemiesToSpawn;
@@ -37,11 +37,13 @@ public class Fight : MonoBehaviour
         if (colliders)
             colliders.SetActive(true);
 
-        foreach(EnemySpawn e in enemiesToSpawn) 
-            enemies.Add(Instantiate(e.enemy, e.pos.position, Quaternion.identity));
+        foreach(EnemySpawn e in enemiesToSpawn) {
+            GameObject obj = Instantiate(e.enemy, e.pos.position, Quaternion.identity);
+            obj.GetComponent<Character>().onDeath += EnemyDeath;
+            obj.GetComponent<ILimits>().SetLimits(limits);
+            enemiesAlive++;
+        }
 
-        foreach(GameObject e in enemies) 
-            e.GetComponent<Enemy>().fight = this;
 
         camera = Level.activeCamera.GetComponent<CustomCamera>();
         if (camera) 
@@ -51,10 +53,10 @@ public class Fight : MonoBehaviour
         }
     }
 
-    public void EnemyDeath(GameObject enemy)
+    public void EnemyDeath()
     {
-        enemies.Remove(enemy);
-        if (enemies.Count == 0) 
+        enemiesAlive--;
+        if (enemiesAlive == 0) 
             Finish();
     }
 

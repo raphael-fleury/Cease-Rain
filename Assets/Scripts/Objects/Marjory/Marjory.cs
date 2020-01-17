@@ -45,10 +45,7 @@ public class Marjory : Character
         normalArm.SetInteger("gun", gun);
     }
 
-    public void SetGun(Guns gun, int bullets)
-    {
-        SetGun((int)gun, bullets);
-    }
+    public void SetGun(Guns gun, int bullets) => SetGun((int)gun, bullets);
 
     void UpdateShooting()
     {
@@ -146,7 +143,10 @@ public class Marjory : Character
 
     #endregion
 
-    protected override void Death() { }
+    protected override void Death()
+    {
+        base.Death();
+    }
 
     #region Tests
     private void ChangeGun()

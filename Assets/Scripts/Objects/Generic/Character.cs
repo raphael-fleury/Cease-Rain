@@ -8,7 +8,12 @@ public class Character : MonoBehaviour
 
     protected virtual void Start() { maxLife = life; }
 
-    protected virtual void Death() { }
+    public event Action onDeath;
+    protected virtual void Death()
+    {
+        if (onDeath != null)
+            onDeath();
+    }
 
     public event Action onLifeChange;
     protected virtual void OnLifeChange()

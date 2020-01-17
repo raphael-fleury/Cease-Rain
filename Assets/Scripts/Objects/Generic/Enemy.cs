@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Enemy : Character
 {
-    public Fight fight;
+    public GameObject deathAnim;
 
     protected override void Death()
     {
-        if (fight)
-            fight.EnemyDeath(gameObject);
+        base.Death();
+        if (deathAnim)
+            Instantiate(deathAnim, transform.position, Quaternion.identity);
     }
 }

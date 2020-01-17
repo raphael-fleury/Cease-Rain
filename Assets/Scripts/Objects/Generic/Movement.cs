@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Events
+    public event Action onFlip;
     private void Flip()
     {      
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
@@ -41,6 +43,9 @@ public class Movement : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x = -scale.x;
             transform.localScale = scale;
+
+            if (onFlip != null)
+                onFlip();
         }
 
         return;
