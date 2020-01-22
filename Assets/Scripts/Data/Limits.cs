@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Limits
+public struct Limits
 {
     public float lower;
     public float higher;
@@ -33,7 +33,7 @@ public class Limits
 }
 
 [System.Serializable]
-public class Limits2D
+public struct Limits2D
 {
     public Limits x;
     public Limits y;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8171144208246565227}
   - component: {fileID: 8171144208246565226}
   - component: {fileID: 8171144208246565225}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Jeter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b06c44a884500c48a4f3de986bdcba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLife: 0
   _life: 20
-  fight: {fileID: 0}
-  lifeBar: {fileID: 0}
+  deathAnim: {fileID: 0}
   direction: 1
   speed: 7
   limits:

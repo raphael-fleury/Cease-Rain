@@ -435,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 2679557159311891738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.47457, y: -13.230589, z: 375.75616}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1, y: 1, z: 0.25}
   m_Children:
   - {fileID: 6106508042872584585}
   m_Father: {fileID: 7941304750033379795}
@@ -453,7 +453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb0054582180034bad33875a5599219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feetRange: 1
   walkSpeed: 10
   jumpForce: 24
   jumpModifier: 0.75
@@ -462,6 +461,7 @@ MonoBehaviour:
   direction: 1
   movement: 0
   axisX: 1
+  feetRange: 1
   floor:
     serializedVersion: 2
     m_Bits: 256
@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b73080b2844404fb1413d50a1331ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLife: 0
   _life: 100
   toxicity: 0
   mechArm: {fileID: 7490666995886053573}
@@ -2693,7 +2694,7 @@ MonoBehaviour:
   output: {fileID: 6106508043753776513}
   speed: 12
   rechargeTime: 0.1
-  rotationFix: 0.3
+  rotationFix: 0.03
   bullets: 0
 --- !u!1 &6106508043633487539
 GameObject:

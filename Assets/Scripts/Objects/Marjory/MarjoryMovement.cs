@@ -8,6 +8,8 @@ public class MarjoryMovement : Movement
     public CurrentMovement movement;
 
     public float axisX = 1;
+    public float feetRange = .5f;
+
 
     [Header("References")]
     public LayerMask floor;
@@ -19,8 +21,9 @@ public class MarjoryMovement : Movement
         if (Input.GetKeyDown(Controls.FindKey("JumpKey"))) { Jump(); }
     }
 
-    private new void FixedUpdate()
+    protected override void FixedUpdate()
     {       
+        base.FixedUpdate();
         axisX = Input.GetAxis("Horizontal");
         if (axisX != 0)
             direction = (int)Mathf.Sign(axisX);

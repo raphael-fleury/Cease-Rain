@@ -12,7 +12,7 @@ public class Fight : MonoBehaviour
     }
 
     #region Camera
-    new CustomCamera camera;
+    new PlayerCamera camera;
     Limits cameraLimits;
     #endregion
 
@@ -45,7 +45,7 @@ public class Fight : MonoBehaviour
         }
 
 
-        camera = Level.activeCamera.GetComponent<CustomCamera>();
+        camera = Level.activeCamera.GetComponent<PlayerCamera>();
         if (camera) 
         {
             cameraLimits = camera.limits;

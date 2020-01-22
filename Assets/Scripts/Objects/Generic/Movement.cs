@@ -9,7 +9,6 @@ public class Movement : MonoBehaviour
     protected Rigidbody2D body;
 
     [Header("Options")]
-    public float feetRange;
     public float walkSpeed;
     public float jumpForce;
     public float jumpModifier;
@@ -17,20 +16,27 @@ public class Movement : MonoBehaviour
     [Header("Status")]
     public bool onFloor;
     public float knockback;
+    [Range(-1,1)]
     public int direction;
     #endregion
 
-    #region Unity Functions
-    protected void Awake() { body = GetComponent<Rigidbody2D>(); }
+    public bool canMove 
+    {
+        get { return knockback <= 0; }
+    }
 
-    protected void FixedUpdate()
+    #region Unity Functions
+    protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
+
+    protected virtual void FixedUpdate()
     {
         if (knockback > 0)
             knockback -= 0.02f;
         else
             body.velocity = new Vector2(direction * walkSpeed * (onFloor ? 1 : jumpModifier), body.velocity.y);
 
-        Flip();
+        if (canMove)
+            Flip();
     }
     #endregion
 
@@ -53,14 +59,18 @@ public class Movement : MonoBehaviour
 
     public void Knockback(float knockback)
     {
-        body.AddForce(Vector2.right * knockback);
+        body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
         this.knockback = knockback;
     }
 
-    protected void Jump()
+    public bool Jump()
     {
-        if (onFloor)
-            body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        if (knockback > 0)
+            return false;
+
+        body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        onFloor = false;
+        return true;
     }
     #endregion
 }

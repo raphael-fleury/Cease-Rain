@@ -8,8 +8,8 @@ TagManager:
   - Inimigo
   - Guardachuva
   - EscudoInimigo
-  - Porta
   - PlayerShot
+  - EnemyShot
   layers:
   - Default
   - TransparentFX
@@ -21,12 +21,12 @@ TagManager:
   - 
   - Floor
   - Player
-  - Enemy
   - PlayerShot
+  - PlayerShield
+  - Enemy
   - EnemyShot
-  - 
-  - 
-  - 
+  - EnemyShield
+  - Box
   - 
   - 
   - 

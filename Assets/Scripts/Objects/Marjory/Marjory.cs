@@ -96,9 +96,14 @@ public class Marjory : Character
     #endregion
 
     #region Unity Functions
-    void Awake()
+    private void Awake()
     {
         Level.marjory = this;
+    }
+
+    protected override void Start()
+    {
+        base.Start();     
         movement = GetComponent<Movement>();
     }
 

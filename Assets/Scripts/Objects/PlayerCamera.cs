@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CustomCamera : MonoBehaviour
+public class PlayerCamera : MonoBehaviour
 {
+    #region Private Fields
     float defaultY;
-    Transform marjory;
     int direction = 1;
+    #endregion
+
+    [Header("Status")]     
     public Vector2 newPos;
 
     #region Options
     [Header("Options")]       
     public Vector2 posPlayer;
+    public Limits limits;
 
     [Space(10)]
     public bool followY = false;
@@ -22,27 +26,25 @@ public class CustomCamera : MonoBehaviour
     public float speed;
     #endregion
 
-    public Limits limits;
-
-    void Start() { marjory = Level.marjory.transform; }
+    [Header("References")]  
+    public Transform player;
 
     void OnEnable() { Level.activeCamera = gameObject; }
 
     void FixedUpdate()
     {
-        if (flip && marjory.GetComponent<MarjoryMovement>().direction != 0)
-                direction = marjory.GetComponent<MarjoryMovement>().direction;
-        newPos = new Vector2(marjory.position.x + posPlayer.x * direction, transform.position.y);
-        if (marjory.GetComponent<MarjoryMovement>().onFloor && followY)
-            newPos.ChangeY(marjory.position.y + posPlayer.y);
+        if (flip)
+            direction = Mathf.Abs(Mathf.RoundToInt(player.localScale.x));
+             
+        newPos = new Vector2(player.position.x + posPlayer.x * direction, transform.position.y);
+        if (player.GetComponent<Movement>().onFloor && followY)
+            newPos.ChangeY(player.position.y + posPlayer.y);
 
         float limit = limits.lower + GetComponent<Camera>().GetWidth() / 2f - posPlayer.x;
-        Debug.Log("lower: " + limit);
         if (newPos.x <= limit)
             newPos.x  = limit;
 
         limit = limits.higher - GetComponent<Camera>().GetWidth() / 2f + posPlayer.x;
-        Debug.Log("higher: " + limit);
         if (newPos.x >= limit)
             newPos.x  = limit;
 
