@@ -2,42 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LadyStorm : Enemy, ILimits
+public class LadyStorm : Movement, ILimits
 {
     Transform marjory;
     Animator animator;  
-    Movement movement;
-    Rigidbody2D body;
 
-    [Header("Options")]
-    public float minDistance;
-    public float jumpCooldown;
+    bool jumping;
+
+    #region Inspector
+    [Header("Lady Storm")]
+    public GameObject shield;
+    public GameObject shock;
     public float shockOutputY;
 
-    public Limits limits;
-
-    [Header("References")]
-    public LayerMask floor;
-    public GameObject shock;
+    [Space(10)]
+    public float minSpace;
+    public float minDistance;
+    public float jumpCooldown;
+    
+    public Limits limits;  
+    #endregion
 
     public void SetLimits(Limits limits) => this.limits.Set(limits);
 
-    void Awake()
+    bool _canMove;
+    public override bool canMove
+    {
+        get { return _canMove && base.canMove; }
+    }
+
+    public override bool canJump
+    {
+        get { return onFloor; }
+    }
+
+    protected override void Awake()
     {        
-        body = GetComponent<Rigidbody2D>();
-        movement = GetComponent<Movement>();
+        base.Awake();
         animator = GetComponent<Animator>();
     }
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         marjory = Level.marjory.transform;
         Invoke("Jump", jumpCooldown);
-        movement.onFloor = true;
+
+        //GameObject sh = GameObject.Instantiate(shield, transform.position, Quaternion.identity);
+        GameObject sh = GameObject.Instantiate(shield);
+        sh.GetComponent<LadyShield>().lady = transform;
     }
 
-    void FixedUpdate()
+    protected override void FixedUpdate()
     {
         Limits l = limits;
         if (transform.position.x > marjory.position.x)
@@ -46,24 +61,33 @@ public class LadyStorm : Enemy, ILimits
             l.Set(limits.lower, marjory.position.x - minDistance);
         
         if(!l.IsBetween(transform.position.x))
-            movement.direction = l.Compare(transform.position.x) * -1;
+            direction = l.Compare(transform.position.x) * -1;
 
-        //if (movement.onFloor)
-        //    body.velocity = body.velocity.ChangeX(movement.direction * movement.walkSpeed);
+        _canMove = l.Distance() > minSpace;
+        animator.SetBool("idle", l.Distance() <= minSpace);
+      
+        if (l.Distance() <= minSpace)
+        {
+            direction = marjory.position.x.CompareTo(transform.position.x);
+            Invoke("Flip", .5f);
+        }
+
+        base.FixedUpdate();
     }
 
-    void Jump()
-    {
+    protected override bool Jump()
+    {       
         animator.SetTrigger("jump");
-        Invoke("Jump", jumpCooldown);       
-        movement.Jump();     
+        Invoke("Jump", jumpCooldown);
+        jumping = true;
+        return base.Jump(); 
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {       
-        if (other.gameObject.layer == floor / 32)
+        if (other.gameObject.layer == feet.floorLayer / 32 && jumping)
         {
-            movement.onFloor = true;
+            jumping = false;
             SpawnShock(-1);
             SpawnShock(+1);
         }

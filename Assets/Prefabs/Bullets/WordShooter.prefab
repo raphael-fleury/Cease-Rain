@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7966295061083353851}
   - component: {fileID: 6944276612995905656}
   - component: {fileID: 6012205170428669479}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WordShooter
   m_TagString: PlayerShot
   m_Icon: {fileID: 0}

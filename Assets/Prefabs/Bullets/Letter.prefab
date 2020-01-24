@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9021939385484104196}
   - component: {fileID: 9021939385484104203}
   - component: {fileID: 6064267199016854367}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Letter
   m_TagString: PlayerShot
   m_Icon: {fileID: 0}
@@ -75,6 +75,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

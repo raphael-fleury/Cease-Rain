@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8368740326713897616}
+  - component: {fileID: 8368740326713897619}
   - component: {fileID: 8368740326713897621}
   - component: {fileID: 8368740326713897618}
-  - component: {fileID: 8368740326713897619}
   - component: {fileID: 8368740326713897620}
   m_Layer: 14
   m_Name: Shield
@@ -34,6 +34,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8368740326713897619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368740326713897617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14ce8b426aad8246b6546f5515f7317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 0
+  _life: 25
+  lady: {fileID: 0}
+  damage: 5
+  knockback: 0.5
+  regenTime: 5
 --- !u!212 &8368740326713897621
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,23 +121,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8368740326713897619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8368740326713897617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14ce8b426aad8246b6546f5515f7317, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLife: 0
-  _life: 25
-  damage: 5
-  knockback: 0.5
-  regenTime: 5
 --- !u!58 &8368740326713897620
 CircleCollider2D:
   m_ObjectHideFlags: 0

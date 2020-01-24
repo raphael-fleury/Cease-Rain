@@ -12,5 +12,7 @@ public class Enemy : Character
         base.Death();
         if (deathAnim)
             Instantiate(deathAnim, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

@@ -23,6 +23,11 @@ public struct Limits
             return 0;
     }
 
+    public float Distance()
+    {
+        return Mathf.Abs(higher - lower); 
+    }
+
     public void Set(float lower, float higher)
     {
         this.lower = lower;
@@ -46,6 +51,16 @@ public struct Limits2D
     public Vector2 Compare(Vector2 vector)
     {
         return new Vector2(x.Compare(vector.x), y.Compare(vector.y));
+    }
+
+    public Vector2 Distance()
+    {
+        return new Vector2(x.Distance(), y.Distance());
+    }
+
+    public float Area()
+    {
+        return Distance().x * Distance().y;
     }
 
     public void Set(float top, float bottom, float left, float right)

@@ -5,44 +5,54 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
     #region Variables
     protected Rigidbody2D body;
-
-    [Header("Options")]
-    public float walkSpeed;
-    public float jumpForce;
-    public float jumpModifier;
 
     [Header("Status")]
     public bool onFloor;
     public float knockback;
     [Range(-1,1)]
     public int direction;
+
+    [Header("Options")]
+    public float walkSpeed;
+    public float jumpForce;
+    public float jumpModifier;
+
+    public Feet feet;
     #endregion
 
-    public bool canMove 
+    #region Custom Properties
+    public virtual bool canMove 
     {
         get { return knockback <= 0; }
     }
 
-    #region Unity Functions
+    public virtual bool canJump
+    {
+        get { return canMove && onFloor; }
+    }
+    #endregion
+
     protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
 
     protected virtual void FixedUpdate()
     {
+        onFloor = feet.OnFloor();
+
         if (knockback > 0)
             knockback -= 0.02f;
-        else
+        else if (canMove)
+        {
             body.velocity = new Vector2(direction * walkSpeed * (onFloor ? 1 : jumpModifier), body.velocity.y);
-
-        if (canMove)
             Flip();
+        }
     }
-    #endregion
 
     #region Events
     public event Action onFlip;
-    private void Flip()
+    protected void Flip()
     {      
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
         {
@@ -53,24 +63,21 @@ public class Movement : MonoBehaviour
             if (onFlip != null)
                 onFlip();
         }
+    }
 
-        return;
+    protected virtual bool Jump()
+    {
+        if (!canJump)
+        return false;
+
+        body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
+        return true;
     }
 
     public void Knockback(float knockback)
     {
         body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
         this.knockback = knockback;
-    }
-
-    public bool Jump()
-    {
-        if (knockback > 0)
-            return false;
-
-        body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        onFloor = false;
-        return true;
     }
     #endregion
 }

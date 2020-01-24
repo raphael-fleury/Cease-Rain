@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6288530518618529837}
   - component: {fileID: 6083759691035258140}
   - component: {fileID: 7263996274901981945}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Elvisnator
   m_TagString: PlayerShot
   m_Icon: {fileID: 0}
@@ -76,6 +76,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -13,7 +13,6 @@ public class MarjoryMovement : Movement
 
     [Header("References")]
     public LayerMask floor;
-    public Transform feet;
     public List<Animator> animators;
 
     private void Update()
@@ -30,8 +29,6 @@ public class MarjoryMovement : Movement
 
         base.FixedUpdate();
         body.velocity = new Vector2(body.velocity.x * Mathf.Abs(axisX), body.velocity.y);
-
-        onFloor = Physics2D.OverlapCircle(feet.position, feetRange, floor);
 
         Movement();
         animators.ForEach(a => a.SetInteger("movement", (int)movement));      

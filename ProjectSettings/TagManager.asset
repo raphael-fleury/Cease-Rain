@@ -56,6 +56,9 @@ TagManager:
   - name: Marjory
     uniqueID: 2788872743
     locked: 0
+  - name: Explosions
+    uniqueID: 493498409
+    locked: 0
   - name: Rain
     uniqueID: 1433768923
     locked: 0
