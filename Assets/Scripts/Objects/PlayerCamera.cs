@@ -1,9 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    [System.Serializable]
+    public struct PlayerPos
+    {
+        [Range(0,1)]
+        public float x;
+        [Range(0,1)]
+        public float y;
+    }
+
     #region Private Fields
     float defaultY;
     int direction = 1;
@@ -13,8 +20,8 @@ public class PlayerCamera : MonoBehaviour
     public Vector2 newPos;
 
     #region Options
-    [Header("Options")]       
-    public Vector2 posPlayer;
+    [Header("Options")]      
+    public PlayerPos posPlayer;
     public Limits limits;
 
     [Space(10)]
@@ -33,18 +40,27 @@ public class PlayerCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (flip)
-            direction = Mathf.Abs(Mathf.RoundToInt(player.localScale.x));
-             
-        newPos = new Vector2(player.position.x + posPlayer.x * direction, transform.position.y);
-        if (player.GetComponent<Movement>().onFloor && followY)
-            newPos.ChangeY(player.position.y + posPlayer.y);
+        Vector2 camSize = GetComponent<Camera>().GetSize();
 
-        float limit = limits.lower + GetComponent<Camera>().GetWidth() / 2f - posPlayer.x;
+        if (flip)
+            direction = Mathf.RoundToInt(Mathf.Sign(player.localScale.x));
+
+        newPos = (Vector2)player.position + camSize / 2;        
+        newPos.y -= camSize.y * posPlayer.y;
+
+        if (flip && direction == -1)
+            newPos.x -= camSize.x * (1 - posPlayer.x);
+        else
+            newPos.x -= camSize.x * posPlayer.x;
+
+        if (!followY)
+            newPos.y = transform.position.y;
+
+        float limit = limits.lower + camSize.x *.5f * posPlayer.x;
         if (newPos.x <= limit)
             newPos.x  = limit;
 
-        limit = limits.higher - GetComponent<Camera>().GetWidth() / 2f + posPlayer.x;
+        limit = limits.higher - camSize.x *.5f * posPlayer.x;
         if (newPos.x >= limit)
             newPos.x  = limit;
 

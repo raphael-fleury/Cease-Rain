@@ -25,10 +25,9 @@ public class Shot : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {       
-        if (collision.gameObject.CompareTag(targetTag)) {
-            Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.CompareTag(targetTag))
             collision.gameObject.GetComponent<Character>().life -= damage;
-        }
+
         Destroy();
     }
 

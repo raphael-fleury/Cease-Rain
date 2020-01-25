@@ -60,6 +60,11 @@ public static class ExtensionMethods
         vector3 = new Vector3(vector2.x, vector2.y, vector3.z);
         return vector3;
     }
+
+    public static Vector2 ToVector2(this Vector3 vector)
+    {
+        return vector;
+    }
     #endregion
 
     #endregion
@@ -73,6 +78,11 @@ public static class ExtensionMethods
     public static float GetWidth(this Camera camera)
     {
         return camera.GetHeight() * camera.aspect;
+    }
+
+    public static Vector2 GetSize(this Camera camera)
+    {
+        return new Vector2(camera.GetWidth(), camera.GetHeight());
     }
     #endregion
 

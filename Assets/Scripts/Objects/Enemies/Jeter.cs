@@ -16,7 +16,7 @@ public class Jeter : Enemy, ILimits
         if(!limits.IsBetween(transform.position.x))
             direction = limits.Compare(transform.position.x) * -1;
         
-        transform.position = transform.position.ChangeX(transform.position.x + direction * (speed / 100));
+        transform.Translate(direction * (speed / 100), 0f, 0f);
     }
 
     protected override void Death()
