@@ -8,11 +8,8 @@ public class MarjoryMovement : Movement
     public CurrentMovement movement;
 
     public float axisX = 1;
-    public float feetRange = .5f;
-
 
     [Header("References")]
-    public LayerMask floor;
     public List<Animator> animators;
 
     private void Update()
@@ -36,15 +33,15 @@ public class MarjoryMovement : Movement
 
     void Movement()
     {
-        if (!onFloor) {
+        if (!onFloor)
+        {
             if (body.velocity.y < 0)
                 movement = CurrentMovement.Falling;
             else if (body.velocity.y > 0)
                 movement = CurrentMovement.Jumping;
-            else
-                onFloor = true;
         }
-        if (onFloor) {
+        else
+        {
             if (body.velocity.x == 0)
                 movement = CurrentMovement.Idle;
             else if (knockback > 0)

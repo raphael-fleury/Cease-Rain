@@ -8,6 +8,12 @@ public struct Limits
     public float lower;
     public float higher;
 
+    public Limits(float lower, float higher)
+    {
+        this.lower = lower;
+        this.higher = higher;
+    }
+
     public bool IsBetween(float pos)
     {
         return pos > lower && pos < higher;

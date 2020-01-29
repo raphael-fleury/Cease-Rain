@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Feet : MonoBehaviour
@@ -7,9 +6,12 @@ public class Feet : MonoBehaviour
     public float circleRange;
     public LayerMask floorLayer;
 
-    public bool OnFloor()
+    public bool onFloor
     {
-        return Physics2D.OverlapCircle(transform.position, circleRange, floorLayer);
+        get 
+        {
+            return Physics2D.OverlapCircle(transform.position, circleRange, floorLayer);           
+        }        
     }
 
     private void OnDrawGizmosSelected() 
@@ -17,4 +19,6 @@ public class Feet : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, circleRange);
     }
+
+    //private void Update() { Debug.Log(onFloor); }
 }

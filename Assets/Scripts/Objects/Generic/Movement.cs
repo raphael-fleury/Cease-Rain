@@ -37,9 +37,13 @@ public class Movement : MonoBehaviour
 
     protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
 
+    public event Action onStep;
     protected virtual void FixedUpdate()
     {
-        onFloor = feet.OnFloor();
+        if (!onFloor && feet.onFloor && onStep != null)
+            onStep();
+
+        onFloor = feet.onFloor;
 
         if (knockback > 0)
             knockback -= 0.02f;

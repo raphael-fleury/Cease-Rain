@@ -108,7 +108,7 @@ MonoBehaviour:
   shockOutputY: -2.7
   minSpace: 5
   minDistance: 7
-  jumpCooldown: 5
+  jumpCooldown: 2
   limits:
     lower: -10
     higher: 10
