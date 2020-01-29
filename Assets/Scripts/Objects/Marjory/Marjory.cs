@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Marjory : Character
+public class Marjory : Movement
 {
-    Movement movement;
+    Character character;
 
     [Range(0, 100)]
     public float toxicity;
 
-    public Animator mechArm;
-    public Animator normalArm;
-
     #region Shooting
-    [Header("Shooting")]
-    public Gun[] guns;
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
+
+    [Header("Shooting")]
     public Guns currentGun;
     public float recharging;
 
+    [Space(10)]
+    public Gun[] guns;
+    
     public void SetGun(int gun, int bullets)
     {
         if (guns[(int)currentGun]) //if the current is a gun
@@ -54,15 +54,30 @@ public class Marjory : Character
 
         mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
     }
+
+    private void ChangeGun()
+    {
+        int aux = (int)KeyCode.Alpha1;
+        for (int i = aux; i < aux + 7; i++)
+        {
+            if (Input.GetKeyDown((KeyCode)i))
+            {
+                //Debug.Log((KeyCode)i + " " + (Guns)(i - aux));
+                SetGun(i - aux, 60);
+            }
+        }
+    }
     #endregion
 
     #region Defending
     [Header("Umbrella")]
+    public bool canDefend;
+    public bool defending;
+
+    [Space(10)]
     public GameObject umbrella;
     public GameObject localUmbrella;
     public string tagUmbrella;
-    public bool canDefend;
-    public bool defending;
 
     public void ReleaseUmbrella()
     {
@@ -95,30 +110,79 @@ public class Marjory : Character
     }
     #endregion
 
+    #region Animation
+    [Header("Animation")]
+    public List<Animator> animators;
+    public Animator mechArm;
+    public Animator normalArm;
+
+    void UpdateAnimations()
+    {
+        Debug.Log(movement);
+        if (!onFloor)
+        {
+            if (body.velocity.y < 0)
+                movement = CurrentMovement.Falling;
+            else if (body.velocity.y > 0)
+                movement = CurrentMovement.Jumping;
+        }
+        else
+        {
+            if (body.velocity.x == 0)
+                movement = CurrentMovement.Idle;
+            else if (knockback > 0)
+                movement = CurrentMovement.Knockbacked;
+            else
+                movement = CurrentMovement.Running;
+        }  
+
+        animators.ForEach(a => a.SetInteger("movement", (int)movement));
+    }
+    #endregion
+
+    #region Movement
+    public enum CurrentMovement { Idle, Running, Jumping, Falling, Knockbacked }
+    
+    [Header("Movement")]
+    public CurrentMovement movement;
+
+    [Range(-1,1)]
+    public float axisX = 1;
+
+    protected override void Move()
+    {
+        base.Move();
+        body.velocity = new Vector2(body.velocity.x * Mathf.Abs(axisX), body.velocity.y);          
+    }
+    #endregion
+
     #region Unity Functions
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Level.marjory = this;
+        character = GetComponent<Character>();
     }
 
-    protected override void Start()
-    {
-        base.Start();     
-        movement = GetComponent<Movement>();
-    }
-
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
         if (toxicity > 0)
             toxicity -= 0.01f;
         if (toxicity > 20)
-            life -= 0.02f;
+            character.life -= 0.02f;
         if (recharging > 0) { recharging -= 0.02f; }
+        
+        axisX = Input.GetAxis("Horizontal");
+        if (axisX != 0)
+            direction = (int)Mathf.Sign(axisX);
+
+        UpdateAnimations();
+        base.FixedUpdate();
     }
 
     void Update()
     {
-        //HUD.canvas.transform.localScale = movement.Flip();
+        if (Input.GetKeyDown(Controls.FindKey("JumpKey"))) { Jump(); }
 
         UpdateShooting();
         UpdateDefense(defending);
@@ -146,25 +210,5 @@ public class Marjory : Character
     }
     #endregion
 
-    #endregion
-
-    protected override void Death()
-    {
-        base.Death();
-    }
-
-    #region Tests
-    private void ChangeGun()
-    {
-        int aux = (int)KeyCode.Alpha1;
-        for (int i = aux; i < aux + 7; i++)
-        {
-            if (Input.GetKeyDown((KeyCode)i))
-            {
-                //Debug.Log((KeyCode)i + " " + (Guns)(i - aux));
-                SetGun(i - aux, 60);
-            }
-        }
-    }
     #endregion
 }

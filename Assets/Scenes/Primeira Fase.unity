@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31429c3eab7d294ebb7641a39497422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1545889406403225453}
+  character: {fileID: 1545889406403225456}
 --- !u!1 &27469404
 GameObject:
   m_ObjectHideFlags: 0
@@ -52826,7 +52826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7453faa7f6e317044a92f71eaf29d691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movScript: {fileID: 1545889406403225454}
+  movScript: {fileID: 1545889406403225453}
 --- !u!1 &1645887963
 GameObject:
   m_ObjectHideFlags: 0
@@ -67642,7 +67642,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1341280652945987833}
-  - component: {fileID: 1545889406403225454}
   - component: {fileID: 1545889406403225453}
   - component: {fileID: 1545889406403225456}
   - component: {fileID: 1545889406403225455}
@@ -67667,11 +67666,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b73080b2844404fb1413d50a1331ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 0
-  _life: 100
+  onFloor: 0
+  knockback: 0
+  direction: 1
+  walkSpeed: 10
+  jumpForce: 24
+  jumpModifier: 0.75
+  feet: {fileID: 932403389}
   toxicity: 0
-  mechArm: {fileID: 6318436759370736307}
-  normalArm: {fileID: 690909258343517228}
+  currentGun: 0
+  recharging: 0
   guns:
   - {fileID: 0}
   - {fileID: 0}
@@ -67680,39 +67684,20 @@ MonoBehaviour:
   - {fileID: 7270223244972475480}
   - {fileID: 7270223245133650149}
   - {fileID: 7270223244788214596}
-  currentGun: 0
-  recharging: 0
+  canDefend: 0
+  defending: 0
   umbrella: {fileID: 63672582}
   localUmbrella: {fileID: 5301659509492394924}
   tagUmbrella: Guardachuva
-  canDefend: 0
-  defending: 0
---- !u!114 &1545889406403225454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545889406403225452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb0054582180034bad33875a5599219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onFloor: 0
-  knockback: 0
-  direction: 1
-  walkSpeed: 10
-  jumpForce: 24
-  jumpModifier: 0.75
-  feet: {fileID: 932403389}
-  movement: 0
-  axisX: 1
   animators:
   - {fileID: 6318436759370736307}
   - {fileID: 690909258343517228}
   - {fileID: 8823857944583825832}
   - {fileID: 7941824641741961422}
+  mechArm: {fileID: 6318436759370736307}
+  normalArm: {fileID: 690909258343517228}
+  movement: 0
+  axisX: 1
 --- !u!50 &1545889406403225455
 Rigidbody2D:
   serializedVersion: 4

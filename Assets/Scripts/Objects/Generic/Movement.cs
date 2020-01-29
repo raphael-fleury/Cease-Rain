@@ -48,10 +48,13 @@ public class Movement : MonoBehaviour
         if (knockback > 0)
             knockback -= 0.02f;
         else if (canMove)
-        {
-            body.velocity = new Vector2(direction * walkSpeed * (onFloor ? 1 : jumpModifier), body.velocity.y);
-            Flip();
-        }
+            Move();
+    }
+
+    protected virtual void Move()
+    {
+        body.velocity = new Vector2(direction * walkSpeed * (onFloor ? 1 : jumpModifier), body.velocity.y);
+        Flip();
     }
 
     #region Events
