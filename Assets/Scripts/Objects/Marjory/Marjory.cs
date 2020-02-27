@@ -1,56 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Marjory : Movement
 {
     Character character;
+    Feet feet;
 
     [Range(0, 100)]
     public float toxicity;
 
     #region Shooting
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
-
+    
+    #region Properties  
     [Header("Shooting")]
-    public Guns currentGun;
+    [SerializeField] Guns _currentGun;
     public float recharging;
 
     [Space(10)]
-    public Gun[] guns;
-    
-    public void SetGun(int gun, int bullets)
+    [SerializeField] Gun[] guns;
+
+    int currentGunIndex
     {
-        if (guns[(int)currentGun]) //if the current is a gun
+        get { return (int)_currentGun; }
+        set 
         {
-            if ((int)currentGun == gun) //if is the same gun
-            {
-                guns[gun].bullets += bullets;
-                if (guns[gun])
-                    guns[gun].gameObject.SetActive(true);
-                return;
-            }
-            else
-                guns[(int)currentGun].gameObject.SetActive(false);
+            _currentGun = (Guns)value;
+            mechArm.SetInteger("gun", value);
+            normalArm.SetInteger("gun", value);
         }
-
-        if (guns[gun]) //if it's a gun
-        {
-            guns[gun].gameObject.SetActive(true);
-            guns[gun].bullets = bullets;
-        }
-
-        currentGun = (Guns)gun;
-        mechArm.SetInteger("gun", gun);
-        normalArm.SetInteger("gun", gun);
     }
 
-    public void SetGun(Guns gun, int bullets) => SetGun((int)gun, bullets);
+    Gun currentGun
+    { 
+        get { return guns[currentGunIndex]; }
+    }
+    #endregion
 
+    #region Private Functions
     void UpdateShooting()
     {
-        if (Input.GetKey(Controls.FindKey("ShootKey")) && guns[(int)currentGun] && recharging <= 0 && !defending)
-            guns[(int)currentGun].Shoot();
+        if (Input.GetKey(Controls.FindKey("ShootKey")) && currentGun && recharging <= 0 && !defending)
+            currentGun.Shoot();
 
         mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
     }
@@ -69,22 +60,47 @@ public class Marjory : Movement
     }
     #endregion
 
+    #region Public Functions
+    public void SetGun(int gun, int bullets)
+    {
+        Gun newGun = guns[gun];
+        if (currentGun) //if the current is a gun
+        {
+            if (currentGunIndex == gun) //if it's the same gun
+            {
+                newGun.Recharge(bullets);
+                return;
+            }
+            else
+                currentGun.Deactivate();
+        }
+
+        if (newGun) //if it's a gun
+            newGun.Activate(bullets);
+
+        currentGunIndex = gun;
+    }
+
+    public void SetGun(Guns gun, int bullets) => SetGun((int)gun, bullets);
+    #endregion
+    #endregion
+
     #region Defending
     [Header("Umbrella")]
-    public bool canDefend;
-    public bool defending;
+    [SerializeField] bool canDefend;
+    [SerializeField] bool defending;
 
     [Space(10)]
-    public GameObject umbrella;
-    public GameObject localUmbrella;
-    public string tagUmbrella;
+    [SerializeField] GameObject umbrella;
+    [SerializeField] GameObject localUmbrella;
+    [SerializeField] string tagUmbrella;
 
     public void ReleaseUmbrella()
     {
         umbrella.transform.position = localUmbrella.transform.position;
         umbrella.SetActive(true);
         localUmbrella.SetActive(false);
-        SetGun(currentGun, 0);
+        SetGun(_currentGun, 0);
     }
 
     void UpdateDefense(bool def)
@@ -95,13 +111,13 @@ public class Marjory : Movement
         if (def != defending)
         {
             GetComponent<Animator>().SetBool("defending", defending);
-            mechArm.SetInteger("gun", defending ? 1 : (int)currentGun);
-            normalArm.SetInteger("gun", defending ? 1 : (int)currentGun);
+            mechArm.SetInteger("gun", defending ? 1 : currentGunIndex);
+            normalArm.SetInteger("gun", defending ? 1 : currentGunIndex);
 
             if (defending)
             {
-                if (guns[(int)currentGun])
-                    guns[(int)currentGun].gameObject.SetActive(false);
+                if (currentGun)
+                    currentGun.gameObject.SetActive(false);
 
                 umbrella.SetActive(false);
                 localUmbrella.SetActive(true);
@@ -112,14 +128,13 @@ public class Marjory : Movement
 
     #region Animation
     [Header("Animation")]
-    public List<Animator> animators;
-    public Animator mechArm;
-    public Animator normalArm;
+    [SerializeField] List<Animator> animators;
+    [SerializeField] Animator mechArm;
+    [SerializeField] Animator normalArm;
 
     void UpdateAnimations()
     {
-        Debug.Log(movement);
-        if (!onFloor)
+        if (!feet.onFloor)
         {
             if (body.velocity.y < 0)
                 movement = CurrentMovement.Falling;
@@ -144,10 +159,10 @@ public class Marjory : Movement
     public enum CurrentMovement { Idle, Running, Jumping, Falling, Knockbacked }
     
     [Header("Movement")]
-    public CurrentMovement movement;
+    [SerializeField] CurrentMovement movement;
 
     [Range(-1,1)]
-    public float axisX = 1;
+    [SerializeField] float axisX = 1;
 
     protected override void Move()
     {
@@ -157,10 +172,12 @@ public class Marjory : Movement
     #endregion
 
     #region Unity Functions
+
     protected override void Awake()
     {
         base.Awake();
         Level.marjory = this;
+        feet = GetComponent<Feet>();
         character = GetComponent<Character>();
     }
 
@@ -182,7 +199,7 @@ public class Marjory : Movement
 
     void Update()
     {
-        if (Input.GetKeyDown(Controls.FindKey("JumpKey"))) { Jump(); }
+        if (Input.GetKeyDown(Controls.FindKey("JumpKey"))) { feet.Jump(); }
 
         UpdateShooting();
         UpdateDefense(defending);
@@ -193,12 +210,12 @@ public class Marjory : Movement
     }
 
     #region Triggers and Collisions
-    private void OnParticleCollision(GameObject other)
+    void OnParticleCollision(GameObject other)
     {
         toxicity += 0.2f;
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         canDefend = collider.gameObject.tag == tagUmbrella;
     }

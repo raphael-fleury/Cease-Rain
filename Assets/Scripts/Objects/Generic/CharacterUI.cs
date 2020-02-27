@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
-    public Movement movScript;
+    public Movement character;
     
-    void Start() { movScript.onFlip += Flip; }
+    void Start() { character.OnFlip += Flip; }
 
     void Flip()
     {       
-        transform.localScale = transform.localScale.ChangeX(movScript.direction * Mathf.Abs(transform.localScale.x));
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }

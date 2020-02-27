@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480b069ced8a3c9459f897ae5a17e8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToDestroy: 5
   explosion: {fileID: 1163674178628181346, guid: 6afcbd94d10f005499280fb89e6f52a0,
     type: 3}
   targetTag: Enemy

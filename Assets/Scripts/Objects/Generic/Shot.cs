@@ -1,21 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Shot : MonoBehaviour
+public class Shot : AutoDestroy
 {
     protected Rigidbody2D body;
 
     [Header("References")]
-    public GameObject explosion;
-    public string targetTag;
+    [SerializeField] protected GameObject explosion;
+    [SerializeField] protected string targetTag;
 
     [Header("Options")]
-    public int damage;
+    [SerializeField] protected int damage;
 
     public virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
-
-    public virtual void Start() { Invoke("Destroy", 5f); }
 
     public virtual void Update()
     {
@@ -31,7 +27,7 @@ public class Shot : MonoBehaviour
         Destroy();
     }
 
-    public void Destroy()
+    public override void Destroy()
     {
         if (explosion) { Instantiate(explosion, transform.position, Quaternion.identity); }
         Destroy(gameObject);

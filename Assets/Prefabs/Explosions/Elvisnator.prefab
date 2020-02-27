@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5624533229970139746}
+  - component: {fileID: 2799871609052952310}
   - component: {fileID: 1070632035333471453}
   - component: {fileID: 6620164101981224463}
-  - component: {fileID: 2799871609052952310}
   m_Layer: 0
   m_Name: Elvisnator
   m_TagString: Untagged
@@ -33,6 +33,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2799871609052952310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163674178628181346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215c10adec4c880459ec6e8ca316b2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToExplode: 5
 --- !u!212 &1070632035333471453
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -101,15 +114,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2799871609052952310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163674178628181346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 215c10adec4c880459ec6e8ca316b2da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

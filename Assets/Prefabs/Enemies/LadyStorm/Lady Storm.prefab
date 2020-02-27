@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5818812517103971192}
-  - component: {fileID: 5818812517103971195}
+  - component: {fileID: 9153186588074595379}
   m_Layer: 12
   m_Name: Feet
   m_TagString: Untagged
@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5818812517103971193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.6, z: 0}
+  m_LocalPosition: {x: 0, y: -2.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5818812517359551352}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5818812517103971195
+--- !u!114 &9153186588074595379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,13 +40,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5818812517103971193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3872c5491698c9048b66c29380f09811, type: 3}
+  m_Script: {fileID: 11500000, guid: 620fab50cad975b42950bbe37df0b48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleRange: 0.49
-  floorLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  radius: 0.5
+  color: {r: 1, g: 1, b: 1, a: 1}
+  offset: {x: 0, y: 0}
 --- !u!1 &5818812517359551358
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5818812517359551352}
   - component: {fileID: 5818812517359551354}
+  - component: {fileID: 3466784702654418236}
   - component: {fileID: 5818812517359551355}
   - component: {fileID: 5818812517359551301}
   - component: {fileID: 5818812517359551300}
@@ -96,22 +96,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d007f75e68586984c8e3bd41a9821eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onFloor: 0
   knockback: 0
   direction: 1
   walkSpeed: 6
-  jumpForce: 8
-  jumpModifier: 0
-  feet: {fileID: 5818812517103971195}
-  shield: {fileID: 8368740326713897617, guid: fa6d863ff467be54c887f7135372a597, type: 3}
-  shock: {fileID: 6909599682785709602, guid: 1f13856349e98a14287ca3ca124bd320, type: 3}
-  shockOutputY: -2.7
+  marjory: {fileID: 0}
   minSpace: 5
   minDistance: 7
-  jumpCooldown: 2
   limits:
     lower: -10
     higher: 10
+  shield: {fileID: 8368740326713897617, guid: fa6d863ff467be54c887f7135372a597, type: 3}
+  shock: {fileID: 6909599682785709602, guid: 1f13856349e98a14287ca3ca124bd320, type: 3}
+  shockOutputY: -2.7
+  jumpCooldown: 2
+--- !u!114 &3466784702654418236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818812517359551358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3872c5491698c9048b66c29380f09811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canJump: 1
+  jumpForce: 8
+  jumpModifier: 0
+  circle: {fileID: 9153186588074595379}
+  floor:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &5818812517359551355
 MonoBehaviour:
   m_ObjectHideFlags: 0

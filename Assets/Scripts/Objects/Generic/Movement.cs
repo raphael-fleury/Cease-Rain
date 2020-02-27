@@ -1,64 +1,50 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
-    #region Variables
+    #region Properties
     protected Rigidbody2D body;
 
     [Header("Status")]
-    public bool onFloor;
     public float knockback;
     [Range(-1,1)]
     public int direction;
 
     [Header("Options")]
-    public float walkSpeed;
-    public float jumpForce;
-    public float jumpModifier;
+    public float walkSpeed;   
 
-    public Feet feet;
-    #endregion
-
-    #region Custom Properties
     public virtual bool canMove 
     {
         get { return knockback <= 0; }
     }
-
-    public virtual bool canJump
-    {
-        get { return canMove && onFloor; }
-    }
     #endregion
 
-    protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
+    public event Action OnFlip;
+    public event Action OnMove;
 
-    public event Action onStep;
+    protected virtual void Awake()
+    { 
+        body = GetComponent<Rigidbody2D>();
+    }
+
     protected virtual void FixedUpdate()
     {
-        if (!onFloor && feet.onFloor && onStep != null)
-            onStep();
-
-        onFloor = feet.onFloor;
-
         if (knockback > 0)
-            knockback -= 0.02f;
+            knockback -= Time.fixedDeltaTime;
         else if (canMove)
             Move();
     }
 
     protected virtual void Move()
     {
-        body.velocity = new Vector2(direction * walkSpeed * (onFloor ? 1 : jumpModifier), body.velocity.y);
         Flip();
+        body.velocity = new Vector2(direction * walkSpeed, body.velocity.y);
+
+        if (OnMove != null)
+            OnMove();
     }
 
-    #region Events
-    public event Action onFlip;
     protected void Flip()
     {      
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
@@ -67,24 +53,16 @@ public class Movement : MonoBehaviour
             scale.x = -scale.x;
             transform.localScale = scale;
 
-            if (onFlip != null)
-                onFlip();
+            if (OnFlip != null)
+                OnFlip();
         }
     }
 
-    protected virtual bool Jump()
-    {
-        if (!canJump)
-        return false;
 
-        body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
-        return true;
-    }
 
     public void Knockback(float knockback)
     {
         body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
         this.knockback = knockback;
     }
-    #endregion
 }

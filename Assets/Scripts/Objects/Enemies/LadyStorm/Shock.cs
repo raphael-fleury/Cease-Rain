@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Shock : MonoBehaviour {
 
@@ -12,29 +10,21 @@ public class Shock : MonoBehaviour {
     public float speed;
 
     [Header("Overlap")]
-    public LayerMask floorLayer;
-    public float range;
-    public Vector2 spherePos;  
+    public OverlapCircle circle;
+    public LayerMask floor;
 
 	void Start() { Invoke("Destroy", duration); }
-    void Destroy() { Destroy(gameObject); }
 	
 	void FixedUpdate () {
         transform.position = new Vector3(transform.position.x + direction * speed, transform.position.y);
-        //Debug.Log(Physics2D.OverlapCircle(transform.position, range, floorLayer));
-        if (!Physics2D.OverlapCircle(transform.position, range, floorLayer))
+        if (!circle.Overlap(floor))
             Destroy(gameObject);
 	}
 
     void OnTriggerEnter2D(Collider2D target) {
         if (target.gameObject.CompareTag("Player")) {
             target.gameObject.GetComponent<Character>().life -= damage;
-            Destroy();
+            Destroy(gameObject);
         }
-    }
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position + spherePos.ToVector3(), range);
     }
 }

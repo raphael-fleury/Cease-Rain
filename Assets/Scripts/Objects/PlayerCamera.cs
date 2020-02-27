@@ -86,7 +86,7 @@ public class PlayerCamera : MonoBehaviour
         Limits x = new Limits(limits.lower + fixedPos.x, limits.higher - fixedPos.x);
         newPos.x = Mathf.Clamp(newPos.x, x.lower, x.higher);
 
-        if (followY && player.GetComponent<Movement>().onFloor)
+        if (followY)// && player.GetComponent<Movement>().onFloor)
             newPos.y = player.position.y + fixedPos.y;
 
         transform.position = Vector3.Lerp(transform.position, transform.position.ChangeXY(newPos), speed);     

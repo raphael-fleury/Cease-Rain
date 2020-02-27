@@ -1,37 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [Header("References")]
-    public GameObject bullet;
-    public AudioSource sound;
+    protected GameObject shot;
 
-    [Space(10)]
-    public Transform output;
-
-    [Header("Options")]
-    public float speed;
-    public float rechargeTime;
-
-    [Space(10)]
-    public float rotationFix;
-
+    public Shooter shooter;
     [Header("Status")]
     public int bullets;
 
-    protected GameObject shot;
+    [Header("Options")]
+    [SerializeField] float rechargeTime;
+    [SerializeField] float rotationFix;
+
+    [Header("References")]
+    [SerializeField] AudioSource sound;    
+  
     public virtual void Shoot()
     {
+        //Debug.Log(transform.rotation + " " + 7.5f * transform.rotation.eulerAngles.z / 360 + " " + vector * speed * 100);
         //Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x),  7.5f * transform.rotation.eulerAngles.z / 360);
         Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x), Mathf.Abs(transform.rotation.z) * 2 - rotationFix);
 
-        shot = Instantiate(bullet, output.position, Quaternion.identity);
-        shot.GetComponent<Rigidbody2D>().AddForce(vector * speed * 100);
-        Debug.Log(transform.rotation + " " + 7.5f * transform.rotation.eulerAngles.z / 360 + " " + vector * speed * 100);
-        
-
+        shot = shooter.Shoot(vector * 100);
+           
         Level.marjory.recharging = rechargeTime;
         if (bullets < 1)
             Level.marjory.SetGun(Marjory.Guns.Codomoon, int.MaxValue);
@@ -39,4 +30,16 @@ public class Gun : MonoBehaviour
             bullets--;
     }
 
+    public void Activate(int bullets)
+    {
+        gameObject.SetActive(true);
+        this.bullets = bullets;
+    }
+
+    public void Deactivate() { gameObject.SetActive(false); }
+
+    public void Recharge(int bullets)
+    {
+        this.bullets += bullets;
+    }
 }

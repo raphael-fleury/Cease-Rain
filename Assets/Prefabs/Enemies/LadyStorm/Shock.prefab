@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6909599682785709614}
   - component: {fileID: 6909599682785709613}
+  - component: {fileID: 2395398902136619891}
+  - component: {fileID: 2799252126888715031}
   - component: {fileID: 6909599682785709615}
   - component: {fileID: 6909599682785709600}
   - component: {fileID: 6909599682785709601}
@@ -49,12 +51,39 @@ MonoBehaviour:
   direction: 1
   duration: 2
   damage: 5
-  speed: 0.3
-  floorLayer:
+  speed: 0.45
+  circle: {fileID: 2395398902136619891}
+  floor:
     serializedVersion: 2
     m_Bits: 256
-  range: 0.31
-  spherePos: {x: -0.03, y: -0.14}
+--- !u!114 &2395398902136619891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909599682785709602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620fab50cad975b42950bbe37df0b48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.45
+  color: {r: 1, g: 1, b: 1, a: 1}
+  offset: {x: 0, y: -0.12}
+--- !u!114 &2799252126888715031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6909599682785709602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215c10adec4c880459ec6e8ca316b2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 5
 --- !u!212 &6909599682785709615
 SpriteRenderer:
   m_ObjectHideFlags: 0
