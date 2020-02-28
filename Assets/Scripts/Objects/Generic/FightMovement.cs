@@ -14,7 +14,7 @@ public class FightMovement : Movement, ILimits
     #region Methods
     public void SetLimits(Limits limits) => this.limits.Set(limits);
 
-    void Start() { marjory = Level.marjory.transform; }
+    protected virtual void Start() { marjory = Level.marjory.transform; }
 
     protected override void FixedUpdate()
     {

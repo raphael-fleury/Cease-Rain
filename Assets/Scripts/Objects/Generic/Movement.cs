@@ -20,13 +20,27 @@ public class Movement : MonoBehaviour
     public event Action OnMove;
     #endregion
 
-    #region Methods
+    #region Properties
     public virtual bool canMove 
     {
         get { return knockback <= 0 && _canMove; }
         set { _canMove = value; }
     }
+    #endregion
   
+    #region Unity Methods
+    protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
+
+    protected virtual void FixedUpdate()
+    {
+        if (knockback > 0)
+            knockback -= Time.fixedDeltaTime;
+        else if (canMove)
+            Move();
+    }
+    #endregion
+
+    #region Methods
     public void Knockback(float knockback)
     {
         body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
@@ -42,7 +56,7 @@ public class Movement : MonoBehaviour
             OnMove();
     }
 
-    protected void Flip()
+    void Flip()
     {   
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
         {
@@ -53,18 +67,6 @@ public class Movement : MonoBehaviour
             if (OnFlip != null)
                 OnFlip();
         }
-    }
-    #endregion
-
-    #region Unity Methods
-    void Awake() { body = GetComponent<Rigidbody2D>(); }
-
-    protected virtual void FixedUpdate()
-    {
-        if (knockback > 0)
-            knockback -= Time.fixedDeltaTime;
-        else if (canMove)
-            Move();
     }
     #endregion
 }

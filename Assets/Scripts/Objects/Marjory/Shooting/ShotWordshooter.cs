@@ -25,12 +25,13 @@ public class ShotWordshooter : Shot
 
     void ShootLetter(float x, float y)
     {
-        Debug.Log(x + " " + y + " " + (y + (body.velocity.y > 0 ? yOffset : 0)));
+        //Debug.Log(x + " " + y + " " + (y + (body.velocity.y > 0 ? yOffset : 0)));
         GameObject shot = Instantiate(letters.prefab, transform.position, Quaternion.identity);
         shot.GetComponent<Rigidbody2D>().AddForce(new Vector2(x, y + (body.velocity.y > 0 ? yOffset : 0)) * letters.speed * 100);
     }
     #endregion
 
+    #region Structs
     [System.Serializable]
     public struct Letter
     {
@@ -38,4 +39,5 @@ public class ShotWordshooter : Shot
         public int quantity;
         public float speed;               
     }
+    #endregion
 }

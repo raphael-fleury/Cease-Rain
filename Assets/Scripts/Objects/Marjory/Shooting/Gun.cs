@@ -10,27 +10,24 @@ public class Gun : MonoBehaviour
     public int bullets;
 
     [Header("Options")]
-    [SerializeField] float rechargeTime;
+    [Min(0)] public float rechargeTime;
     [SerializeField] float rotationFix;
 
     [Header("References")]
+    [SerializeField] MarjoryShooting marjory;
     [SerializeField] AudioSource sound; 
     #endregion  
   
     #region Methods
     public virtual void Shoot()
     {
-        //Debug.Log(transform.rotation + " " + 7.5f * transform.rotation.eulerAngles.z / 360 + " " + vector * speed * 100);
-        //Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x),  7.5f * transform.rotation.eulerAngles.z / 360);
         Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x), Mathf.Abs(transform.rotation.z) * 2 - rotationFix);
 
         shot = shooter.Shoot(vector * 100);
            
-        Level.marjory.recharging = rechargeTime;
+        bullets--;
         if (bullets < 1)
-            Level.marjory.SetGun(Marjory.Guns.Codomoon, int.MaxValue);
-        else
-            bullets--;
+            marjory.SetGun(MarjoryShooting.Guns.Codomoon, int.MaxValue);
     }
 
     public void Activate(int bullets)

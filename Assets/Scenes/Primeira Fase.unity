@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e31429c3eab7d294ebb7641a39497422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1545889406403225456}
+  character: {fileID: 1545889406403225453}
 --- !u!1 &27469404
 GameObject:
   m_ObjectHideFlags: 0
@@ -14688,8 +14688,7 @@ PrefabInstance:
         type: 3}
       propertyPath: marjory
       value: 
-      objectReference: {fileID: 2505838222024958607, guid: 1480a755174025c40adcea1526ea769c,
-        type: 3}
+      objectReference: {fileID: 1341280652945987833}
     - target: {fileID: 1198218306387750601, guid: e01f8c59b3da40548ac937dad476ac55,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -14708,7 +14707,7 @@ PrefabInstance:
     - target: {fileID: 1198218306387750646, guid: e01f8c59b3da40548ac937dad476ac55,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.35457
+      value: 32.1
       objectReference: {fileID: 0}
     - target: {fileID: 1198218306387750646, guid: e01f8c59b3da40548ac937dad476ac55,
         type: 3}
@@ -52890,7 +52889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7453faa7f6e317044a92f71eaf29d691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 1545889406403225453}
+  character: {fileID: 1545889406403225460}
 --- !u!1 &1645887963
 GameObject:
   m_ObjectHideFlags: 0
@@ -67840,8 +67839,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1341280652945987833}
   - component: {fileID: 1545889406403225453}
-  - component: {fileID: 1545889406403225454}
+  - component: {fileID: 1545889406403225460}
+  - component: {fileID: 1545889406403225459}
   - component: {fileID: 1545889406403225456}
+  - component: {fileID: 1545889406403225454}
   - component: {fileID: 1545889406403225455}
   - component: {fileID: 1545889406403225448}
   - component: {fileID: 1545889406403225458}
@@ -67866,35 +67867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b73080b2844404fb1413d50a1331ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canMove: 1
-  direction: 1
-  knockback: 0
-  walkSpeed: 10
+  maxLife: 0
+  _life: 100
   toxicity: 0
-  _currentGun: 0
-  recharging: 0
-  guns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 7270223245436021862}
-  - {fileID: 7270223244928582975}
-  - {fileID: 7270223244972475480}
-  - {fileID: 7270223245133650149}
-  - {fileID: 7270223244788214596}
-  canDefend: 0
-  defending: 0
-  umbrella: {fileID: 63672582}
-  localUmbrella: {fileID: 5301659509492394924}
-  tagUmbrella: Guardachuva
-  animators:
-  - {fileID: 6318436759370736307}
-  - {fileID: 690909258343517228}
-  - {fileID: 8823857944583825832}
-  - {fileID: 7941824641741961422}
-  mechArm: {fileID: 6318436759370736307}
-  normalArm: {fileID: 690909258343517228}
-  movement: 0
-  axisX: 1
 --- !u!114 &1545889406403225454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67944,11 +67919,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1545889406403225452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46fe014a27d3285449381b31b50e31db, type: 3}
+  m_Script: {fileID: 11500000, guid: 5581410d2a742bb499ca659d1589fe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 0
-  _life: 100
+  canDefend: 0
+  defending: 0
+  umbrella: {fileID: 63672582}
+  localUmbrella: {fileID: 5301659509492394924}
+  tagUmbrella: Guardachuva
 --- !u!58 &1545889406403225457
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -68001,6 +67979,54 @@ PolygonCollider2D:
       - {x: -0.0184021, y: 3.0649421}
       - {x: -0.027450562, y: 0.3}
       - {x: 0.59763336, y: 0.3}
+--- !u!114 &1545889406403225459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545889406403225452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d993633ed1c3bfd4d8e15c981d33978e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canShoot: 1
+  _currentGun: 0
+  recharging: 0
+  guns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 7270223245436021862}
+  - {fileID: 7270223244928582975}
+  - {fileID: 7270223244972475480}
+  - {fileID: 7270223245133650149}
+  - {fileID: 7270223244788214596}
+--- !u!114 &1545889406403225460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545889406403225452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828b6e6abbd7b2f44b326c71264579ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canMove: 1
+  direction: 0
+  knockback: 0
+  walkSpeed: 8
+  movement: 0
+  axisX: 0
+  animators:
+  - {fileID: 8823857944583825832}
+  - {fileID: 7941824641741961422}
+  - {fileID: 6318436759370736307}
+  - {fileID: 690909258343517228}
+  mechArm: {fileID: 6318436759370736307}
+  normalArm: {fileID: 690909258343517228}
 --- !u!4 &1704152024269000381
 Transform:
   m_ObjectHideFlags: 0
@@ -74706,6 +74732,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0
   rotationFix: 0
+  marjory: {fileID: 1545889406403225459}
   sound: {fileID: 0}
 --- !u!1 &7270223244788214649
 GameObject:
@@ -75016,6 +75043,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0.5
   rotationFix: 0.04145867
+  marjory: {fileID: 1545889406403225459}
   sound: {fileID: 0}
 --- !u!114 &7270223244972475480
 MonoBehaviour:
@@ -75037,6 +75065,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0.1
   rotationFix: 0.03
+  marjory: {fileID: 1545889406403225459}
   sound: {fileID: 0}
 --- !u!1 &7270223244972475484
 GameObject:
@@ -75276,6 +75305,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 1
   rotationFix: 0.008750259
+  marjory: {fileID: 1545889406403225459}
   sound: {fileID: 0}
 --- !u!1 &7270223245436021787
 GameObject:
@@ -75379,6 +75409,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0.5
   rotationFix: 0.01680532
+  marjory: {fileID: 1545889406403225459}
   sound: {fileID: 0}
   fire: {fileID: 7270223244921879980}
 --- !u!1 &7270223245492285568

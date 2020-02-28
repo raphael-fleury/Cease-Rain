@@ -4,9 +4,9 @@ public class ShotElvisnator : Shot
 {
     [SerializeField] float rotation;
 
-    void Update()
+    protected override void Update()
     {
-        //Debug.Log(Time.deltaTime + " " + rotation + " " + body.velocity.x);
+        base.Update();
         transform.Rotate(Vector3.back * Time.deltaTime * rotation * body.velocity.x);
     }
 }

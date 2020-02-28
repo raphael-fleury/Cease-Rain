@@ -63,11 +63,7 @@ public class Feet : MonoBehaviour
         movement.OnMove += delegate
         {
             if (!onFloor)
-            {
-                Vector2 velocity = body.velocity;
-                velocity.x *= jumpModifier;
-                body.velocity = velocity;
-            }               
+                body.velocity *= new Vector2(jumpModifier, 1f);           
         };
     }
 

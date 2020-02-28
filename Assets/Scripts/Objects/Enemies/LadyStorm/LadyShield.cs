@@ -18,8 +18,9 @@ public class LadyShield : Character
         gameObject.SetActive(false);
     }
 
-    void Start()
+    protected override void Start()
     { 
+        base.Start();
         lady.gameObject.GetComponent<Character>().OnDeath += Destroy; 
     }
 

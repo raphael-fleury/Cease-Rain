@@ -5,8 +5,10 @@ public class ShotFootloose : ShotElvisnator
     [Header("Footloose")]
     [SerializeField] Collider2D[] colliders;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         int num = Random.Range(0, 100);
         if (num < 35)
             num = 0;

@@ -17,7 +17,7 @@ public class Shock : MonoBehaviour
     #endregion
 
     #region Methods
-	void FixedUpdate ()
+	void FixedUpdate()
     {
         transform.position = new Vector3(transform.position.x + direction * speed, transform.position.y);
         if (!circle.Overlap(floor))

@@ -25,8 +25,9 @@ public class LadyStorm : Enemy
         feet = GetComponent<Feet>();
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         Invoke("Jump", jumpCooldown);
 
         GameObject sh = GameObject.Instantiate(shield);

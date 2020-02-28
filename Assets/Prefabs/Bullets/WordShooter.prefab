@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11416b6cc0344f64b82fa4f3f8391612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 5
+  timeToDestroy: 0.5
   explosion: {fileID: 0}
   targetTag: Enemy
   damage: 10

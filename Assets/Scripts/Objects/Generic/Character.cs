@@ -48,6 +48,6 @@ public class Character : MonoBehaviour
     #region Methods
     protected virtual void Death() { Destroy(gameObject); }
 
-    void Start() { maxLife = life; }
+    protected virtual void Start() { maxLife = life; }
     #endregion
 }

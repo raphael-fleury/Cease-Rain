@@ -14,9 +14,9 @@ public class Shot : AutoDestroy
     #endregion
 
     #region Methods
-    void Awake() { body = GetComponent<Rigidbody2D>(); }
+    protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
 
-    void Update()
+    protected virtual void Update()
     {
         transform.localScale.Set(Mathf.Sign(body.velocity.x) * transform.localScale.x, transform.localScale.y, transform.localScale.z);
         transform.right = body.velocity;

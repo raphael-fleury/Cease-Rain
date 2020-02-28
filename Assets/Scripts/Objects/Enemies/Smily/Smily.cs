@@ -26,8 +26,9 @@ public class Smily : FightMovement
         }
     }
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         anim = GetComponent<Animator>();
         feet.OnStep += delegate
         {

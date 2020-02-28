@@ -9,7 +9,7 @@ public class GunBox : MonoBehaviour
     [SerializeField] string tagShot;
 
     [Header("Gun")]
-    [SerializeField] Marjory.Guns gun;
+    [SerializeField] MarjoryShooting.Guns gun;
     [SerializeField] int amount;
 
     [Header("Jump")]
@@ -18,9 +18,9 @@ public class GunBox : MonoBehaviour
     #endregion
 
     #region Methods
-    public void Disappear() 
+    public void Disappear()
     {
-        Level.marjory.SetGun(gun, amount);
+        Level.marjory.GetComponent<MarjoryShooting>().SetGun(gun, amount);
         Destroy(gameObject);
     }
 
