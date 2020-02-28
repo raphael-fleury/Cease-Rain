@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Jeter : Enemy, ILimits
 {
     [Header("Status")]
-    public int direction;
+    [SerializeField] [Range(-1,1)] int direction;
 
     [Header("Options")]
-    public float speed;
-    public Limits limits;
+    [SerializeField] float speed;
+    [SerializeField] Limits limits;
 
     void Update()
     {
@@ -17,12 +15,6 @@ public class Jeter : Enemy, ILimits
             direction = limits.Compare(transform.position.x) * -1;
         
         transform.Translate(direction * (speed / 100), 0f, 0f);
-    }
-
-    protected override void Death()
-    {
-        base.Death();
-        Destroy(gameObject);
     }
 
     public void SetLimits(Limits limits) => this.limits.Set(limits);

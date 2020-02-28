@@ -1,18 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Enemy : Character
 {
-    public GameObject deathAnim;
+    [SerializeField] GameObject deathAnim;
 
-    protected override void Death()
-    {
-        base.Death();
-        if (deathAnim)
-            Instantiate(deathAnim, transform.position, Quaternion.identity);
-
-        Destroy(gameObject);
+    void Start()
+    { 
+        OnDeath += delegate 
+        {
+            if (deathAnim)
+                Instantiate(deathAnim, transform.position, Quaternion.identity);
+        };
     }
 }

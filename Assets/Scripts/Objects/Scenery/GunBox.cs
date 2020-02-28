@@ -1,21 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GunBox : MonoBehaviour
 {
+    #region Fields
     Rigidbody2D body;
     Animator animator;
 
-    public string tagShot;
+    [SerializeField] string tagShot;
 
     [Header("Gun")]
-    public Marjory.Guns gun;
-    public int amount;
+    [SerializeField] Marjory.Guns gun;
+    [SerializeField] int amount;
 
     [Header("Jump")]
-    public float force;
-    public float delay;
+    [SerializeField] float force;
+    [SerializeField] float delay;
+    #endregion
+
+    #region Methods
+    public void Disappear() 
+    {
+        Level.marjory.SetGun(gun, amount);
+        Destroy(gameObject);
+    }
 
     void Start()
     {
@@ -31,15 +38,10 @@ public class GunBox : MonoBehaviour
         Invoke("Jump", delay);   
     }
 
-    public void Disappear() 
-    {
-        Level.marjory.SetGun(gun, amount);
-        Destroy(gameObject);
-    }
-
     void OnCollisionEnter2D(Collision2D element) 
     {
         if(element.gameObject.CompareTag("PlayerShot"))
             animator.SetTrigger("break");
     }
+    #endregion
 }

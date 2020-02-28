@@ -51,15 +51,11 @@ public class Data : MonoBehaviour
         stream.Close();
     }
 
-    public static void SaveGame(string fileName, SceneEnum level, int checkpoint)
-    {
+    public static void SaveGame(string fileName, SceneEnum level, int checkpoint) =>
         SaveGame(fileName, (int)level, checkpoint);
-    }
 
-    public static void SaveGame(SaveGame saveGame)
-    {
+    public static void SaveGame(SaveGame saveGame) =>
         SaveGame(saveGame.FileName, saveGame.Level, saveGame.Checkpoint);
-    }
     #endregion
 
     #region Load Game

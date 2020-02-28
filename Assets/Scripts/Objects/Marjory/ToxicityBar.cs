@@ -4,8 +4,10 @@ using UnityEngine.UI;
 public class ToxicityBar : MonoBehaviour
 {
     Image bar;
+    
+    [SerializeField] Marjory marjory;
 
     void Awake() { bar = GetComponent<Image>(); }
 
-    void Update() { bar.fillAmount = Level.marjory.toxicity / 100; }
+    void Update() { bar.fillAmount = marjory.toxicity / 100; }
 }

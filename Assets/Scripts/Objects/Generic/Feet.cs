@@ -3,15 +3,11 @@ using UnityEngine;
 
 public class Feet : MonoBehaviour
 {
+    #region Fields
     Movement movement;
     Rigidbody2D body;
 
     bool _onFloor;
-
-    #region Events
-    [HideInInspector] public event Action OnJump;
-    [HideInInspector] public event Action OnStep;
-    #endregion
 
     [Header("Status")]
     [SerializeField] bool _canJump = true;
@@ -23,13 +19,19 @@ public class Feet : MonoBehaviour
     [Header("Overlap")]
     [SerializeField] OverlapCircle circle;
     [SerializeField] LayerMask floor;
+    #endregion
 
+    #region Events
+    [HideInInspector] public event Action OnJump;
+    [HideInInspector] public event Action OnStep;
+    #endregion
+
+    #region Properties
     public bool onFloor
     {
         get 
         {
-            _onFloor = circle.Overlap(floor);
-            return _onFloor;  
+            return circle.Overlap(floor);  
         }        
     }
 
@@ -38,8 +40,22 @@ public class Feet : MonoBehaviour
         get { return onFloor && _canJump && movement.knockback <= 0; }
         set { _canJump = value; }
     }
+    #endregion
 
-    protected virtual void Awake()
+    #region Methods
+    public bool Jump()
+    {
+        if (!canJump)
+        return false;
+
+        body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
+
+        if (OnJump != null)
+            OnJump();
+        return true;
+    }
+
+    void Awake()
     { 
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
@@ -53,27 +69,16 @@ public class Feet : MonoBehaviour
                 body.velocity = velocity;
             }               
         };
-
-        OnStep += delegate { Debug.Log("b"); };
     }
 
     void FixedUpdate()
     {
         if (!_onFloor && onFloor && OnStep != null)
             OnStep();
-    }
 
-    public bool Jump()
-    {
-        if (!canJump)
-        return false;
-
-        body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
-
-        if (OnJump != null)
-            OnJump();
-        return true;
+        _onFloor = onFloor;
     }
 
     //private void Update() { Debug.Log(onFloor); }
+    #endregion
 }

@@ -2,23 +2,19 @@
 
 public class FightMovement : Movement, ILimits
 {
-    [SerializeField]
+    #region Fields
     protected Transform marjory;
 
-    public float minSpace;
-    public float minDistance;
+    [SerializeField] [Min(0)] float minSpace = 5;
+    [SerializeField] [Min(0)] float minDistance = 7;
     
-    public Limits limits;
+    [SerializeField] Limits limits;
+    #endregion
 
+    #region Methods
     public void SetLimits(Limits limits) => this.limits.Set(limits);
 
-    protected bool _canMove;
-    public override bool canMove
-    {
-        get { return _canMove && base.canMove; }
-    }
-
-    protected virtual void Start() { marjory = Level.marjory.transform; }
+    void Start() { marjory = Level.marjory.transform; }
 
     protected override void FixedUpdate()
     {
@@ -28,7 +24,7 @@ public class FightMovement : Movement, ILimits
         else
             l.Set(limits.lower, marjory.position.x - minDistance);
         
-        if(!l.IsBetween(transform.position.x))
+        if(!l.IsBetween(transform.position.x)) //check if the enemy is between the limits
             direction = l.Compare(transform.position.x) * -1;
 
         _canMove = l.Distance() > minSpace;
@@ -41,4 +37,5 @@ public class FightMovement : Movement, ILimits
 
         base.FixedUpdate();
     }
+    #endregion
 }

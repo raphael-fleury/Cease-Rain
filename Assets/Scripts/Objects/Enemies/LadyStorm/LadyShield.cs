@@ -1,25 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LadyShield : Character
 {
+    #region Fields
     public Transform lady;
 
     [Header("Options")]
-    public float damage = 5;
-    public float knockback = .5f;
-    public float regenTime = 5f;
+    [SerializeField] [Min(0)] float damage = 5;
+    [SerializeField] [Min(0)] float knockback = .5f;
+    [SerializeField] [Min(0)] float regenTime = 5f;
+    #endregion
 
-    protected override void Start()
-    { 
-        base.Start();
-        lady.gameObject.GetComponent<Character>().onDeath += Destroy; 
+    #region Methods
+    protected override void Death()
+    {       
+        Invoke("Regen", regenTime);
+        gameObject.SetActive(false);
     }
 
+    void Start()
+    { 
+        lady.gameObject.GetComponent<Character>().OnDeath += Destroy; 
+    }
+
+    void Destroy() { Destroy(gameObject); }
+    
     void Update() { transform.position = lady.position; }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    void OnCollisionEnter2D(Collision2D other)
+    {
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Character>().life -= damage;
@@ -28,15 +37,10 @@ public class LadyShield : Character
         }
     }
 
-    protected override void Death()
-    {
-        base.Death();
+    void Regen()
+    { 
         life = maxLife;
-        Invoke("Regen", regenTime);
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
-
-    void Regen() { gameObject.SetActive(true); }
-
-    void Destroy() { Destroy(gameObject); }
+    #endregion
 }

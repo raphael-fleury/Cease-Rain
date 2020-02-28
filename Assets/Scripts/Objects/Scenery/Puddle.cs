@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Puddle : MonoBehaviour
 {
-    public List<ParticleSystem> particles;
+    [SerializeField] List<ParticleSystem> particles;
 
     private void OnTriggerStay2D(Collider2D collision)
     {

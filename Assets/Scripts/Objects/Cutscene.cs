@@ -4,32 +4,38 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class Cutscene : MonoBehaviour {
-
+public class Cutscene : MonoBehaviour
+{
+    #region Fields
     VideoPlayer video;
 
-    public LoadingBar loader;
+    [SerializeField] LoadingBar loader;
 
     [Header("Skip")]
-    public KeyCode skipButton;
-    public Text textSkip;
+    [SerializeField] KeyCode skipButton;
+    [SerializeField] Text textSkip;
 
     [Space(10)]
-    public Color white;
-    public Color grey;
+    [SerializeField] Color white;
+    [SerializeField] Color grey;
+    #endregion
 
+    #region Methods
     void Awake() { video = GetComponent<VideoPlayer>(); }
     void Start() { Invoke("LoadScene", (float)video.length); }
 
-    void LoadScene() {
+    void LoadScene()
+    {
         loader.LoadScene();
         textSkip.enabled = false;
     }
 
-    void Update() {
-        if (Input.GetKeyDown(skipButton)) { LoadScene(); }
+    void Update()
+    {
+        if (Input.GetKeyDown(skipButton))
+            LoadScene();
     }
 
     void FixedUpdate() { textSkip.color = Color.Lerp(white, grey, Mathf.PingPong(Time.time, 1)); }
-
+    #endregion
 }

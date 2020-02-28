@@ -173,9 +173,8 @@ public class Marjory : Movement
 
     #region Unity Functions
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         Level.marjory = this;
         feet = GetComponent<Feet>();
         character = GetComponent<Character>();

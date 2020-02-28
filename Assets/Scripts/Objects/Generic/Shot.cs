@@ -2,6 +2,7 @@
 
 public class Shot : AutoDestroy
 {
+    #region Fields
     protected Rigidbody2D body;
 
     [Header("References")]
@@ -10,10 +11,12 @@ public class Shot : AutoDestroy
 
     [Header("Options")]
     [SerializeField] protected int damage;
+    #endregion
 
-    public virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
+    #region Methods
+    void Awake() { body = GetComponent<Rigidbody2D>(); }
 
-    public virtual void Update()
+    void Update()
     {
         transform.localScale.Set(Mathf.Sign(body.velocity.x) * transform.localScale.x, transform.localScale.y, transform.localScale.z);
         transform.right = body.velocity;
@@ -29,7 +32,10 @@ public class Shot : AutoDestroy
 
     public override void Destroy()
     {
-        if (explosion) { Instantiate(explosion, transform.position, Quaternion.identity); }
+        if (explosion)
+            Instantiate(explosion, transform.position, Quaternion.identity);
+    
         Destroy(gameObject);
     }
+    #endregion
 }

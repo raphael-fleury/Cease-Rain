@@ -2,6 +2,7 @@
 
 public class Gun : MonoBehaviour
 {
+    #region Fields
     protected GameObject shot;
 
     public Shooter shooter;
@@ -13,8 +14,10 @@ public class Gun : MonoBehaviour
     [SerializeField] float rotationFix;
 
     [Header("References")]
-    [SerializeField] AudioSource sound;    
+    [SerializeField] AudioSource sound; 
+    #endregion  
   
+    #region Methods
     public virtual void Shoot()
     {
         //Debug.Log(transform.rotation + " " + 7.5f * transform.rotation.eulerAngles.z / 360 + " " + vector * speed * 100);
@@ -36,10 +39,8 @@ public class Gun : MonoBehaviour
         this.bullets = bullets;
     }
 
-    public void Deactivate() { gameObject.SetActive(false); }
+    public void Deactivate() => gameObject.SetActive(false);
 
-    public void Recharge(int bullets)
-    {
-        this.bullets += bullets;
-    }
+    public void Recharge(int bullets) => this.bullets += bullets;
+    #endregion
 }

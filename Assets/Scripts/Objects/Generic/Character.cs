@@ -3,32 +3,17 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    #region Fields
     [HideInInspector] public float maxLife;
     [SerializeField] float _life;
+    #endregion
 
-    protected virtual void Start() { maxLife = life; }
+    #region Events
+    public event Action OnDeath;
+    public event Action OnLifeChange;
+    #endregion
 
-    public event Action onDeath;
-    protected virtual void Death()
-    {
-        if (onDeath != null)
-            onDeath();
-    }
-
-    public event Action onLifeChange;
-    protected virtual void OnLifeChange()
-    {
-        if (onLifeChange != null)
-            onLifeChange();
-        if (isDead)
-            Death();
-    }
-
-    public bool isDead
-    { 
-        get { return life <= 0; } 
-    }
-
+    #region Properties
     public float life
     {
         get { return _life; }
@@ -41,7 +26,28 @@ public class Character : MonoBehaviour
             else
                 _life = value;
 
-            OnLifeChange();
+            if (OnLifeChange != null)
+                OnLifeChange();
+
+            if (isDead)
+            {
+                if (OnDeath != null)
+                    OnDeath();
+
+                Death(); 
+            }               
         }
     }
+
+    public bool isDead
+    { 
+        get { return life <= 0; } 
+    }
+    #endregion
+
+    #region Methods
+    protected virtual void Death() { Destroy(gameObject); }
+
+    void Start() { maxLife = life; }
+    #endregion
 }

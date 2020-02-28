@@ -5,7 +5,8 @@ public class Stairs : MonoBehaviour
     PlayerCamera cam;
     Feet player;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    #region Methods
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -15,7 +16,7 @@ public class Stairs : MonoBehaviour
         }          
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {          
@@ -32,7 +33,7 @@ public class Stairs : MonoBehaviour
         player.OnStep -= StopFollowing;
     }
 
-    float modifier = 3f;
+    //float modifier = 3f;
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -47,4 +48,5 @@ public class Stairs : MonoBehaviour
             }
         }
     }
+    #endregion
 }

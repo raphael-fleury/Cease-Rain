@@ -4,7 +4,7 @@ public class AutoDestroy : MonoBehaviour
 {
     [SerializeField] float timeToDestroy;
 
-    public virtual void Start()
+    void Start()
     {
         if (timeToDestroy > 0)
             Invoke("Destroy", timeToDestroy);

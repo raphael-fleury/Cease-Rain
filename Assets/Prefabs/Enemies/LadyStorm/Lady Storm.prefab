@@ -56,8 +56,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5818812517359551352}
   - component: {fileID: 5818812517359551354}
+  - component: {fileID: 1627482282506021354}
   - component: {fileID: 3466784702654418236}
-  - component: {fileID: 5818812517359551355}
   - component: {fileID: 5818812517359551301}
   - component: {fileID: 5818812517359551300}
   - component: {fileID: 5818812517359551303}
@@ -96,19 +96,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d007f75e68586984c8e3bd41a9821eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLife: 0
+  _life: 50
+  deathAnim: {fileID: 2456903781536469119, guid: 42250d5b3f266e3479191736720a539f,
+    type: 3}
+  shockOutputY: -2.7
+  jumpCooldown: 2
+  shield: {fileID: 8368740326713897617, guid: fa6d863ff467be54c887f7135372a597, type: 3}
+  shock: {fileID: 6909599682785709602, guid: 1f13856349e98a14287ca3ca124bd320, type: 3}
+--- !u!114 &1627482282506021354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818812517359551358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8dc33fb16f423e4a97753bbe5cae6cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canMove: 1
+  direction: 0
   knockback: 0
-  direction: 1
   walkSpeed: 6
-  marjory: {fileID: 0}
   minSpace: 5
   minDistance: 7
   limits:
-    lower: -10
-    higher: 10
-  shield: {fileID: 8368740326713897617, guid: fa6d863ff467be54c887f7135372a597, type: 3}
-  shock: {fileID: 6909599682785709602, guid: 1f13856349e98a14287ca3ca124bd320, type: 3}
-  shockOutputY: -2.7
-  jumpCooldown: 2
+    lower: 0
+    higher: 0
 --- !u!114 &3466784702654418236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,22 +144,6 @@ MonoBehaviour:
   floor:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &5818812517359551355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5818812517359551358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a97a3607ffa8d4c9c6e31576d8819a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLife: 0
-  _life: 50
-  deathAnim: {fileID: 2456903781536469119, guid: 42250d5b3f266e3479191736720a539f,
-    type: 3}
 --- !u!50 &5818812517359551301
 Rigidbody2D:
   serializedVersion: 4

@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RainGenerator : MonoBehaviour
 {
-    [Range(0,1)]
-    [SerializeField]
-    float _rainIntensity;
-
-    //[Space(10)]
-    [Range(0,1)]
-    public float minIntensity;
-
+    #region Fields    
     ParticleSystem particles;
     AudioSource audioSource;
 
+    [Range(0,1)]
+    [SerializeField] float _rainIntensity;
+
+    //[Space(10)] 
+    [SerializeField] [Range(0,1)] float minIntensity;
+    #endregion
+
+    #region Properties
     public float rainIntensity
     {
         get { return  _rainIntensity; }
         set { ChangeIntensity(value); }
     }
+    #endregion
 
+    #region Methods
     void Start()
     {
         particles = GetComponent<ParticleSystem>();
@@ -43,4 +44,5 @@ public class RainGenerator : MonoBehaviour
             emission.rateOverTime = value * 1000;
         }       
     }
+    #endregion
 }

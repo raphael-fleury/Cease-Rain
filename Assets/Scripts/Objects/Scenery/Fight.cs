@@ -1,30 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Fight : MonoBehaviour
 {
-    [System.Serializable]
-    public class EnemySpawn
-    {
-        public GameObject enemy;
-        public Transform pos;
-    }
-
-    #region Camera
+    #region Fields
     new PlayerCamera camera;
     Limits cameraLimits;
-    #endregion
 
     [Header("Status")]
-    public bool active;
-    public int enemiesAlive;
+    [SerializeField] bool active;
+    [SerializeField] int enemiesAlive;
 
     [Header("Options")]
-    public List<EnemySpawn> enemiesToSpawn;
-    public GameObject colliders;
-    public Limits limits;
+    [SerializeField] List<EnemySpawn> enemiesToSpawn;
+    [SerializeField] GameObject colliders;
+    [SerializeField] Limits limits;
+    #endregion
 
+    #region Methods
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.gameObject.CompareTag("Player") && !active)
@@ -37,13 +30,13 @@ public class Fight : MonoBehaviour
         if (colliders)
             colliders.SetActive(true);
 
-        foreach(EnemySpawn e in enemiesToSpawn) {
+        foreach(EnemySpawn e in enemiesToSpawn)
+        {
             GameObject obj = Instantiate(e.enemy, e.pos.position, Quaternion.identity);
-            obj.GetComponent<Character>().onDeath += EnemyDeath;
+            obj.GetComponent<Character>().OnDeath += EnemyDeath;
             obj.GetComponent<ILimits>().SetLimits(limits);
             enemiesAlive++;
         }
-
 
         camera = Level.activeCamera.GetComponent<PlayerCamera>();
         if (camera) 
@@ -53,7 +46,7 @@ public class Fight : MonoBehaviour
         }
     }
 
-    public void EnemyDeath()
+    void EnemyDeath()
     {
         enemiesAlive--;
         if (enemiesAlive == 0) 
@@ -65,4 +58,14 @@ public class Fight : MonoBehaviour
         camera.limits = cameraLimits;
         Destroy(gameObject);
     }
+    #endregion
+
+    #region Structs
+    [System.Serializable]
+    public struct EnemySpawn
+    {
+        public GameObject enemy;
+        public Transform pos;
+    }
+    #endregion
 }

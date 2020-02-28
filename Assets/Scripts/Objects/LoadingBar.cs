@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 public class LoadingBar : MonoBehaviour
 {
     [Header("References")]
-    public GameObject loadingBar;
-    public Image loadFill;
+    [SerializeField] GameObject loadingBar;
+    [SerializeField] Image loadFill;
 
     [Header("Options")]
-    public SceneEnum sceneToLoad;
-    public bool async = true;
+    [SerializeField] SceneEnum sceneToLoad;
+    [SerializeField] bool async = true;
     
-
     public void LoadScene()
     {
         int scene = (int)sceneToLoad;

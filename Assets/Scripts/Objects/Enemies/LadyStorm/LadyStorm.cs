@@ -1,31 +1,32 @@
 ﻿using UnityEngine;
 
-public class LadyStorm : FightMovement
+public class LadyStorm : Enemy
 {
-    #region Properties
+    #region Fields
+    Movement movement;
     Animator animator;
     Feet feet;
     bool jumping;
 
-    [Header("Lady Storm")]
-    public GameObject shield;
-    public GameObject shock;
-    public float shockOutputY;
+    [Header("Options")]
+    [SerializeField] float shockOutputY;
+    [SerializeField] float jumpCooldown;
 
-    [Space(10)]
-    public float jumpCooldown;
+    [Header("References")]
+    [SerializeField] GameObject shield;
+    [SerializeField] GameObject shock;
     #endregion
 
-    protected override void Awake()
+    #region Unity Methods
+    void Awake()
     {        
-        base.Awake();
+        movement = GetComponent<Movement>();
         animator = GetComponent<Animator>();
         feet = GetComponent<Feet>();
     }
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         Invoke("Jump", jumpCooldown);
 
         GameObject sh = GameObject.Instantiate(shield);
@@ -34,12 +35,13 @@ public class LadyStorm : FightMovement
         feet.OnStep += SpawnShock;
     }
 
-    protected override void FixedUpdate()
+    void FixedUpdate()
     {
-        base.FixedUpdate();
-        animator.SetBool("idle", !_canMove);
+        animator.SetBool("idle", movement.canMove);
     }
+    #endregion
 
+    #region Methods
     void Jump()
     {    
         feet.Jump();
@@ -48,10 +50,8 @@ public class LadyStorm : FightMovement
         jumping = true;
     }
 
-    #region Shock
     void SpawnShock()
     {
-        Debug.Log("a");
         if (jumping)
         {
             jumping = false;
@@ -69,5 +69,4 @@ public class LadyStorm : FightMovement
         s.GetComponent<Shock>().direction = direction;
     }
     #endregion
-
 }

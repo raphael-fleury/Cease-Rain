@@ -3,11 +3,11 @@
 public class Umbrella : MonoBehaviour {
 
     [Header("References")]
-    public Transform marjory;
+    [SerializeField] Transform marjory;
 
     [Header("Options")]
-    public float pctVel;
-    public float height;
+    [SerializeField] float pctVel;
+    [SerializeField] float height;
 
 	void FixedUpdate () {
 

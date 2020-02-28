@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620fab50cad975b42950bbe37df0b48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.45
+  radius: 0.4
   color: {r: 1, g: 1, b: 1, a: 1}
   offset: {x: 0, y: -0.12}
 --- !u!114 &2799252126888715031

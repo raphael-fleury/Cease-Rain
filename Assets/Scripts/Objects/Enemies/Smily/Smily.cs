@@ -10,8 +10,8 @@ public class Smily : FightMovement
     [Header("Smily")]
     [SerializeField] CurrentAction _currentAction;
 
-    [Space(10)] [Range(0,10)]
-    [SerializeField] float jumpCooldown = 3f;
+    [Space(10)] 
+    [SerializeField] [Min(0)] float jumpCooldown = 3f;
 
     [SerializeField] Shooter shooter;
     [SerializeField] float knockbackOnShoot;
@@ -26,9 +26,8 @@ public class Smily : FightMovement
         }
     }
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         anim = GetComponent<Animator>();
         feet.OnStep += delegate
         {

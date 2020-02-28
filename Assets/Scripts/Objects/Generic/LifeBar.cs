@@ -10,11 +10,8 @@ public class LifeBar : MonoBehaviour
     void Awake()
     {
         lifeBar = GetComponent<Image>();
-        character.onLifeChange += OnLifeBar;
-    }
-
-    void OnLifeBar()
-    {
-        lifeBar.fillAmount = character.life / character.maxLife;
+        character.OnLifeChange += delegate {
+             lifeBar.fillAmount = character.life / character.maxLife; 
+        };
     }
 }
