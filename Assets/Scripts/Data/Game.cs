@@ -1,24 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
-public class Game: MonoBehaviour
+public class Game
 {
     #region Fields
+    public Language language;
     public static int currentScene;
     public static string currentSave;
-    //public static AudioMixer mixer;
     #endregion
 
     #region Load Scene
-    public static void ReloadScene()
-    {
-        Level.checkpoint = 0;
-        SceneManager.LoadScene(currentScene);
-    }
-
     public static void LoadScene(int scene)
     {
         Level.checkpoint = 0;
@@ -26,28 +16,18 @@ public class Game: MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    public static void LoadScene(SceneEnum scene) { LoadScene((int)scene); }
+    public static void LoadScene(SceneEnum scene) =>
+        LoadScene((int)scene);
+
+    public static void ReloadScene() =>
+        LoadScene(currentScene);
     #endregion
 
     #region Save Game
-    public static void Save() { Data.SaveGame(currentSave, currentScene, Level.checkpoint); }
+    public static void Save(Save save) =>
+        SaveSystem.SaveGame(save);
 
-    public static void Save(string fileName)
-    {
-        currentSave = fileName;
-        Data.SaveGame(currentSave, currentScene, Level.checkpoint);
-    }
-
-    public static void Save(string fileName, int scene)
-    {
-        currentSave = fileName;
-        Data.SaveGame(currentSave, scene, 0);
-    }
-
-    public static void Save(string fileName, SceneEnum scene)
-    {
-        currentSave = fileName;
-        Data.SaveGame(currentSave, scene, 0);
-    }
+    public static void Save() =>
+        Save(new Save(currentSave, currentScene, Level.checkpoint));
     #endregion
 }

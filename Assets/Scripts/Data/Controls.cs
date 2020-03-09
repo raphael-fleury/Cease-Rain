@@ -3,82 +3,71 @@ using UnityEngine;
 
 public class Key
 {
-    public string Name { get; set; }
-    public KeyCode DefaultKey { get; set; }
-    public KeyCode ChoosenKey { get; set; }
+    public string name { get; private set; }
+    public KeyCode defaultKey { get; private set; }
+    public KeyCode choosenKey { get; private set; }
 
     public Key(string name, KeyCode defaultKey)
     {
-        Name = name;
-        DefaultKey = defaultKey;
-        ChoosenKey = defaultKey;
+        this.name = name;
+        this.defaultKey = defaultKey;
+        choosenKey = defaultKey;
     }
 
     public void Load()
     {
-        ChoosenKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(Name, DefaultKey.ToString()));
-    }
-
-    public void Save()
-    {
-        PlayerPrefs.SetString(Name, ChoosenKey.ToString());
-        PlayerPrefs.Save();
+        choosenKey = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(name, defaultKey.ToString()));
     }
 }
 
-public class Controls : MonoBehaviour
+public class Controls
 {
-    //Used for singleton
-    public static Controls Controller;
-
-    //Create Keycodes that will be associated with each of our commands.
-    //These can be accessed by any other script in our game
-    public static List<Key> KeyList = LoadControls();
-
-    void Awake()
+    #region Properties
+    public static List<Key> defaultKeyList
     {
-        if (Controller == null)
+        get
         {
-            DontDestroyOnLoad(gameObject);
-            Controller = this;
+            List<Key> keylist = new List<Key>();
+            keylist.Add(new Key("JumpKey", KeyCode.Space));
+            keylist.Add(new Key("ShootKey", KeyCode.Z));
+            keylist.Add(new Key("DefendKey", KeyCode.X));
+            keylist.Add(new Key("DiagonalAimKey", KeyCode.UpArrow));
+            keylist.Add(new Key("InteractionKey", KeyCode.DownArrow));
+            keylist.Add(new Key("PauseKey", KeyCode.P));
+            return keylist;
         }
-        else if (Controller != this)
+    }
+
+    public static List<Key> keyList
+    {
+        get    
         {
-            Destroy(gameObject);
+            List<Key> keylist = defaultKeyList;
+            foreach (Key key in keylist)
+            {
+                if (PlayerPrefs.HasKey(key.name))
+                    key.Load();
+                else
+                    SaveKey(key);
+            }
+            return keylist;
         }
-
-        KeyList = LoadControls();
     }
+    #endregion
 
-    private static List<Key> DefaultKeyList()
+    #region Methods
+    public static void SaveKey(Key key)
     {
-        List<Key> keylist = new List<Key>();
-        keylist.Add(new Key("JumpKey", KeyCode.Space));
-        keylist.Add(new Key("ShootKey", KeyCode.Z));
-        keylist.Add(new Key("DefendKey", KeyCode.X));
-        keylist.Add(new Key("DiagonalAimKey", KeyCode.UpArrow));
-        keylist.Add(new Key("InteractionKey", KeyCode.DownArrow));
-        keylist.Add(new Key("PauseKey", KeyCode.P));
-        return keylist;
+        PlayerPrefs.SetString(key.name, key.choosenKey.ToString());
+        PlayerPrefs.Save();
     }
 
-    public static List<Key> LoadControls()
-    {
-        List<Key> keylist = DefaultKeyList();
-        foreach (Key key in keylist)
-        {
-            if (PlayerPrefs.HasKey(key.Name))
-                key.Load();
-            else
-                key.Save();
-        }
-        return keylist;
-    }
+    public static void SaveControls(List<Key> keylist) =>
+        keylist.ForEach(k => SaveKey(k));
 
-    public static void SaveControls(List<Key> keylist)
-    {
-        keylist.ForEach(k => k.Save());
+    public static KeyCode FindKey(string name)
+    { 
+        return keyList.Find(k => k.name == name).choosenKey;
     }
-
-    public static KeyCode FindKey(string name) { return KeyList.Find(k => k.Name == name).ChoosenKey; }
+    #endregion
 }

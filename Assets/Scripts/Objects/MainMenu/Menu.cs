@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
@@ -12,16 +10,12 @@ public class Menu : MonoBehaviour
 
     void Awake()
     {
-        string path = Data.Folder();
+        string path = SaveSystem.folder;
         loadGameButton.interactable = Directory.Exists(path) && Directory.GetFiles(path).Length > 0;
     }
 
-    public void LoadGame()
-    {
-        
-    }
-
-    public void Credits() { SceneManager.LoadScene((int)creditsScene); }
+    public void Credits() =>
+        SceneManager.LoadScene((int)creditsScene);
 
     public void Quit()
     {
