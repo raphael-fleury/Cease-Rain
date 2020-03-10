@@ -23,7 +23,7 @@ public class Key
 public class Controls
 {
     #region Properties
-    public static List<Key> defaultKeyList
+    public static List<Key> defaultKeys
     {
         get
         {
@@ -38,11 +38,11 @@ public class Controls
         }
     }
 
-    public static List<Key> keyList
+    public static List<Key> keys
     {
         get    
         {
-            List<Key> keylist = defaultKeyList;
+            List<Key> keylist = defaultKeys;
             foreach (Key key in keylist)
             {
                 if (PlayerPrefs.HasKey(key.name))
@@ -67,7 +67,7 @@ public class Controls
 
     public static KeyCode FindKey(string name)
     { 
-        return keyList.Find(k => k.name == name).choosenKey;
+        return keys.Find(k => k.name == name).choosenKey;
     }
     #endregion
 }

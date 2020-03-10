@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
@@ -11,7 +9,7 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(Controls.FindKey("PauseKey")))
         {
-            if (!Level.paused) { PauseGame(); }
+            if (!Level.isPaused) { PauseGame(); }
             else { Resume(); }
         }
     }
@@ -37,7 +35,7 @@ public class Pause : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        Level.paused = false;
+        Level.Resume();
 
         Game.Save();
         SceneManager.LoadScene((int)SceneEnum.Menu);

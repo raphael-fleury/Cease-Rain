@@ -25,12 +25,11 @@ public class NewGameButton : MonoBehaviour
         {
             try
             {
-                Game.Save(new Save(input.text, SceneEnum.Cutscene));
-                Game.LoadScene(SceneEnum.Cutscene);
+                Game.NewGame(input.text);
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                output.text = "Error. Invalid name.";
+                output.text = "Error. " + e.Message;
                 throw;
             }         
         }          
