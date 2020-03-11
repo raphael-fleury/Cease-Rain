@@ -9,20 +9,20 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(Controls.FindKey("PauseKey")))
         {
-            if (!Level.isPaused) { PauseGame(); }
+            if (!Game.isPaused) { PauseGame(); }
             else { Resume(); }
         }
     }
 
     public void PauseGame()
     {
-        Level.Pause();
+        Game.Pause();
         pauseUI.SetActive(true);
     }
 
     public void Resume()
     {
-        Level.Resume();
+        Game.Resume();
         pauseUI.SetActive(false);
     }
 
@@ -35,9 +35,10 @@ public class Pause : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        Level.Resume();
+        Game.Resume();
 
         Game.Save();
-        SceneManager.LoadScene((int)SceneEnum.Menu);
+        Game.LoadScene(SceneEnum.Menu);
     }
+
 }

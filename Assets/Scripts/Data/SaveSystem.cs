@@ -2,6 +2,7 @@
 using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
 
 [System.Serializable]
 public class Save
@@ -15,6 +16,9 @@ public class Save
         this.level = level;
         this.checkpoint = checkpoint;
     }
+
+    public Save(Save save) :
+        this(save.level, save.checkpoint) { }
 
     public Save(SceneEnum scene, int checkpoint) :
         this((int)scene, checkpoint) { }
@@ -30,9 +34,9 @@ public class Save
     #endregion
 
     #region Methods
-    public void Load(string fileName)
+    public void Load(FileName fileName)
     {
-        if (!SaveSystem.FileExists(fileName))
+        if (!fileName.fileExists)
             throw new ArgumentException("File " + fileName + " does not exist.");
 
         Save save = SaveSystem.GetSave(SaveSystem.GetFullPath(fileName));
@@ -40,7 +44,7 @@ public class Save
         checkpoint = save.checkpoint;
     }
 
-    public void SaveGame(string fileName) => 
+    public void SaveGame(FileName fileName) => 
         SaveSystem.SaveGame(this, fileName);
     #endregion
 }
@@ -50,7 +54,7 @@ public static class SaveSystem
     #region Properties
     public static string folder
     {
-        get { return Application.persistentDataPath + "/savegames"; }
+        get { return Application.persistentDataPath + "/saves"; }
     }
 
     public static string format
@@ -61,6 +65,14 @@ public static class SaveSystem
     public static string[] files
     {
         get { return Directory.GetFiles(folder); }
+    }
+
+    public static FileName[] fileNames
+    {
+        get 
+        {
+            return files.Select(f => new FileName(f)).ToArray();
+        }
     }
 
     public static bool folderExists
@@ -99,31 +111,22 @@ public static class SaveSystem
         }
     }
 
-    public static void SaveGame(Save save, string fileName)
+    public static void SaveGame(Save save, FileName name)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-
-        foreach (char ch in Path.GetInvalidFileNameChars())
-        {
-            if (fileName.Contains(ch.ToString()))
-                throw new ArgumentException("Invalid characters in name.");
-        }
-
-        if (fileName.Length < 1)
-            throw new ArgumentException("Empty text.");
 
         if (!folderExists)
             Directory.CreateDirectory(folder);
 
-        string path = GetFullPath(fileName);
-        if (FileExists(fileName))
-            File.Delete(path);
+        if (name.fileExists)
+            File.Delete(name.fullPath);
 
-        FileStream stream = new FileStream(path, FileMode.Create);
-        Save data = new Save(save.level, save.checkpoint);
+        FileStream stream = new FileStream(name.fullPath, FileMode.Create);
+        Save data = new Save(save);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
+
     #endregion
 }

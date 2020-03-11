@@ -12,6 +12,7 @@ public class DynamicScrollView : MonoBehaviour
     [SerializeField] int selectedSave;
     [SerializeField] List<string> files = new List<string>();
     [SerializeField] List<Save> saves = new List<Save>();
+    [SerializeField] List<Button> buttons = new List<Button>();
 
     [Header("References")]
     [SerializeField] GameObject prefab;
@@ -38,14 +39,30 @@ public class DynamicScrollView : MonoBehaviour
             return Path.GetFileNameWithoutExtension(files[selectedSave]);
         }
     }
+
+    string selectedSaveDisplay
+    {
+        get
+        {
+            Save save = saves[selectedSave];
+
+            string display = selectedSaveName + " -";
+            string level = ((SceneEnum)save.level).ToString();
+
+            foreach (string txt in Regex.Split(level, @"(?<!^)(?=[A-Z])"))
+                display += " " + txt;
+
+            return display + "\n" + File.GetLastWriteTime(selectedSavePath);
+        }
+    }
     #endregion
 
     #region Public Methods
     public void OnButtonClick(int index)
     {
-        Button[] buttons = container.gameObject.GetComponentsInChildren<Button>();
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < buttons.Count; i++)
         {
+            Debug.Log(i + " " + (i != index).ToString() + " " + index);
             buttons[i].interactable = i != index;
         }
 
@@ -58,57 +75,52 @@ public class DynamicScrollView : MonoBehaviour
     public void DeleteSave()
     {
         File.Delete(files[selectedSave]);
-        okButton.interactable = false;
-        deleteButton.interactable = false;
-        //selectedSave = null;
-        Awake();
+        OnEnable();
     }
 
-    public void LoadGame()
-    {
+    public void LoadGame() =>
         Game.LoadGame(selectedSaveName);
-    }
     #endregion
 
-    string SaveDisplay(string path)
+    void OnEnable()
     {
-        string fileName = Path.GetFileNameWithoutExtension(path);
-        string display = fileName + " -";
-
-        Save save = SaveSystem.GetSave(path);
-
-        string level = ((SceneEnum)save.level).ToString();
-        foreach (string txt in Regex.Split(level, @"(?<!^)(?=[A-Z])"))
-            display += " " + txt;
-
-        return display + "\n" + File.GetLastWriteTime(path);
-    }
-
-    void Awake()
-    {
+        #region Reset
+        buttons = new List<Button>();
+        saves = new List<Save>();
         files = SaveSystem.files.ToList();
+
+        okButton.interactable = false;
+        deleteButton.interactable = false;
+
+        for (int i = 0; i < transform.childCount; i++)
+            Destroy(transform.GetChild(i).gameObject);
 
         container.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(
             RectTransform.Axis.Vertical,
             prefab.GetComponent<RectTransform>().sizeDelta.y * files.Count
         );
+        #endregion
 
         //Sorting files by last write time
-        files.Sort((f1, f2) => File.GetLastWriteTime(f1).CompareTo(File.GetLastWriteTime(f2)));
-
-        saves = new List<Save>();
+        files.Sort((f1, f2) => 
+            File.GetLastWriteTime(f1).CompareTo(File.GetLastWriteTime(f2)));
+       
         foreach(string file in files)
             saves.Add(SaveSystem.GetSave(file));            
 
         for (int i = 0; i < saves.Count; i++)
         {
             GameObject go = Instantiate(prefab);
-            go.GetComponentInChildren<Text>().text = SaveDisplay(files[i]);
+
+            selectedSave = i;
+            go.GetComponentInChildren<Text>().text = selectedSaveDisplay;
             go.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(i));
 
             go.transform.SetParent(container);
             go.transform.localPosition = Vector3.zero;
-            go.transform.localScale = Vector3.one;           
+            go.transform.localScale = Vector3.one;
+
+            buttons.Add(go.GetComponent<Button>());
         }
     }
 }
