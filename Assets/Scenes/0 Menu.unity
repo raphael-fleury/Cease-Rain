@@ -1498,11 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a4e675cf85c2842bab07644196c234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedSave:
-    fileName: 
-    level: 0
-    checkpoint: 0
-  files: []
+  selectedSave: {fileID: 0}
   prefab: {fileID: 4343166928369102502, guid: 61f816df542ef6a4789d1707dd33ba5e, type: 3}
   deleteButton: {fileID: 37218654}
   okButton: {fileID: 1465828079}
@@ -4068,7 +4064,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1823273381}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.78886306
+  m_Size: 0.7888631
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6342,8 +6338,8 @@ RectTransform:
   m_Father: {fileID: 189980646}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.21113688}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.2111368}
+  m_AnchorMax: {x: 1, y: 0.99999994}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

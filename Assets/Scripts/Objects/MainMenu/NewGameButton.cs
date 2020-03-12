@@ -25,7 +25,7 @@ public class NewGameButton : MonoBehaviour
         {
             try
             {
-                Game.NewGame(input.text);
+                Game.NewGame(new SaveName(input.text));
             }
             catch (System.Exception e)
             {

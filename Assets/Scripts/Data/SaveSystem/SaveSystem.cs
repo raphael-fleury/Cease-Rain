@@ -29,22 +29,22 @@ public class Save
     public Save(SceneEnum level) : 
         this(level, 0) { }
 
-    public Save(string fileName) =>
-        Load(fileName);
+    public Save(SaveName name) =>
+        Load(name);
     #endregion
 
     #region Methods
-    public void Load(FileName fileName)
+    public void Load(SaveName saveName)
     {
-        if (!fileName.fileExists)
-            throw new ArgumentException("File " + fileName + " does not exist.");
+        if (!saveName.fileExists)
+            throw new ArgumentException("File " + saveName + " does not exist.");
 
-        Save save = SaveSystem.GetSave(SaveSystem.GetFullPath(fileName));
+        Save save = SaveSystem.GetSave(SaveSystem.GetFullPath(saveName));
         level = save.level;
         checkpoint = save.checkpoint;
     }
 
-    public void SaveGame(FileName fileName) => 
+    public void SaveGame(SaveName fileName) => 
         SaveSystem.SaveGame(this, fileName);
     #endregion
 }
@@ -111,7 +111,7 @@ public static class SaveSystem
         }
     }
 
-    public static void SaveGame(Save save, FileName name)
+    public static void SaveGame(Save save, SaveName name)
     {
         BinaryFormatter formatter = new BinaryFormatter();
 

@@ -20,6 +20,7 @@ public static class Game
     #region Load Scene
     public static void LoadScene(int scene)
     {
+        isPaused = false;
         Time.timeScale = 1f;
         Level.checkpoint = 0;
         currentScene = scene;
@@ -34,23 +35,23 @@ public static class Game
     #endregion
 
     #region Save Game
-    public static void Save(Save save, string fileName) =>
-        SaveSystem.SaveGame(save, fileName);
+    public static void Save(Save save, SaveName name) =>
+        SaveSystem.SaveGame(save, name);
 
     public static void Save() =>
-        Save(new Save(currentScene, Level.checkpoint), currentSave);
+        Save(new Save(currentScene, Level.checkpoint), new SaveName(currentSave));
     #endregion
 
-    public static void NewGame(string fileName)
+    public static void NewGame(SaveName name)
     {
-        Save(new Save(SceneEnum.Cutscene), fileName);
-        LoadGame(fileName);
+        Save(new Save(SceneEnum.Cutscene), name);
+        LoadGame(name);
     }
 
-    public static void LoadGame(string fileName)
+    public static void LoadGame(SaveName name)
     {
-        LoadScene(new Save(fileName).level);
-        currentSave = fileName;
+        LoadScene(new Save(name).level);
+        currentSave = name;
     }
 
     public static void ChangeLanguage(Language language)

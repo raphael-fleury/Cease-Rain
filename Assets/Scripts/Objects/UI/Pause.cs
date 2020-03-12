@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -9,8 +8,10 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(Controls.FindKey("PauseKey")))
         {
-            if (!Game.isPaused) { PauseGame(); }
-            else { Resume(); }
+            if (!Game.isPaused)
+                PauseGame();
+            else
+                Resume();
         }
     }
 

@@ -4,7 +4,7 @@ using System.IO;
 
 public class FileName
 {
-    string name;
+    protected string name;
 
     public FileName(string name)
     {
@@ -26,7 +26,6 @@ public class FileName
         this.name = name;
     }
 
-    #region Properties
     public static IEnumerable<string> invalidFileNames
     {
         get
@@ -38,28 +37,10 @@ public class FileName
         }       
     }
 
-    public string fullPath
-    {
-        get { return SaveSystem.GetFullPath(name); }
-    }
-
-    public bool fileExists
-    {
-        get { return SaveSystem.FileExists(name); }
-    }
-    #endregion
-
-    #region Methods
-    public Save GetSave()
-    {
-        return SaveSystem.GetSave(fullPath);
-    }
-
     public override string ToString()
     { 
         return name; 
     }
-    #endregion
 
     public static implicit operator string(FileName f) => f.ToString();
 }
