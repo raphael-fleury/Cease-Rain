@@ -34,9 +34,6 @@ public class SaveDisplay : MonoBehaviour
         button.GetComponentInChildren<Text>().text = Display();
     }
 
-    public void OnButtonClick()
-    {
-        button.interactable = false;
+    public void OnButtonClick() =>
         scrollView.OnButtonClick(this);
-    }
 }

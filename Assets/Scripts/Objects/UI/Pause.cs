@@ -1,19 +1,8 @@
 ﻿using UnityEngine;
 
-public class Pause : MonoBehaviour
+public class Pause : LevelScreen
 {
-    public GameObject pauseUI;
-
-    void Update()
-    {
-        if (Input.GetKeyDown(Controls.FindKey("PauseKey")))
-        {
-            if (!Game.isPaused)
-                PauseGame();
-            else
-                Resume();
-        }
-    }
+    [SerializeField] GameObject pauseUI;
 
     public void PauseGame()
     {
@@ -27,19 +16,14 @@ public class Pause : MonoBehaviour
         pauseUI.SetActive(false);
     }
 
-    public void RestartLevel()
+    void Update()
     {
-        Time.timeScale = 1f;
-        Game.ReloadScene();
+        if (Input.GetKeyDown(Controls.FindKey("PauseKey")) && Game.canPause)
+        {
+            if (!Game.isPaused)
+                PauseGame();
+            else
+                Resume();
+        }
     }
-
-    public void MainMenu()
-    {
-        Time.timeScale = 1f;
-        Game.Resume();
-
-        Game.Save();
-        Game.LoadScene(SceneEnum.Menu);
-    }
-
 }

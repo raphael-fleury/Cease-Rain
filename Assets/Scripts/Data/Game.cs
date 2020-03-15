@@ -10,7 +10,8 @@ public static class Game
     public static Language language { get; private set; }
     public static int currentScene { get; private set; }
     public static string currentSave { get; private set; }
-    public static bool isPaused { get; private set; }
+    public static bool canPause { get; private set; } = true;
+    public static bool isPaused { get; private set; } = false;
     #endregion
 
     public static event Action<int> OnLanguageChange;

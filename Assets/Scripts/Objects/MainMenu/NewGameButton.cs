@@ -3,8 +3,6 @@ using UnityEngine.UI;
 
 public class NewGameButton : MonoBehaviour
 {
-    public string[] _array = new string[(int)Language.Portuguese + 1];
-
     [SerializeField] GameObject okButton;
     [SerializeField] GameObject yesNoButtons;
 
@@ -12,16 +10,27 @@ public class NewGameButton : MonoBehaviour
     [SerializeField] InputField input;
     [SerializeField] Text output;
 
-    [Space(10)]
-    [SerializeField] string fileAlreadyExists;
-
-    public void OnInputChanged(string text)
+    private void OnEnable()
     {
+        input.text = "";
+        Reset();        
+        input.placeholder.gameObject.SetActive(true);
+        okButton.GetComponent<Button>().interactable = false;
+    }
+
+    public void Reset()
+    {
+        okButton.GetComponentInChildren<Text>().text = "CREATE";
         okButton.GetComponent<Button>().interactable = true;
         output.text = "";
 
         yesNoButtons.SetActive(false);
         okButton.SetActive(true);
+    }
+
+    public void OnInputChanged(string text)
+    {
+        Reset();
 
         SaveName saveName;
         try
@@ -29,10 +38,8 @@ public class NewGameButton : MonoBehaviour
             saveName = new SaveName(text); 
             if(saveName.fileExists)
             {
-                okButton.GetComponent<Button>().interactable = true;
-                output.text = "File already exists. Want to override?";
-                yesNoButtons.SetActive(true);
-                okButton.SetActive(false);
+                output.text = "File already exists.";
+                okButton.GetComponentInChildren<Text>().text = "REPLACE";                
             }
         }
         catch (System.Exception e)
@@ -46,7 +53,7 @@ public class NewGameButton : MonoBehaviour
     {        
         if (SaveSystem.FileExists(input.text) && !replace)
         {
-            output.text = fileAlreadyExists;
+            output.text = "Are you sure?";
             yesNoButtons.SetActive(true);
             okButton.SetActive(false);
         }

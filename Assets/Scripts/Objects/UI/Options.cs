@@ -1,32 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Options : MonoBehaviour
 {
-    [Header("References")]
-    public GameObject options;
+    #region Fields
+    GameObject origin;
 
-    void Awake()
-    {
-        LoadResolutions();
-        LoadGraphics();
-
-        music.Load(mixer);
-        sound.Load(mixer);
-    }
-
-    public void Toggle(bool on) { options.SetActive(on); }
-
-    #region Video
     [Header("Video")]
-    public bool fullscreen;
+    [SerializeField] bool fullscreen;
 
     [Space(10)]
-    public Dropdown resolution;
-    public Dropdown graphics;
+    [SerializeField] Dropdown resolution;
+    [SerializeField] Dropdown graphics;
+
+    [Header("Audio")]
+    [SerializeField] AudioMixer  mixer;
+    [SerializeField] AudioOption music;
+    [SerializeField] AudioOption sound;
+    #endregion
+
+    public void Enable(GameObject origin)
+    {
+        this.origin = origin;
+        gameObject.SetActive(true);
+    }
+
+    #region Video
 
     #region Resolution
     public void LoadResolutions()
@@ -85,10 +87,8 @@ public class Options : MonoBehaviour
     #endregion
 
     #region Audio
-    [Header("Audio")]
-    public AudioMixer  mixer;
-    public AudioOption music;
-    public AudioOption sound;
+    public void MusicVolume(float f) { music.Update(mixer, f); }
+    public void AudioVolume(float f) { sound.Update(mixer, f); }
 
     [System.Serializable]
     public class AudioOption
@@ -101,13 +101,14 @@ public class Options : MonoBehaviour
         {
             if (!PlayerPrefs.HasKey(option))
                 Update(mixer, 60);
-            else {
+            else
+            {
                 float f = PlayerPrefs.GetFloat(option, 60);
                 Update(mixer, f);
                 slider.value = f;
                 mixer.SetFloat(option, f - 80);
             }
-                            
+
         }
 
         public void Update(AudioMixer mixer, float f)
@@ -116,11 +117,23 @@ public class Options : MonoBehaviour
             PlayerPrefs.Save();
 
             amount.text = "" + Mathf.RoundToInt(f / slider.maxValue * 100);
-            mixer.SetFloat(option, f - 80);           
+            mixer.SetFloat(option, f - 80);
         }
     }
-
-    public void MusicVolume(float f) { music.Update(mixer, f); }
-    public void AudioVolume(float f) { sound.Update(mixer, f); }
     #endregion
+
+    #region Private Methods
+    void OnEnable()
+    {
+        LoadResolutions();
+        LoadGraphics();
+
+        music.Load(mixer);
+        sound.Load(mixer);
+    }
+
+    void OnDisable() =>
+        origin?.SetActive(true);
+    #endregion
+
 }

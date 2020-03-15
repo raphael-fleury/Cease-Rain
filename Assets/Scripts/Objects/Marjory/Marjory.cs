@@ -22,5 +22,5 @@ public class Marjory : Character
         toxicity += 0.2f;
     }
 
-    protected override void Death() {}
+    //protected override void Death() {}
 }

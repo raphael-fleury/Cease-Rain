@@ -13,7 +13,7 @@ public class FileName
         
         foreach(string s in invalidFileNames)
         {
-            if (name.Equals(s))
+            if (name.ToUpper().Equals(s))
                 throw new ArgumentException("Invalid name.");
         }
 

@@ -24,6 +24,12 @@ public class SaveListUI : MonoBehaviour
     {
         selectedSave = display;
         SetButtonsActive(true);
+
+        foreach (Transform child in container)
+        {
+            child.GetComponent<Button>().interactable =
+                display != child.GetComponent<SaveDisplay>();
+        }
     }
 
     public void DeleteSave()
@@ -48,14 +54,8 @@ public class SaveListUI : MonoBehaviour
 
         SetButtonsActive(false);
 
-        //Destroy(buttons);
-        //GameObject buttons = Instantiate(buttons);
-        //buttons.transform.parent = container;
-
         foreach (Transform child in container)
-        {
             Destroy(child.gameObject);
-        }
 
         container.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(
             RectTransform.Axis.Vertical,
