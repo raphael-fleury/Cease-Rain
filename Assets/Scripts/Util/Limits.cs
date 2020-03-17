@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public struct Limits
@@ -32,6 +30,14 @@ public struct Limits
     public float Distance()
     {
         return Mathf.Abs(higher - lower); 
+    }
+
+    public float GetNearestLimit(float pos)
+    {
+        if (Mathf.Abs(lower - pos) > Mathf.Abs(higher - pos))
+            return higher;
+        else
+            return lower;
     }
 
     public void Set(float lower, float higher)

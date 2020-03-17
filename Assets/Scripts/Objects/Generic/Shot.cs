@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Shot : AutoDestroy
 {
@@ -13,6 +14,8 @@ public class Shot : AutoDestroy
     [SerializeField] protected int damage;
     #endregion
 
+    public event Action<Collision2D> OnCollision;
+
     #region Methods
     protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
 
@@ -23,7 +26,9 @@ public class Shot : AutoDestroy
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {       
+    {
+        OnCollision?.Invoke(collision);
+
         if (collision.gameObject.CompareTag(targetTag))
             collision.gameObject.GetComponent<Character>().life -= damage;
 

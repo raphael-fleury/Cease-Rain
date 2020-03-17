@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class ExtensionMethods
 {
@@ -67,6 +65,23 @@ public static class ExtensionMethods
     }
     #endregion
 
+    #endregion
+
+    #region Transform
+    public static void SetPosition(this Transform transform, Vector3 position) =>
+        transform.position = position;
+
+    public static void SetPosition(this Transform transform, float x, float y, float z) =>
+        transform.position = new Vector3(x, y, z);
+
+    public static void SetPositionX(this Transform transform, float x) =>
+        transform.position = new Vector3(x, transform.position.y, transform.position.z);
+
+    public static void SetPositionY(this Transform transform, float y) =>
+        transform.position = new Vector3(transform.position.x, y, transform.position.z);
+
+    public static void SetPositionZ(this Transform transform, float z) =>
+        transform.position = new Vector3(transform.position.x, transform.position.y, z);
     #endregion
 
     #region Camera

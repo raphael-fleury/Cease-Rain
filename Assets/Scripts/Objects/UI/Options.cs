@@ -2,7 +2,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class Options : MonoBehaviour
 {

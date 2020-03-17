@@ -4,10 +4,10 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: escotilha_0
+    second: Steam_Left
   - first:
       213: 21300002
-    second: escotilha_1
+    second: Steam_Right
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -92,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: escotilha_0
+      name: Steam_Left
       rect:
         serializedVersion: 2
         x: 73
@@ -100,7 +100,7 @@ TextureImporter:
         width: 197
         height: 149
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,7 +113,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: escotilha_1
+      name: Steam_Right
       rect:
         serializedVersion: 2
         x: 404
@@ -121,7 +121,7 @@ TextureImporter:
         width: 199
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 13fdd3b2bd893654184b52432231bd00
     internalID: 0
     vertices: []
     indices: 

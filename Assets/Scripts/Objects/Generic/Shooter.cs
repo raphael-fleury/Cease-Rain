@@ -16,7 +16,7 @@ public struct Shooter
     public GameObject Shoot(Vector2 force)
     {
         GameObject shot = Instantiate();
-        shot.GetComponent<Rigidbody2D>().AddForce(force * speed);
+        shot.GetComponent<Rigidbody2D>().AddForce(force * speed * 100);
         return shot;
     }
 }

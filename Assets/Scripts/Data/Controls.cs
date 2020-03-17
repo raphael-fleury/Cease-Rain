@@ -34,6 +34,7 @@ public class Controls
             keylist.Add(new Key("DiagonalAimKey", KeyCode.UpArrow));
             keylist.Add(new Key("InteractionKey", KeyCode.DownArrow));
             keylist.Add(new Key("PauseKey", KeyCode.P));
+            keylist.Add(new Key("PauseKey", KeyCode.P));
             return keylist;
         }
     }

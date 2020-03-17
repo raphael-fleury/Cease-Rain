@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     {
         Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x), Mathf.Abs(transform.rotation.z) * 2 - rotationFix);
 
-        shot = shooter.Shoot(vector * 100);
+        shot = shooter.Shoot(vector);
            
         bullets--;
         if (bullets < 1)
