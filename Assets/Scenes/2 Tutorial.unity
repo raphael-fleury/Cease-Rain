@@ -236,12 +236,12 @@ GameObject:
   - component: {fileID: 22537082}
   - component: {fileID: 22537081}
   m_Layer: 0
-  m_Name: Portal
+  m_Name: Portal 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &22537078
 Transform:
   m_ObjectHideFlags: 0
@@ -253,10 +253,10 @@ Transform:
   m_LocalPosition: {x: 21.2, y: -9.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1235106120}
   - {fileID: 1202518272}
+  - {fileID: 272178797}
   m_Father: {fileID: 1722042506}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &22537079
 BoxCollider2D:
@@ -296,7 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdd4a7cc8838204d869a5e6d13196d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defend: 0
+  playerIn: 0
+  needToDefend: 0
   cooldown: 1
   shooter:
     prefab: {fileID: 5293315714494438080, guid: 5a9da14c9b6ca7949add5595d1a76576,
@@ -304,7 +305,7 @@ MonoBehaviour:
     output: {fileID: 1202518272}
     speed: 15
   tutorial: {fileID: 1722042507}
-  arrow: {fileID: 1235106117}
+  arrowPosition: {fileID: 272178797}
 --- !u!212 &22537081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5858,6 +5859,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &272178796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 272178797}
+  m_Layer: 0
+  m_Name: Arrow Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272178797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272178796}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -33.9, y: 8.1, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22537078}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &285500010
 GameObject:
   m_ObjectHideFlags: 0
@@ -6228,7 +6259,7 @@ Transform:
   m_LocalScale: {x: 0.9, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1722042506}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &398468032
 BoxCollider2D:
@@ -6590,7 +6621,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -14.73}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.5
   m_Points:
   - {x: -24.485, y: 0}
   - {x: 24.485, y: 0}
@@ -6607,8 +6638,8 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.47, y: -14.73}
-  m_EdgeRadius: 0
+  m_Offset: {x: -1.04, y: -14.73}
+  m_EdgeRadius: 0.5
   m_Points:
   - {x: 24.485, y: 30}
   - {x: 24.485, y: 5.54}
@@ -6626,7 +6657,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -14.73}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.5
   m_Points:
   - {x: -24.485, y: 30}
   - {x: -24.485, y: -0.65}
@@ -8185,7 +8216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &940445755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23016,7 +23047,7 @@ Transform:
   m_Children:
   - {fileID: 592469392}
   m_Father: {fileID: 1722042506}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1145963780
 MonoBehaviour:
@@ -23167,7 +23198,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22537078}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205611532
 GameObject:
@@ -23330,7 +23361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1235106119
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23389,11 +23420,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235106117}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -33.9, y: 8.1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -12.700001, y: -1.6999998, z: 0}
+  m_LocalScale: {x: -2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 22537078}
-  m_RootOrder: 0
+  m_Father: {fileID: 1722042506}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1235106121
 MonoBehaviour:
@@ -24049,7 +24080,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1722042506}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514937405
 GameObject:
@@ -24760,6 +24791,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1483912825}
+  - {fileID: 1235106120}
   - {fileID: 22537078}
   - {fileID: 1145963779}
   - {fileID: 1497983298}
@@ -24780,6 +24812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventIndex: 0
+  arrow: {fileID: 1235106121}
   events:
   - m_PersistentCalls:
       m_Calls:
@@ -24791,7 +24824,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: aaaaaa
+          m_StringArgument: Wake up Marjory!
           m_BoolArgument: 0
         m_CallState: 2
   - m_PersistentCalls:
@@ -24804,7 +24837,8 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: bbbbbb
+          m_StringArgument: Welcome to Gategarden. Cursed land where rain has lasted
+            for over 200 years.
           m_BoolArgument: 0
         m_CallState: 2
   - m_PersistentCalls:
@@ -24817,7 +24851,9 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: cccccc
+          m_StringArgument: Don't run away from your destiny and you'll have what
+            you most want. You will be able to change your past and restart your
+            life without the weight you carry.
           m_BoolArgument: 0
         m_CallState: 2
   - m_PersistentCalls:
@@ -24830,7 +24866,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: dddddd
+          m_StringArgument: Let's go to the training.
           m_BoolArgument: 0
         m_CallState: 2
   - m_PersistentCalls:
@@ -24843,21 +24879,21 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: eeeeee
+          m_StringArgument: Try to dodge that magic.
           m_BoolArgument: 0
         m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 22537077}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   - m_PersistentCalls:
       m_Calls:

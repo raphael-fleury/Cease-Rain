@@ -3,41 +3,61 @@
 public class TutorialShooter : MonoBehaviour
 {
     #region Fields
+    [Header("Status")]
+    [SerializeField] bool playerIn;
+
     [Header("Options")]
-    [SerializeField] bool defend;
+    [SerializeField] bool needToDefend;
     [SerializeField] float cooldown;
 
     [Header("References")]
     [SerializeField] Shooter shooter;
     [SerializeField] Tutorial tutorial;
-    [SerializeField] GameObject arrow;
-
-    bool playerIn;
+    [SerializeField] Transform arrowPosition;
     #endregion
 
     #region Methods
-    public void Activate(bool needToDefend)
+
+    #region Animator
+    private void Go()
     {
-        gameObject.SetActive(true);
-        defend = needToDefend;
+        tutorial.ActivateArrow(arrowPosition.position, Vector2.down);
+        CallShootAnimation();
     }
 
-    public void Shoot()
+    private void Shoot()
     {
         Shot shot = shooter.Shoot(Vector2.left).GetComponent<Shot>();
         shot.OnCollision += OnShotCollision;
     }
 
-    private void InvokeShot() =>
-        GetComponent<Animator>().SetTrigger("Shoot");
+    private void Close()
+    {
+        gameObject.SetActive(false);
+        tutorial.arrow.gameObject.SetActive(false);
+        tutorial.NextEvent();
+    }
+    #endregion
+
+    private void CallShootAnimation()
+    {
+        if (playerIn)
+            GetComponent<Animator>().SetTrigger("Shoot");
+    }      
+
+    private void CallCloseAnimation()
+    {
+        tutorial.arrow.gameObject.SetActive(false);
+        GetComponent<Animator>().SetTrigger("End");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Invoke("InvokeShot", cooldown);
+            Invoke("CallShootAnimation", cooldown);
             playerIn = true;
-            arrow.SetActive(false);
+            tutorial.arrow.gameObject.SetActive(false);
         }
     }
 
@@ -46,7 +66,7 @@ public class TutorialShooter : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerIn = false;
-            arrow.SetActive(true);
+            tutorial.arrow.gameObject.SetActive(true);
         }           
     }
 
@@ -56,19 +76,15 @@ public class TutorialShooter : MonoBehaviour
         
         if(tag != "Player")
         {
-            if (!defend || tag == "Umbrella")
-                End();
+            if (!needToDefend || tag == "Umbrella")
+                CallCloseAnimation();
             else if (playerIn)
-                Invoke("InvokeShot", cooldown);
+                Invoke("CallShootAnimation", cooldown);
         }
         else
-            Invoke("InvokeShot", cooldown);
+            Invoke("CallShootAnimation", cooldown);
     }
 
-    private void End()
-    {
-        tutorial.NextEvent();
-        gameObject.SetActive(false);
-    }
+
     #endregion
 }

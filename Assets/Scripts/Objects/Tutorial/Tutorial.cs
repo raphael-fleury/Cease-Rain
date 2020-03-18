@@ -6,7 +6,9 @@ public class Tutorial : MonoBehaviour
     [Header("Status")]
     [SerializeField] int eventIndex = 0;
 
-    public UnityEvent[] events;
+    [Header("References")]
+    public IndicatorArrow arrow;
+    [SerializeField] UnityEvent[] events;
 
     public void NextEvent()
     {
@@ -18,6 +20,13 @@ public class Tutorial : MonoBehaviour
     {
         Destroy(Level.marjory.gameObject);
         Game.LoadScene(SceneEnum.FirstLevel);
+    }
+
+    public void ActivateArrow(Vector3 position, Vector2 pointingAt)
+    {
+        arrow.gameObject.SetActive(true);
+        arrow.transform.position = position;
+        arrow.PointAt(pointingAt);
     }
 
     void Start()

@@ -8,7 +8,7 @@ public class IndicatorArrow : MonoBehaviour
     int direction = 1;
 
     public void PointAt(Vector2 direction) =>
-        transform.right = transform.position.ToVector2() + direction;
+        transform.right = direction;
 
     private void ChangeDirection()
     {
