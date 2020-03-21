@@ -68,9 +68,8 @@ public static class ExtensionMethods
     #endregion
 
     #region Transform
-    public static void SetPosition(this Transform transform, Vector3 position) =>
-        transform.position = position;
 
+    #region Position
     public static void SetPosition(this Transform transform, float x, float y, float z) =>
         transform.position = new Vector3(x, y, z);
 
@@ -82,6 +81,36 @@ public static class ExtensionMethods
 
     public static void SetPositionZ(this Transform transform, float z) =>
         transform.position = new Vector3(transform.position.x, transform.position.y, z);
+    #endregion
+
+    #region LocalScale
+    public static void SetLocalScale(this Transform transform, Vector3 scale) =>
+        transform.localScale = scale;
+
+    public static void SetLocalScale(this Transform transform, float x, float y, float z) =>
+        transform.localScale = new Vector3(x, y, z);
+
+    public static void SetLocalScaleX(this Transform transform, float x) =>
+        transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
+
+    public static void SetLocalScaleY(this Transform transform, float y) =>
+        transform.localScale = new Vector3(transform.localScale.x, y, transform.localScale.z);
+
+    public static void SetLocalScaleZ(this Transform transform, float z) =>
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, z);
+    #endregion
+
+    #endregion
+
+    #region RigidBody2D
+    public static void SetVelocity(this Rigidbody2D body, float x, float y) =>
+        body.velocity = new Vector2(x, y);
+
+    public static void SetVelocityX(this Rigidbody2D body, float x) =>
+        body.velocity = new Vector2(x, body.velocity.y);
+
+    public static void SetVelocityY(this Rigidbody2D body, float y) =>
+        body.velocity = new Vector2(body.velocity.x, y);
     #endregion
 
     #region Camera

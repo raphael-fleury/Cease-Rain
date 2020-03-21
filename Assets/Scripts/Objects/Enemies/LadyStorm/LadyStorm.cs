@@ -36,10 +36,8 @@ public class LadyStorm : Enemy
         feet.OnStep += SpawnShock;
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() =>
         animator.SetBool("idle", movement.canMove);
-    }
     #endregion
 
     #region Methods

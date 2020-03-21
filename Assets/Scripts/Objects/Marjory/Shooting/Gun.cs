@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float rotationFix;
 
     [Header("References")]
-    [SerializeField] MarjoryShooting marjory;
+    [SerializeField] Marjory marjory;
     [SerializeField] AudioSource sound; 
     #endregion  
   
@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour
            
         bullets--;
         if (bullets < 1)
-            marjory.SetGun(MarjoryShooting.Guns.Codomoon, int.MaxValue);
+            marjory.SetGun(Marjory.Guns.Codomoon, int.MaxValue);
     }
 
     public void Activate(int bullets)

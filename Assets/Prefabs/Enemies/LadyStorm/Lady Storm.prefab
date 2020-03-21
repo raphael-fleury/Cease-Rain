@@ -118,8 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canMove: 1
   direction: 0
-  knockback: 0
-  walkSpeed: 6
+  _knockback: 0
+  _walkSpeed: 5
   minSpace: 5
   minDistance: 7
   limits:
@@ -224,6 +224,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

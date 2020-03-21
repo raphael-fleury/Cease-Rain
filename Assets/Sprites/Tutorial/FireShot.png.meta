@@ -16,7 +16,19 @@ TextureImporter:
     second: FireShot_3
   - first:
       213: 21300008
-    second: FireShot_4
+    second: FireShot_0
+  - first:
+      213: -5273975315857463675
+    second: FireShot_1
+  - first:
+      213: -1821142561533437713
+    second: FireShot_2
+  - first:
+      213: 1094242675625973606
+    second: FireShot_3
+  - first:
+      213: -6782294919684209366
+    second: FireShot_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -106,94 +118,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 337.6
-        height: 160
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireShot_1
-      rect:
-        serializedVersion: 2
-        x: 359
-        y: 0
-        width: 315
-        height: 160
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireShot_2
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 0
-        width: 291
-        height: 160
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireShot_3
-      rect:
-        serializedVersion: 2
-        x: 1064
-        y: 0
-        width: 284
-        height: 160
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62305410000000000800000000000000
-      internalID: 21300006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FireShot_4
-      rect:
-        serializedVersion: 2
-        x: 1393
-        y: 0
-        width: 292
+        width: 298
         height: 160
       alignment: 9
-      pivot: {x: 0.02, y: 0.5}
+      pivot: {x: 0.78, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,10 +133,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: FireShot_1
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 0
+        width: 285
+        height: 160
+      alignment: 9
+      pivot: {x: 0.76, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586232894631fc6b0800000000000000
+      internalID: -5273975315857463675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireShot_2
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 0
+        width: 297
+        height: 160
+      alignment: 9
+      pivot: {x: 0.79, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe854763d700ab6e0800000000000000
+      internalID: -1821142561533437713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireShot_3
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 0
+        width: 280
+        height: 160
+      alignment: 9
+      pivot: {x: 0.75, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66752ca7ae78f2f00800000000000000
+      internalID: 1094242675625973606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireShot_4
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 0
+        width: 264
+        height: 160
+      alignment: 9
+      pivot: {x: 0.75, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25494664b270e1a0800000000000000
+      internalID: -6782294919684209366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fd82388672780da44a0a11cbb298e875
     internalID: 0
     vertices: []
     indices: 

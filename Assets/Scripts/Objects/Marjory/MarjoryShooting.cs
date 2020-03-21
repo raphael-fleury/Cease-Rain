@@ -6,8 +6,8 @@ public class MarjoryShooting : MonoBehaviour
     #region Fields
     [Header("Status")]
     [SerializeField] bool _canShoot = true;
-    [SerializeField] Guns _currentGun;
-    [Min(0)] public float recharging;
+    [SerializeField] Marjory.Guns _currentGun;
+    [SerializeField] [Min(0)] float recharging;
 
     [Header("References")]
     [SerializeField] Gun[] guns;
@@ -17,8 +17,6 @@ public class MarjoryShooting : MonoBehaviour
     public event Action<int> OnGunChange;
     public event Action OnShoot;
     #endregion
-
-    public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
 
     #region Properties
     public bool canShoot
@@ -30,7 +28,7 @@ public class MarjoryShooting : MonoBehaviour
     public int currentGunIndex
     {
         get { return (int)_currentGun; }
-        set { _currentGun = (Guns)value; }
+        set { _currentGun = (Marjory.Guns)value; }
     }
 
     public Gun currentGun
@@ -57,13 +55,10 @@ public class MarjoryShooting : MonoBehaviour
         if (newGun) //if it's a gun
             newGun.Activate(bullets);
 
-        if (OnGunChange != null)
-            OnGunChange(gun);
+        OnGunChange?.Invoke(gun);
 
         currentGunIndex = gun;
     }
-
-    public void SetGun(Guns gun, int bullets) => SetGun((int)gun, bullets);
 
     void ChangeGun()
     {
@@ -81,10 +76,9 @@ public class MarjoryShooting : MonoBehaviour
             return false;
 
         recharging = currentGun.rechargeTime;
-        currentGun.Shoot();      
+        currentGun.Shoot();
 
-        if (OnShoot != null)
-            OnShoot();
+        OnShoot?.Invoke();
 
         return true;
     }

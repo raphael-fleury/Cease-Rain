@@ -41,14 +41,14 @@ public class TutorialShooter : MonoBehaviour
 
     private void CallShootAnimation()
     {
-        if (playerIn)
+        if (playerIn && !IsInvoking("CallShootAnimation"))
             GetComponent<Animator>().SetTrigger("Shoot");
     }      
 
     private void CallCloseAnimation()
     {
         tutorial.arrow.gameObject.SetActive(false);
-        GetComponent<Animator>().SetTrigger("End");
+        GetComponent<Animator>().SetTrigger("Close");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

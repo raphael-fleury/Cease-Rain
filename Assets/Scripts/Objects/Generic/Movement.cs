@@ -8,11 +8,11 @@ public class Movement : MonoBehaviour
 
     [Header("Status")]
     [SerializeField] protected bool _canMove = true;
-    [Range(-1,1)] public int direction;
-    [Min(0)] public float knockback;
+    [Range(-1,1)] protected int direction;
+    [SerializeField] [Min(0)] protected float _knockback;
 
     [Header("Options")]
-    public float walkSpeed;
+    [SerializeField] float _walkSpeed;
     #endregion
 
     #region Events
@@ -26,15 +26,26 @@ public class Movement : MonoBehaviour
         get { return knockback <= 0 && _canMove; }
         set { _canMove = value; }
     }
+
+    public float knockback
+    {
+        get { return _knockback; }
+    }
+
+    public float walkSpeed
+    {
+        get { return _walkSpeed; }
+    }
     #endregion
   
     #region Unity Methods
-    protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
+    protected virtual void Awake() =>
+        body = GetComponent<Rigidbody2D>();
 
     protected virtual void FixedUpdate()
     {
         if (knockback > 0)
-            knockback -= Time.fixedDeltaTime;
+            _knockback -= Time.fixedDeltaTime;
         else if (canMove)
             Move();
     }
@@ -44,28 +55,22 @@ public class Movement : MonoBehaviour
     public void Knockback(float knockback)
     {
         body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
-        this.knockback = knockback;
+        _knockback = knockback;
     }
 
     protected virtual void Move()
     {
         Flip();
-        body.velocity = new Vector2(direction * walkSpeed, body.velocity.y);
-
-        if (OnMove != null)
-            OnMove();
+        body.SetVelocityX(direction * walkSpeed);
+        OnMove?.Invoke();
     }
 
     void Flip()
     {   
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
         {
-            Vector3 scale = transform.localScale;
-            scale.x = -scale.x;
-            transform.localScale = scale;
-
-            if (OnFlip != null)
-                OnFlip();
+            transform.SetLocalScaleX(-transform.localScale.x);
+            OnFlip?.Invoke();
         }
     }
     #endregion

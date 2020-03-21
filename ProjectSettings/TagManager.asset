@@ -5,12 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Inimigo
-  - Guardachuva
-  - EscudoInimigo
   - PlayerShot
   - EnemyShot
-  - Porta
   layers:
   - Default
   - TransparentFX

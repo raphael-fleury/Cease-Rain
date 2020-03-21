@@ -67,7 +67,8 @@ public class MarjoryMovement : Movement
 
     void Update()
     {
-        if (Input.GetKeyDown(Controls.FindKey("JumpKey"))) { feet.Jump(); }
+        if (Input.GetKeyDown(Controls.FindKey("JumpKey")))
+            feet.Jump();
 
         axisX = Input.GetAxis("Horizontal");
         if (axisX != 0)

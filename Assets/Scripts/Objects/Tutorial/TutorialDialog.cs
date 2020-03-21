@@ -13,22 +13,19 @@ public class TutorialDialog : MonoBehaviour
     float delay;
     string text;   
     int index = 0;
-    
+
     public void Write(string text)
     {
         index = 0;
         this.text = text;
-        textBox.text = "";       
+        textBox.text = "";
         gameObject.SetActive(true);
     }
 
-    void End()
-    {
-        gameObject.SetActive(false);
-        tutorial.NextEvent();             
-    }
+    private void OnEnable() =>
+        Level.marjory.Freeze();
 
-    void Update()
+    private void Update()
     {
         if (delay > 0)
         {
@@ -48,5 +45,12 @@ public class TutorialDialog : MonoBehaviour
             End();
             return;
         }
+    }
+
+    private void End()
+    {
+        Level.marjory.Unfreeze();
+        gameObject.SetActive(false);
+        tutorial.NextEvent();
     }
 }

@@ -29,10 +29,7 @@ public class Feet : MonoBehaviour
     #region Properties
     public bool onFloor
     {
-        get 
-        {
-            return circle.Overlap(floor);  
-        }        
+        get { return circle.Overlap(floor); }
     }
 
     public bool canJump
@@ -50,8 +47,7 @@ public class Feet : MonoBehaviour
 
         body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
 
-        if (OnJump != null)
-            OnJump();
+        OnJump?.Invoke();
         return true;
     }
 
@@ -69,12 +65,10 @@ public class Feet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!_onFloor && onFloor && OnStep != null)
-            OnStep();
+        if (!_onFloor && onFloor)
+            OnStep?.Invoke();
 
         _onFloor = onFloor;
     }
-
-    //private void Update() { Debug.Log(onFloor); }
     #endregion
 }
