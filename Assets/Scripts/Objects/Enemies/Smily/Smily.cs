@@ -2,8 +2,6 @@
 
 public class Smily : FightMovement
 {
-    enum CurrentAction { Idle, Walking, Recharging, Jumping, Falling }
-    
     Animator anim;
     Feet feet;
     
@@ -15,6 +13,8 @@ public class Smily : FightMovement
 
     [SerializeField] Shooter shooter;
     [SerializeField] float knockbackOnShoot;
+
+    enum CurrentAction { Idle, Walking, Recharging, Jumping, Falling }
 
     CurrentAction currentAction
     {

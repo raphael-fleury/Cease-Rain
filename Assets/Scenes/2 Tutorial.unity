@@ -6349,7 +6349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5933217905884b745892b9e58a301667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 0
   _life: 15
   broken: 0
   tutorial: {fileID: 1722042507}

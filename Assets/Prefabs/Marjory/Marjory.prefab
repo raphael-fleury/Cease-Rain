@@ -1719,7 +1719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b73080b2844404fb1413d50a1331ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 0
   _life: 100
   toxicity: 0
 --- !u!114 &4015729560835019933
@@ -1735,7 +1734,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  direction: 0
   _knockback: 0
   _walkSpeed: 8
   movement: 0
@@ -1786,7 +1784,7 @@ MonoBehaviour:
   defending: 0
   umbrella: {fileID: 0}
   localUmbrella: {fileID: 7736587983573407813}
-  tagUmbrella: Guardachuva
+  tagUmbrella: Umbrella
 --- !u!114 &4015729560835019911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,7 +2634,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0.1
   rotationFix: 0.03
-  marjory: {fileID: 4015729560835019930}
+  marjory: {fileID: 0}
   sound: {fileID: 0}
 --- !u!212 &5056314769346148279
 SpriteRenderer:
@@ -2794,7 +2792,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 1
   rotationFix: 0.008750259
-  marjory: {fileID: 4015729560835019930}
+  marjory: {fileID: 0}
   sound: {fileID: 0}
 --- !u!212 &5056314769470253938
 SpriteRenderer:
@@ -2899,7 +2897,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0.5
   rotationFix: 0.01680532
-  marjory: {fileID: 4015729560835019930}
+  marjory: {fileID: 0}
   sound: {fileID: 0}
   fire: {fileID: 5056314770336271941}
 --- !u!212 &5056314769811644300
@@ -3117,7 +3115,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0
   rotationFix: 0
-  marjory: {fileID: 4015729560835019930}
+  marjory: {fileID: 0}
   sound: {fileID: 0}
 --- !u!1 &5056314770336271941
 GameObject:
@@ -3253,7 +3251,7 @@ MonoBehaviour:
   bullets: 0
   rechargeTime: 0.5
   rotationFix: 0.04145867
-  marjory: {fileID: 4015729560835019930}
+  marjory: {fileID: 0}
   sound: {fileID: 0}
 --- !u!212 &5056314770344310487
 SpriteRenderer:

@@ -16,8 +16,20 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Events
-    public event Action OnFlip;
-    public event Action OnMove;
+    private event Action onFlip;
+    private event Action onMove;
+
+    public event Action OnFlip
+    {
+        add { onFlip += value; }
+        remove { onFlip -= value; }
+    }
+
+    public event Action OnMove
+    {
+        add { onMove += value; }
+        remove { onMove -= value; }
+    }
     #endregion
 
     #region Properties
@@ -62,7 +74,7 @@ public class Movement : MonoBehaviour
     {
         Flip();
         body.SetVelocityX(direction * walkSpeed);
-        OnMove?.Invoke();
+        onMove?.Invoke();
     }
 
     void Flip()
@@ -70,7 +82,7 @@ public class Movement : MonoBehaviour
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
         {
             transform.SetLocalScaleX(-transform.localScale.x);
-            OnFlip?.Invoke();
+            onFlip?.Invoke();
         }
     }
     #endregion

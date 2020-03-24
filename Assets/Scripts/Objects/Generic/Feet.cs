@@ -22,8 +22,20 @@ public class Feet : MonoBehaviour
     #endregion
 
     #region Events
-    [HideInInspector] public event Action OnJump;
-    [HideInInspector] public event Action OnStep;
+    private event Action onJump;
+    private event Action onStep;
+
+    public event Action OnJump
+    {
+        add { onJump += value; }
+        remove { onJump -= value; }
+    }
+
+    public event Action OnStep
+    {
+        add { onStep += value; }
+        remove { onStep -= value; }
+    }
     #endregion
 
     #region Properties
@@ -47,7 +59,7 @@ public class Feet : MonoBehaviour
 
         body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
 
-        OnJump?.Invoke();
+        onJump?.Invoke();
         return true;
     }
 
@@ -66,7 +78,7 @@ public class Feet : MonoBehaviour
     void FixedUpdate()
     {
         if (!_onFloor && onFloor)
-            OnStep?.Invoke();
+            onStep?.Invoke();
 
         _onFloor = onFloor;
     }

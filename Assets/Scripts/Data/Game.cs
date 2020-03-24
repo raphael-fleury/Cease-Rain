@@ -14,7 +14,15 @@ public static class Game
     public static bool isPaused { get; private set; } = false;
     #endregion
 
-    public static event Action<int> OnLanguageChange;
+    #region Events
+    private static event Action<int> onLanguageChange;
+
+    public static event Action<int> OnLanguageChange
+    {
+        add { onLanguageChange += value; }
+        remove { onLanguageChange -= value; }
+    }
+    #endregion
 
     #region Methods
 
@@ -60,7 +68,7 @@ public static class Game
         if(Game.language != language)
         {
             Game.language = language;
-            OnLanguageChange?.Invoke((int)language);
+            onLanguageChange?.Invoke((int)language);
         }
     }
 

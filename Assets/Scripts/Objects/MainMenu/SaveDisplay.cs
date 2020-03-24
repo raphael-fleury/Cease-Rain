@@ -8,7 +8,18 @@ public class SaveDisplay : MonoBehaviour
     SaveListUI scrollView;
     Button button;
 
-    public SaveName saveName;
+    public SaveName saveName { get; private set; }
+
+    public void Load(SaveListUI saveList, SaveName name)
+    {
+        scrollView = saveList;
+        saveName = name;
+        Save save = name.GetSave();
+        button.GetComponentInChildren<Text>().text = Display();
+    }
+
+    public void OnButtonClick() =>
+        scrollView.OnButtonClick(this);
 
     void Awake() =>
         button = GetComponent<Button>();
@@ -25,15 +36,4 @@ public class SaveDisplay : MonoBehaviour
 
         return display + "\n" + File.GetLastWriteTime(saveName.fullPath);
     }
-
-    public void Load(SaveListUI saveList, SaveName name)
-    {
-        scrollView = saveList;
-        saveName = name;
-        Save save = name.GetSave();
-        button.GetComponentInChildren<Text>().text = Display();
-    }
-
-    public void OnButtonClick() =>
-        scrollView.OnButtonClick(this);
 }

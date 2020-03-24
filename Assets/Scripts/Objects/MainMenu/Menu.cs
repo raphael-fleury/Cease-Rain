@@ -5,8 +5,8 @@ using System.IO;
 
 public class Menu : MonoBehaviour
 {
-    public SceneEnum creditsScene;
-    public Button loadGameButton;
+    [SerializeField] SceneEnum creditsScene;
+    [SerializeField] Button loadGameButton;
 
     void Awake()
     {

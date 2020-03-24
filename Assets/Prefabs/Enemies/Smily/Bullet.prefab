@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5650114001410574183}
   m_Layer: 13
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: EnemyShot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -117,6 +118,7 @@ MonoBehaviour:
   targetTag: Player
   damage: 10
   knockback: 10
+  toxicity: 10
 --- !u!50 &5650114001410574183
 Rigidbody2D:
   serializedVersion: 4

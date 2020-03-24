@@ -1,11 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
 {
     public bool isPlayerIn;
 
-    //public event Action OnPlayerEnter;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

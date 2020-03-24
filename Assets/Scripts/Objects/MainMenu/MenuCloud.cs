@@ -1,29 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuCloud : MonoBehaviour
 {
-    public float speed;
+    [SerializeField] float speed;
 
-    public float minSpeed;
-    public float maxSpeed;
-
-    [Space(10)]
-    public Transform leftLimit;
-    public Transform rightLimit;
+    [SerializeField] float minSpeed;
+    [SerializeField] float maxSpeed;
 
     [Space(10)]
-    [Range(0, 255)]
-    public int minWhite;
-    [Range(0, 255)]
-    public int minOpacity;
+    [SerializeField] Transform leftLimit;
+    [SerializeField] Transform rightLimit;
+
+    [Space(10)]
+    [SerializeField] [Range(0, 255)] int minWhite;    
+    [SerializeField] [Range(0, 255)] int minOpacity;
 
     void Start()
     {
         byte color = (byte)Random.Range(minWhite, 255);        
         GetComponent<SpriteRenderer>().color = new Color32(color, color, color, (byte)Random.Range(minOpacity, 255));
-        //Debug.Log(GetComponent<SpriteRenderer>().color);
     }
 
     void FixedUpdate()

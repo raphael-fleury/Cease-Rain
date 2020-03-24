@@ -1,21 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MenuUmbrella : MonoBehaviour
-{
-    [Range(-4, 4)]
-    public float speed;
-    [Range(0f, 1f)]
-    public float maxOffset;
+{   
+    [SerializeField] [Range(-4, 4)] float speed;   
+    [SerializeField] [Range(0f,1f)] float maxOffset;
 
     [Space(10)]
-    public float minSpeed = 1;
-    public float maxSpeed = 3;
+    [SerializeField] float minSpeed = 1;
+    [SerializeField] float maxSpeed = 3;
 
     float height;
 
-    void Start() { height = transform.position.y; }
+    void Start() =>
+        height = transform.position.y;
 
     void FixedUpdate()
     {

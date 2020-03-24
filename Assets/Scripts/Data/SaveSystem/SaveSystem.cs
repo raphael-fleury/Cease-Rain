@@ -69,10 +69,7 @@ public static class SaveSystem
 
     public static FileName[] fileNames
     {
-        get 
-        {
-            return files.Select(f => new FileName(f)).ToArray();
-        }
+        get { return files.Select(f => new FileName(f)).ToArray(); }
     }
 
     public static bool folderExists

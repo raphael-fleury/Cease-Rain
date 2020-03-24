@@ -7,7 +7,6 @@ public class Shock : MonoBehaviour
     [Range(-1,1)] public int direction = 1;
 
     [Header("Options")]
-    [SerializeField] [Min(0)] float duration = 2;
     [SerializeField] [Min(0)] float damage = 5;
     [SerializeField] [Min(0)] float speed;
 
