@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
 public class GunBox : MonoBehaviour
 {
     #region Fields

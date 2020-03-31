@@ -30,7 +30,7 @@ public class Smily : FightMovement
     {
         base.Awake();
         anim = GetComponent<Animator>();
-        feet.OnStep += delegate
+        feet.OnStepEvent += delegate
         {
             currentAction = CurrentAction.Walking;
             if (!IsInvoking("Jump"))

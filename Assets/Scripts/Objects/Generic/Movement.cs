@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Movement : MonoBehaviour
 {
     #region Fields
@@ -16,19 +17,19 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Events
-    private event Action onFlip;
-    private event Action onMove;
+    private event Action onFlipEvent;
+    private event Action onMoveEvent;
 
-    public event Action OnFlip
+    public event Action OnFlipEvent
     {
-        add { onFlip += value; }
-        remove { onFlip -= value; }
+        add { onFlipEvent += value; }
+        remove { onFlipEvent -= value; }
     }
 
-    public event Action OnMove
+    public event Action OnMoveEvent
     {
-        add { onMove += value; }
-        remove { onMove -= value; }
+        add { onMoveEvent += value; }
+        remove { onMoveEvent -= value; }
     }
     #endregion
 
@@ -74,7 +75,7 @@ public class Movement : MonoBehaviour
     {
         Flip();
         body.SetVelocityX(direction * walkSpeed);
-        onMove?.Invoke();
+        onMoveEvent?.Invoke();
     }
 
     void Flip()
@@ -82,7 +83,7 @@ public class Movement : MonoBehaviour
         if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
         {
             transform.SetLocalScaleX(-transform.localScale.x);
-            onFlip?.Invoke();
+            onFlipEvent?.Invoke();
         }
     }
     #endregion

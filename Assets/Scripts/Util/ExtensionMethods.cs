@@ -3,22 +3,20 @@
 public static class ExtensionMethods
 {
     #region Vector2
- 
-    #region Change Elements
-    public static Vector2 ChangeX(this Vector2 vector, float x)
+    public static Vector2 Distance(this Vector2 vector, Vector2 other)
     {
-        vector = new Vector3(x, vector.y);
-        return vector;
+        return new Vector2(Mathf.Abs(vector.x - other.x), 
+                           Mathf.Abs(vector.y - other.y));
     }
 
-    public static Vector2 ChangeY(this Vector2 vector, float y)
+    public static Vector2 MoveTowards(this Vector2 vector, Vector2 target, Vector2 speed)
     {
-        vector = new Vector3(vector.x, y);
-        return vector;
-    }
-    #endregion
+        float x = Mathf.MoveTowards(vector.x, target.x, speed.x);
+        float y = Mathf.MoveTowards(vector.y, target.y, speed.y);
 
-    #region ToVector3
+        return new Vector2(x, y);
+    }
+
     public static Vector3 ToVector3(this Vector2 vector2)
     {
         return new Vector3(vector2.x, vector2.y, 0f);
@@ -30,41 +28,33 @@ public static class ExtensionMethods
     }
     #endregion
 
-    #endregion
-
     #region Vector3
-
-    #region Change Elements
-    public static Vector3 ChangeX(this Vector3 vector, float x)
-    {
-        vector = new Vector3(x, vector.y, vector.z);
-        return vector;
-    }
-
-    public static Vector3 ChangeY(this Vector3 vector, float y)
-    {
-        vector = new Vector3(vector.x, y, vector.z);
-        return vector;
-    }
-
-    public static Vector3 ChangeZ(this Vector3 vector, float z)
-    {
-        vector = new Vector3(vector.x, vector.y, z);
-        return vector;
-    }
-
     public static Vector3 ChangeXY(this Vector3 vector3, Vector2 vector2)
     {
         vector3 = new Vector3(vector2.x, vector2.y, vector3.z);
         return vector3;
     }
 
+    public static Vector3 Distance(this Vector3 vector, Vector3 other)
+    {
+        return new Vector3(Mathf.Abs(vector.x - other.x),
+                           Mathf.Abs(vector.y - other.y),
+                           Mathf.Abs(vector.z - other.z));
+    }
+
+    public static Vector3 MoveTowards(this Vector3 vector, Vector3 target, Vector3 speed)
+    {
+        float x = Mathf.MoveTowards(vector.x, target.x, speed.x);
+        float y = Mathf.MoveTowards(vector.y, target.y, speed.y);
+        float z = Mathf.MoveTowards(vector.z, target.z, speed.z);
+
+        return new Vector3(x, y, z);
+    }
+
     public static Vector2 ToVector2(this Vector3 vector)
     {
         return vector;
     }
-    #endregion
-
     #endregion
 
     #region Transform

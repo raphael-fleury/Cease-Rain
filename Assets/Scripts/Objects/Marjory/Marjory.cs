@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(MarjoryShooting), typeof(MarjoryMovement), typeof(Feet))]
 public class Marjory : Character
 {
     #region Fields
@@ -8,32 +9,37 @@ public class Marjory : Character
     Feet feet;
 
     [Range(0, 100)] public float toxicity;
+
+    [Header("References")]
+    [SerializeField] GameObject interactionIcon;
     #endregion
 
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
 
-    #region Public Methods
-    public void Freeze()
+    #region Properties
+    public bool controllable
     {
-        movement.canMove = false;
-        feet.canJump = false;
+        set
+        {
+            shooting.canShoot = value;
+            movement.canMove = value;
+            feet.canJump = value;
+        }
     }
 
-    public void Unfreeze()
+    public bool interactionIconActive
     {
-        movement.canMove = true;
-        feet.canJump = true;
+        set { interactionIcon.SetActive(value); }
     }
-
-    public void SetGun(Guns gun, int bullets) => 
-        shooting.SetGun((int)gun, bullets);
     #endregion
 
-    #region Private Methods
+    #region Methods
+    public void SetGun(Guns gun, int bullets) =>
+       shooting.SetGun((int)gun, bullets);
+  
     void Awake()
     {
         Level.marjory = this;
-
         feet = GetComponent<Feet>();
         movement = GetComponent<MarjoryMovement>();
         shooting = GetComponent<MarjoryShooting>();
@@ -50,6 +56,6 @@ public class Marjory : Character
     void OnParticleCollision(GameObject other) =>
         toxicity += 0.2f;
 
-    //protected override void Death() {}
+    protected override void Death() {}
     #endregion
 }

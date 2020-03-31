@@ -7,7 +7,18 @@ public static class Game
     private static float timeScale = 1f;
 
     #region Properties
-    public static Language language { get; private set; }
+    public static Language language
+    {
+        get { return language; }
+        set
+        {
+            if (language != value)
+            {
+                language = value;
+                onLanguageChangeEvent?.Invoke((int)language);
+            }
+        }
+    }
     public static int currentScene { get; private set; }
     public static string currentSave { get; private set; }
     public static bool canPause { get; private set; } = true;
@@ -15,12 +26,12 @@ public static class Game
     #endregion
 
     #region Events
-    private static event Action<int> onLanguageChange;
+    private static event Action<int> onLanguageChangeEvent;
 
-    public static event Action<int> OnLanguageChange
+    public static event Action<int> OnLanguageChangeEvent
     {
-        add { onLanguageChange += value; }
-        remove { onLanguageChange -= value; }
+        add { onLanguageChangeEvent += value; }
+        remove { onLanguageChangeEvent -= value; }
     }
     #endregion
 
@@ -61,15 +72,6 @@ public static class Game
     {
         LoadScene(new Save(name).level);
         currentSave = name;
-    }
-
-    public static void ChangeLanguage(Language language)
-    {
-        if(Game.language != language)
-        {
-            Game.language = language;
-            onLanguageChange?.Invoke((int)language);
-        }
     }
 
     #region Pause

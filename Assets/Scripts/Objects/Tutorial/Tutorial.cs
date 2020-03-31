@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class Tutorial : MonoBehaviour
 {
     [Header("Status")]
-    [SerializeField] int eventIndex = 0;
+    [SerializeField] int eventIndex = -1;
 
     [Header("References")]
     public IndicatorArrow arrow;
@@ -29,8 +29,5 @@ public class Tutorial : MonoBehaviour
         arrow.PointAt(pointingAt);
     }
 
-    void Start()
-    {
-        events[eventIndex].Invoke();
-    }
+    void Start() { NextEvent(); }
 }

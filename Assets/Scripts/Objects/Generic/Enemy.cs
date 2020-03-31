@@ -7,7 +7,7 @@ public class Enemy : Character
     protected override void Start()
     { 
         base.Start();
-        OnDeath += delegate 
+        OnDeathEvent += delegate 
         {
             if (deathAnim)
                 Instantiate(deathAnim, transform.position, Quaternion.identity);

@@ -28,7 +28,7 @@ public class TutorialShooter : MonoBehaviour
     private void Shoot()
     {
         Shot shot = shooter.Shoot(Vector2.left).GetComponent<Shot>();
-        shot.OnCollision += OnShotCollision;
+        shot.OnCollisionEvent += OnShotCollision;
     }
 
     private void Close()

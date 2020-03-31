@@ -33,7 +33,7 @@ public class Fight : MonoBehaviour
         foreach(EnemySpawn e in enemiesToSpawn)
         {
             GameObject obj = Instantiate(e.enemy, e.pos.position, Quaternion.identity);
-            obj.GetComponent<Character>().OnDeath += EnemyDeath;
+            obj.GetComponent<Character>().OnDeathEvent += EnemyDeath;
             obj.GetComponent<ILimits>().SetLimits(limits);
             enemiesAlive++;
         }

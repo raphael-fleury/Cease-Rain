@@ -21,7 +21,7 @@ public class LadyShield : Character
     protected override void Start()
     { 
         base.Start();
-        lady.gameObject.GetComponent<Character>().OnDeath += Destroy; 
+        lady.gameObject.GetComponent<Character>().OnDeathEvent += Destroy; 
     }
 
     void Destroy() { Destroy(gameObject); }

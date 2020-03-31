@@ -33,7 +33,7 @@ public class LadyStorm : Enemy
         GameObject sh = GameObject.Instantiate(shield);
         sh.GetComponent<LadyShield>().lady = transform;
 
-        feet.OnStep += SpawnShock;
+        feet.OnStepEvent += SpawnShock;
     }
 
     void FixedUpdate() =>

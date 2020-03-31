@@ -13554,7 +13554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b21ef00ddba5ea4281f03e13f25c306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newPos: {x: 0, y: 0}
+  newPos: {x: 42.8, y: 5.8}
   posPlayer:
     x: 0.15
     y: 0.07
@@ -61764,9 +61764,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 0
-  direction: -1
-  knockback: 0
-  walkSpeed: 6
+  _knockback: 0
+  _walkSpeed: 0
   minSpace: 5
   minDistance: 7
   limits:

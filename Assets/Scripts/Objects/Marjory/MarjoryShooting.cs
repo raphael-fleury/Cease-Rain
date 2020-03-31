@@ -14,8 +14,20 @@ public class MarjoryShooting : MonoBehaviour
     #endregion
 
     #region Events
-    public event Action<int> OnGunChange;
-    public event Action OnShoot;
+    private event Action<int> onGunChangeEvent;
+    private event Action onShootEvent;
+
+    public event Action<int> OnGunChangeEvent
+    {
+        add { onGunChangeEvent += value; }
+        remove { onGunChangeEvent -= value; }
+    }
+
+    public event Action OnShootEvent
+    {
+        add { onShootEvent += value; }
+        remove { onShootEvent -= value; }
+    }
     #endregion
 
     #region Properties
@@ -55,7 +67,7 @@ public class MarjoryShooting : MonoBehaviour
         if (newGun) //if it's a gun
             newGun.Activate(bullets);
 
-        OnGunChange?.Invoke(gun);
+        onGunChangeEvent?.Invoke(gun);
 
         currentGunIndex = gun;
     }
@@ -78,13 +90,11 @@ public class MarjoryShooting : MonoBehaviour
         recharging = currentGun.rechargeTime;
         currentGun.Shoot();
 
-        OnShoot?.Invoke();
+        onShootEvent?.Invoke();
 
         return true;
     }
-    #endregion
 
-    #region Unity Methods
     void Update()
     {
         if (Input.GetKey(Controls.FindKey("ShootKey")))

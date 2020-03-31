@@ -1,15 +1,34 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
 {
-    public bool isPlayerIn;
+    protected Marjory player;
 
+    #region Events
+    private event Action<Marjory> onPlayerEnterEvent;
+    private event Action<Marjory> onPlayerExitEvent;
+
+    public event Action<Marjory> OnPlayerEnterEvent
+    {
+        add { onPlayerEnterEvent += value; }
+        remove { onPlayerEnterEvent -= value; }
+    }
+
+    public event Action<Marjory> OnPlayerExitEvent
+    {
+        add { onPlayerExitEvent += value; }
+        remove { onPlayerExitEvent -= value; }
+    }
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
-        {
-            isPlayerIn = true;
+        {            
+            player = collision.GetComponent<Marjory>();
+            onPlayerEnterEvent?.Invoke(player);
+            player.interactionIconActive = true;
         }
     }
 
@@ -17,7 +36,12 @@ public class InteractionArea : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            isPlayerIn = false;
+            onPlayerExitEvent?.Invoke(collision.GetComponent<Marjory>());
+            if (player)
+            {
+                player.interactionIconActive = false;
+                player = null;
+            }            
         }
     }
 }

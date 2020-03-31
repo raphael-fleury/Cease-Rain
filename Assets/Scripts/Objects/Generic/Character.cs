@@ -6,19 +6,19 @@ public class Character : MonoBehaviour
     [SerializeField] float _life;
 
     #region Events
-    private event Action onDeath;
-    private event Action onLifeChange;
+    private event Action onDeathEvent;
+    private event Action onLifeChangeEvent;
 
-    public event Action OnDeath
+    public event Action OnDeathEvent
     {
-        add { onDeath += value; }
-        remove { onDeath -= value; }
+        add { onDeathEvent += value; }
+        remove { onDeathEvent -= value; }
     }
 
-    public event Action OnLifeChange
+    public event Action OnLifeChangeEvent
     {
-        add { onLifeChange += value; }
-        remove { onLifeChange -= value; }
+        add { onLifeChangeEvent += value; }
+        remove { onLifeChangeEvent -= value; }
     }
     #endregion
 
@@ -37,11 +37,11 @@ public class Character : MonoBehaviour
             else
                 _life = value;
 
-            onLifeChange?.Invoke();
+            onLifeChangeEvent?.Invoke();
 
             if (life <= 0)
             {
-                onDeath?.Invoke();
+                onDeathEvent?.Invoke();
                 Death(); 
             }               
         }

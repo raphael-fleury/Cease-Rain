@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class TutorialDialog : MonoBehaviour
 {
+    #region Fields
     [Header("Options")]
     [SerializeField] float writeDelay;
 
@@ -13,17 +14,17 @@ public class TutorialDialog : MonoBehaviour
     float delay;
     string text;   
     int index = 0;
+    #endregion
 
+    #region Methods
     public void Write(string text)
     {
         index = 0;
         this.text = text;
         textBox.text = "";
         gameObject.SetActive(true);
+        Level.marjory.controllable = false;
     }
-
-    private void OnEnable() =>
-        Level.marjory.Freeze();
 
     private void Update()
     {
@@ -49,8 +50,9 @@ public class TutorialDialog : MonoBehaviour
 
     private void End()
     {
-        Level.marjory.Unfreeze();
+        Level.marjory.controllable = true;
         gameObject.SetActive(false);
         tutorial.NextEvent();
     }
+    #endregion
 }

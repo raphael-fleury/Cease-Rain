@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Movement), typeof(Rigidbody2D))]
 public class Feet : MonoBehaviour
 {
     #region Fields
@@ -22,19 +23,19 @@ public class Feet : MonoBehaviour
     #endregion
 
     #region Events
-    private event Action onJump;
-    private event Action onStep;
+    private event Action onJumpEvent;
+    private event Action onStepEvent;
 
-    public event Action OnJump
+    public event Action OnJumpEvent
     {
-        add { onJump += value; }
-        remove { onJump -= value; }
+        add { onJumpEvent += value; }
+        remove { onJumpEvent -= value; }
     }
 
-    public event Action OnStep
+    public event Action OnStepEvent
     {
-        add { onStep += value; }
-        remove { onStep -= value; }
+        add { onStepEvent += value; }
+        remove { onStepEvent -= value; }
     }
     #endregion
 
@@ -59,7 +60,7 @@ public class Feet : MonoBehaviour
 
         body.AddForce(Vector2.up * jumpForce * body.mass, ForceMode2D.Impulse);
 
-        onJump?.Invoke();
+        onJumpEvent?.Invoke();
         return true;
     }
 
@@ -68,7 +69,7 @@ public class Feet : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<Movement>();
 
-        movement.OnMove += delegate
+        movement.OnMoveEvent += delegate
         {
             if (!onFloor)
                 body.velocity *= new Vector2(jumpModifier, 1f);           
@@ -78,7 +79,7 @@ public class Feet : MonoBehaviour
     void FixedUpdate()
     {
         if (!_onFloor && onFloor)
-            onStep?.Invoke();
+            onStepEvent?.Invoke();
 
         _onFloor = onFloor;
     }

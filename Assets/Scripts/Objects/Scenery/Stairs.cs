@@ -23,14 +23,14 @@ public class Stairs : MonoBehaviour
             if (player.onFloor)
                 cam.followY = false;
             else
-                player.OnStep += StopFollowing;
+                player.OnStepEvent += StopFollowing;
         }                      
     }
 
     void StopFollowing()
     {
         cam.followY = false;
-        player.OnStep -= StopFollowing;
+        player.OnStepEvent -= StopFollowing;
     }
 
     //float modifier = 3f;

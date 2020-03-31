@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Feet), typeof(Rigidbody2D))]
 public class MarjoryMovement : Movement
 {   
     #region Fields
     Feet feet;
-    MarjoryShooting shooting;
 
     [Header("Marjory")]
     [SerializeField] CurrentMovement movement;
@@ -57,9 +57,9 @@ public class MarjoryMovement : Movement
         base.Awake();
 
         feet = GetComponent<Feet>();
-        shooting = GetComponent<MarjoryShooting>();
 
-        shooting.OnGunChange += (int value) => {
+        GetComponent<MarjoryShooting>().OnGunChangeEvent += (int value) =>
+        {
             mechArm.SetInteger("gun", value);
             normalArm.SetInteger("gun", value);
         };
@@ -71,6 +71,7 @@ public class MarjoryMovement : Movement
             feet.Jump();
 
         axisX = Input.GetAxis("Horizontal");
+
         if (axisX != 0)
             direction = (int)Mathf.Sign(axisX);
 

@@ -24,8 +24,9 @@ public class TutorialShower : MonoBehaviour
     }
 
     #region Actions
-    public void Go()
+    private void OnEnable()
     {
+        Debug.Log("a");
         water.SetActive(false);
         state = State.Going;
     }
@@ -42,7 +43,7 @@ public class TutorialShower : MonoBehaviour
         state = State.Returning;
     }
 
-    void End()
+    private void OnDisable()
     {
         tutorial.NextEvent();
         state = State.Idle;
@@ -60,10 +61,10 @@ public class TutorialShower : MonoBehaviour
         }
         else
         {
-            if (compareToLimit == 1)
+            if (compareToLimit == 1 && state == State.Going)
                 TurnOn();
-            else if (compareToLimit == -1)
-                End();
+            else if (compareToLimit == -1 && state == State.Returning)
+                gameObject.SetActive(false);
             else
                 transform.Translate(speed * (int)state, 0, 0);
         }

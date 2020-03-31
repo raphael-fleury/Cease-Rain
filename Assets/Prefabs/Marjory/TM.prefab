@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marjory: {fileID: 0}
-  pctVel: 70
+  speedMultiplier: 0.7
   height: 7
 --- !u!60 &38953077877431243
 PolygonCollider2D:
