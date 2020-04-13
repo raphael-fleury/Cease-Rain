@@ -1,7 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Threading.Tasks;
+using UnityEngine;
 
 public static class ExtensionMethods
 {
+    #region MonoBehavior
+    public static async void Invoke(this MonoBehaviour mono, Action callback, float seconds)
+    {
+        await Task.Delay(Mathf.RoundToInt(seconds * 1000));
+        //await new WaitForSeconds(seconds);
+        callback();
+    }
+    #endregion
+
     #region Vector2
     public static Vector2 Distance(this Vector2 vector, Vector2 other)
     {

@@ -5,31 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class LoadingBar : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] GameObject loadingBar;
-    [SerializeField] Image loadFill;
-
     [Header("Options")]
     [SerializeField] SceneEnum sceneToLoad;
-    [SerializeField] bool async = true;
-    
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            LoadScene();
+    }
+
     public void LoadScene()
     {
         int scene = (int)sceneToLoad;
-
-        if (async)
-        {
-            StartCoroutine(Loading(scene));
-            loadingBar.SetActive(true);
-        }
-        else { SceneManager.LoadScene(scene); }
+        StartCoroutine(Loading(scene));
     }
 
     IEnumerator Loading(int scene)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
-        loadFill.fillAmount = operation.progress;
-        if (loadFill.fillAmount == .9f) { loadFill.fillAmount = 1f; }
+        GetComponent<Image>().fillAmount = operation.progress;
+        //if (loadFill.fillAmount == .9f) { loadFill.fillAmount = 1f; }
         while (!operation.isDone) { yield return null; }
     }
 }

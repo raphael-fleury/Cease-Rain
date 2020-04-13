@@ -6,7 +6,16 @@ public static class Game
 {
     private static float timeScale = 1f;
 
-    #region Properties
+    #region Properties   
+    public static bool canPause { get; private set; } = true;
+    public static bool isPaused { get; private set; } = false;
+    public static string currentSave { get; private set; }
+
+    public static int currentScene
+    {
+        get { return SceneManager.GetActiveScene().buildIndex; }
+    }
+
     public static Language language
     {
         get { return language; }
@@ -19,10 +28,6 @@ public static class Game
             }
         }
     }
-    public static int currentScene { get; private set; }
-    public static string currentSave { get; private set; }
-    public static bool canPause { get; private set; } = true;
-    public static bool isPaused { get; private set; } = false;
     #endregion
 
     #region Events
@@ -43,8 +48,7 @@ public static class Game
         isPaused = false;
         Time.timeScale = 1f;
         Level.checkpoint = 0;
-        currentScene = scene;
-        SceneManager.LoadScene(scene);        
+        SceneManager.LoadSceneAsync(scene);        
     }
 
     public static void LoadScene(SceneEnum scene) =>

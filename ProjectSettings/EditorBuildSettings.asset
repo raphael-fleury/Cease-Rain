@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/0 Menu.unity
     guid: 7a785239e3b68094e86e81bb5ce3ade6
   - enabled: 1
-    path: Assets/Scenes/1 InitialCutscene.unity
+    path: Assets/Scenes/1 Loading.unity
+    guid: 45d09a13dad52314a8bab4b2452493ab
+  - enabled: 1
+    path: Assets/Scenes/2 Initial Cutscene.unity
     guid: 0a7fd33610e369a4abfaf57c905a2d28
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 1fa4e4c439f964a488b2d65a1110d0a3
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: f4740273e101ec84fa4db44da3ddf77c
   m_configObjects: {}
