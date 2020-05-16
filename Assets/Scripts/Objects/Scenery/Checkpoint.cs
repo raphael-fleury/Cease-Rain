@@ -22,11 +22,13 @@ public class Checkpoint : MonoBehaviour
         if (Level.checkpoint == index)
         {           
             Level.marjory.transform.position = transform.position;
+            Level.activeCamera.GetComponent<PlayerCamera>().limits.lower = transform.position.x;
 
             if (colliders)
                 colliders.SetActive(true);
 
-            Level.activeCamera.GetComponent<PlayerCamera>().limits.lower = transform.position.x;
+            GetComponent<Animator>().SetTrigger("Checkpoint");
+            GetComponent<BoxCollider2D>().enabled = false;            
         }
     }
 

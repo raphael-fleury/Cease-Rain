@@ -13,7 +13,7 @@ public static class Level
         get { return _checkpoint; }
         set
         {
-            if (value > 0)
+            if (value > _checkpoint)
                 onCheckpointEvent?.Invoke();
 
             _checkpoint = value;
