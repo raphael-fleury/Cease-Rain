@@ -87,8 +87,8 @@ public class PlayerCamera : MonoBehaviour, ILimits
 
         public PlayerPosOnCamera(Vector2 vector)
         {
-            this.x = vector.x;
-            this.y = vector.y;
+            x = vector.x;
+            y = vector.y;
         }
         #endregion
 

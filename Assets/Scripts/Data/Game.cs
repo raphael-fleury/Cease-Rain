@@ -47,7 +47,6 @@ public static class Game
     {
         isPaused = false;
         Time.timeScale = 1f;
-        Level.checkpoint = 0;
         SceneManager.LoadSceneAsync(scene);        
     }
 

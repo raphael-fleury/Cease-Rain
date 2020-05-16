@@ -8,17 +8,34 @@ public class Marjory : Character
     MarjoryMovement movement;
     Feet feet;
 
-    [Range(0, 100)] public float toxicity;
+    [SerializeField] float _toxicity;
 
     [Header("References")]
     [SerializeField] GameObject interactionIcon;
+
+    bool _controllable = true;
     #endregion
 
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
 
     #region Properties
+    public float toxicity
+    {
+        get { return _toxicity; }
+        set
+        {
+            if (value < 0)
+                _toxicity = 0;
+            else if (value > 100)
+                _toxicity = 100;
+            else
+                _toxicity = value;
+        }
+    }
+
     public bool controllable
     {
+        get { return controllable; }
         set
         {
             shooting.canShoot = value;
@@ -29,6 +46,7 @@ public class Marjory : Character
 
     public bool interactionIconActive
     {
+        get { return interactionIcon.activeInHierarchy; }
         set { interactionIcon.SetActive(value); }
     }
     #endregion

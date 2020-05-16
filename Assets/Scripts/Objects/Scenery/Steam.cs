@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(BoxCollider2D))]
 public class Steam : InteractionArea
@@ -7,25 +8,40 @@ public class Steam : InteractionArea
     [SerializeField] bool active;
 
     [Header("Options")]
-    [SerializeField] float time;
-    [SerializeField] float heal;
-    [SerializeField] float dry;
+    [SerializeField] float duration = 4f;
+    [SerializeField] float totalHeal = 40f;
+    [SerializeField] float totalDry = 60f;
 
     [Header("References")]
-    [SerializeField] GameObject steam;
+    [SerializeField] ParticleSystem particles;
+    #endregion
+
+    #region Events
+    private Action onEnableEvent;
+
+    public event Action OnEnableEvent
+    {
+        add { onEnableEvent += value; }
+        remove { onEnableEvent -= value; }
+    }
     #endregion
 
     #region Methods
     private void Enable()
     {
         active = true;
-        Invoke("Disable", time);
+        particles.Play();
+        onEnableEvent?.Invoke();
+        Invoke("Disable", duration);
     }
 
     private void Disable()
     {
         active = false;
+        particles.Stop();
         GetComponent<Collider2D>().enabled = false;
+
+        Level.marjory.controllable = true;
     }
 
     private void Update()
@@ -36,13 +52,15 @@ public class Steam : InteractionArea
         if (Input.GetKeyDown(Controls.FindKey("InteractionKey")))
         {
             GetComponent<Animator>().SetTrigger("Open");
-            //player.transform.SetPositionX(transform.position.x);
+            Level.marjory.controllable = false;
+            Level.marjory.transform.SetPositionX(transform.position.x);
+            Level.marjory.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
         if (active)
         {
-            player.life += Time.deltaTime * heal;
-            player.toxicity -= Time.deltaTime * dry;
+            player.life += Time.deltaTime * (totalHeal / duration);
+            player.toxicity -= Time.deltaTime * (totalDry / duration);
         }
     }
     #endregion
