@@ -55,10 +55,7 @@ public class Marjory : Character
         set
         {
             movement.face.SetBool("eyesClosed", value);
-            movement.mechArm.SetInteger("gun", value ? 0 : shooting.currentGunIndex);
-            movement.normalArm.SetInteger("gun", value ? 0 : shooting.currentGunIndex);
-            movement.mechArm.SetBool("drying", value);
-            movement.normalArm.SetBool("drying", value);
+            controllable = !value;
         }
     }
     #endregion

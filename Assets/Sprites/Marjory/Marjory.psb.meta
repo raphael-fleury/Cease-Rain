@@ -484,8 +484,8 @@ ScriptedImporter:
     uvTransform: {x: 259, y: 994}
   - name: Scarf1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.9592921, y: 0.9696076}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -506,8 +506,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: -155}
   - name: Scarf2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.95669305, y: 0.96835375}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -550,8 +550,8 @@ ScriptedImporter:
     uvTransform: {x: 1168, y: -2233}
   - name: Mecha 10
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.19516966, y: 0.6024725}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -572,8 +572,8 @@ ScriptedImporter:
     uvTransform: {x: 126, y: 1569}
   - name: Mecha 9
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.47625554, y: 0.87726116}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -594,8 +594,8 @@ ScriptedImporter:
     uvTransform: {x: 642, y: -1190}
   - name: Mecha 8
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.20282963, y: 0.72896564}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -616,8 +616,8 @@ ScriptedImporter:
     uvTransform: {x: -392, y: 2147}
   - name: Mecha 7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.47200474, y: 0.93580586}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -638,8 +638,8 @@ ScriptedImporter:
     uvTransform: {x: 287, y: 1806}
   - name: Mecha 6
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.91905296, y: 0.8594543}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -660,8 +660,8 @@ ScriptedImporter:
     uvTransform: {x: 420, y: 1611}
   - name: Mecha 5
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.67541504, y: 0.9150434}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -682,8 +682,8 @@ ScriptedImporter:
     uvTransform: {x: 181, y: -252}
   - name: Mecha 4
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3803946, y: 0.89723295}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -704,8 +704,8 @@ ScriptedImporter:
     uvTransform: {x: 150, y: 36}
   - name: Mecha 3
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.69919145, y: 0.8544145}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -726,8 +726,8 @@ ScriptedImporter:
     uvTransform: {x: 234, y: 804}
   - name: Mecha 2
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.22753188, y: 0.7605479}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -748,13 +748,13 @@ ScriptedImporter:
     uvTransform: {x: 443, y: 1759}
   - name: Mecha 1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.26979265, y: 0.8691365}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 777
-      y: 3577
+      y: 3576
       width: 92
       height: 297
     spriteID: 743ba9863715db54a8e50bab888c59a7
@@ -1275,8 +1275,8 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
-  boneGOs: []
   generateGOHierarchy: 0
   textureAssetName: Marjory
   prefabAssetName: Marjory_GO
   spriteLibAssetName: Marjory Sprite Lib
+  secondarySpriteTextures: []

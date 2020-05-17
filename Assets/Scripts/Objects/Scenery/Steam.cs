@@ -41,7 +41,7 @@ public class Steam : InteractionArea
         particles.Stop();
         GetComponent<Collider2D>().enabled = false;
 
-        Level.marjory.controllable = true;
+        Level.marjory.drying = false;
     }
 
     private void Update()
@@ -53,7 +53,7 @@ public class Steam : InteractionArea
         {
             GetComponent<Animator>().SetTrigger("Open");
             player.interactionIconActive = false;
-            player.controllable = false;
+            player.drying = true;
             player.transform.SetPositionX(transform.position.x);
             player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
