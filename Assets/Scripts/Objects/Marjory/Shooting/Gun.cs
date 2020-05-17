@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
 
     public Shooter shooter;
     [Header("Status")]
-    public int bullets;
+    [SerializeField] int _bullets;
 
     [Header("Options")]
     [Min(0)] public float rechargeTime;
@@ -17,7 +17,13 @@ public class Gun : MonoBehaviour
     [SerializeField] Marjory marjory;
     [SerializeField] AudioSource sound; 
     #endregion  
-  
+
+    public int bullets
+    {
+        get { return _bullets; }
+        private set { _bullets = value; }
+    }
+
     #region Methods
     public virtual void Shoot()
     {

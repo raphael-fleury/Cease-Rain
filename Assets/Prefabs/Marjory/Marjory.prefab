@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 100
-  toxicity: 0
+  _toxicity: 0
   interactionIcon: {fileID: 8736904420977500111}
 --- !u!114 &4015729560835019933
 MonoBehaviour:
@@ -1745,6 +1745,7 @@ MonoBehaviour:
   - {fileID: 5546642077377776423}
   - {fileID: 8458109995941056858}
   - {fileID: 3123313088371589061}
+  face: {fileID: 4502290390599577699}
   mechArm: {fileID: 8458109995941056858}
   normalArm: {fileID: 3123313088371589061}
 --- !u!114 &4015729560835019930

@@ -15,6 +15,8 @@ public class MarjoryMovement : Movement
 
     [Header("Animation")]
     [SerializeField] List<Animator> animators;
+
+    public Animator face;
     public Animator mechArm;
     public Animator normalArm;
     #endregion
@@ -49,6 +51,12 @@ public class MarjoryMovement : Movement
 
         animators.ForEach(a => a.SetInteger("movement", (int)movement));
     }
+
+    void Blink()
+    {
+        Invoke("Blink", Random.Range(.8f, 1.6f));
+        face.SetTrigger("blink");
+    }
     #endregion
 
     #region Unity Methods
@@ -63,6 +71,8 @@ public class MarjoryMovement : Movement
             mechArm.SetInteger("gun", value);
             normalArm.SetInteger("gun", value);
         };
+
+        Invoke("Blink", 1f);
     }
 
     void Update()

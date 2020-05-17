@@ -16327,6 +16327,12 @@ EdgeCollider2D:
   m_Points:
   - {x: -54.1, y: 0}
   - {x: 8.9, y: 0}
+--- !u!95 &437047924 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4502290390599577699, guid: 86c9ba55b57c56043bb68122c888ac4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2508125643236930537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &438560389
 GameObject:
   m_ObjectHideFlags: 0
@@ -65409,6 +65415,11 @@ PrefabInstance:
       propertyPath: umbrella
       value: 
       objectReference: {fileID: 63672582}
+    - target: {fileID: 4015729560835019933, guid: 86c9ba55b57c56043bb68122c888ac4b,
+        type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 437047924}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86c9ba55b57c56043bb68122c888ac4b, type: 3}
 --- !u!1001 &2727052955423327603

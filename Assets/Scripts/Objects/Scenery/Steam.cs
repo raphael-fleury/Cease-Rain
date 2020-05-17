@@ -52,9 +52,10 @@ public class Steam : InteractionArea
         if (Input.GetKeyDown(Controls.FindKey("InteractionKey")))
         {
             GetComponent<Animator>().SetTrigger("Open");
-            Level.marjory.controllable = false;
-            Level.marjory.transform.SetPositionX(transform.position.x);
-            Level.marjory.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            player.interactionIconActive = false;
+            player.controllable = false;
+            player.transform.SetPositionX(transform.position.x);
+            player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
         if (active)

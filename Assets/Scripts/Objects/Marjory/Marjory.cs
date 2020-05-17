@@ -8,7 +8,7 @@ public class Marjory : Character
     MarjoryMovement movement;
     Feet feet;
 
-    [SerializeField] float _toxicity;
+    [SerializeField] [Range(0, 100)] float _toxicity;
 
     [Header("References")]
     [SerializeField] GameObject interactionIcon;
@@ -48,6 +48,18 @@ public class Marjory : Character
     {
         get { return interactionIcon.activeInHierarchy; }
         set { interactionIcon.SetActive(value); }
+    }
+
+    public bool drying
+    {
+        set
+        {
+            movement.face.SetBool("eyesClosed", value);
+            movement.mechArm.SetInteger("gun", value ? 0 : shooting.currentGunIndex);
+            movement.normalArm.SetInteger("gun", value ? 0 : shooting.currentGunIndex);
+            movement.mechArm.SetBool("drying", value);
+            movement.normalArm.SetBool("drying", value);
+        }
     }
     #endregion
 

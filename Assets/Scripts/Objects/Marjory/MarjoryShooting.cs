@@ -40,7 +40,7 @@ public class MarjoryShooting : MonoBehaviour
     public int currentGunIndex
     {
         get { return (int)_currentGun; }
-        set { _currentGun = (Marjory.Guns)value; }
+        private set { _currentGun = (Marjory.Guns)value; }
     }
 
     public Gun currentGun
