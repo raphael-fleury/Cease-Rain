@@ -8,13 +8,12 @@ public class MarjoryDefense : MonoBehaviour
     int gun;
 
     [Header("Status")]
-    [SerializeField] bool canDefend;
+    public bool canDefend;
     [SerializeField] bool _defending;
 
     [Header("References")]
     [SerializeField] GameObject umbrella;
     [SerializeField] GameObject localUmbrella;
-    [SerializeField] string tagUmbrella;
     #endregion
 
     public bool defending
@@ -33,13 +32,12 @@ public class MarjoryDefense : MonoBehaviour
     void ReleaseUmbrella()
     {
         umbrella.transform.position = localUmbrella.transform.position;
-        Debug.Log(umbrella.transform.position);
         defending = false;
     }
 
-    void Awake()
+    void Start()
     { 
-        shooting = GetComponent<MarjoryShooting>();
+        shooting = Level.marjory.GetComponent<MarjoryShooting>();
     }
 
     void Update()
@@ -50,26 +48,16 @@ public class MarjoryDefense : MonoBehaviour
 
         if (wasDefending != isDefending)
         {
-            GetComponent<Animator>().SetBool("defending", isDefending);
-
             if (isDefending)
             {
                 gun = shooting.currentGunIndex;
                 defending = true;
-            }    
+            } 
+            else
+            {
+                shooting.SetGun(gun, 0);
+            }
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == tagUmbrella)
-            canDefend = true;
-    }
-
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == tagUmbrella)
-            canDefend = false;
     }
     #endregion
 }

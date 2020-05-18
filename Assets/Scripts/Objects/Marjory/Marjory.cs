@@ -12,6 +12,7 @@ public class Marjory : Character
 
     [Header("References")]
     [SerializeField] GameObject interactionIcon;
+    [SerializeField] MarjoryDefense normalArm;
 
     bool _controllable = true;
     #endregion
@@ -38,6 +39,7 @@ public class Marjory : Character
         get { return controllable; }
         set
         {
+            normalArm.canDefend = value;
             shooting.canShoot = value;
             movement.canMove = value;
             feet.canJump = value;
@@ -82,6 +84,18 @@ public class Marjory : Character
 
     void OnParticleCollision(GameObject other) =>
         toxicity += 0.2f;
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Umbrella")
+            normalArm.canDefend = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Umbrella")
+            normalArm.canDefend = false;
+    }
 
     protected override void Death() {}
     #endregion
