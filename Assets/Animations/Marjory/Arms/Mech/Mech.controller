@@ -801,25 +801,19 @@ AnimatorController:
   m_Name: Mech
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: gun
-    m_Type: 3
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: movement
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: diagonal
-    m_Type: 4
+  - m_Name: gun
+    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: defending
+  - m_Name: diagonal
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1070,13 +1064,13 @@ AnimatorStateMachine:
     second: []
   - first: {fileID: -982835283158883494}
     second: []
-  - first: {fileID: -2931324250062075970}
-    second: []
   - first: {fileID: -4473582270669990923}
     second: []
   - first: {fileID: 6346157965296999449}
     second: []
   - first: {fileID: -3693263811318439143}
+    second: []
+  - first: {fileID: -2931324250062075970}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 320, y: -50, z: 0}

@@ -4,11 +4,12 @@ public class MarjoryDefense : MonoBehaviour
 {
     #region Fields
     MarjoryShooting shooting;
-    MarjoryMovement movement;
+
+    int gun;
 
     [Header("Status")]
     [SerializeField] bool canDefend;
-    [SerializeField] bool defending;
+    [SerializeField] bool _defending;
 
     [Header("References")]
     [SerializeField] GameObject umbrella;
@@ -16,48 +17,56 @@ public class MarjoryDefense : MonoBehaviour
     [SerializeField] string tagUmbrella;
     #endregion
 
+    public bool defending
+    {
+        get { return _defending; }
+        private set
+        {
+            _defending = value;
+            umbrella.SetActive(!value);
+            localUmbrella.SetActive(value);
+            shooting.SetGun(value ? 1 : gun, 0);
+        }
+    }
+
     #region Methods
-    public void ReleaseUmbrella()
+    void ReleaseUmbrella()
     {
         umbrella.transform.position = localUmbrella.transform.position;
-        umbrella.SetActive(true);
-        localUmbrella.SetActive(false);
-        shooting.SetGun(shooting.currentGunIndex, 0);
+        Debug.Log(umbrella.transform.position);
+        defending = false;
     }
-    #endregion
 
-    #region Unity Methods
-    void Awake() { shooting = GetComponent<MarjoryShooting>(); }
+    void Awake()
+    { 
+        shooting = GetComponent<MarjoryShooting>();
+    }
 
     void Update()
     {
         bool wasDefending = defending;
-        defending = Input.GetKey(Controls.FindKey("DefendKey")) && (canDefend || defending);
-        defending = !Input.GetKeyUp(Controls.FindKey("DefendKey")) && defending;
+        bool isDefending = Input.GetKey(Controls.FindKey("DefendKey")) && (canDefend || defending);
+        isDefending = !Input.GetKeyUp(Controls.FindKey("DefendKey")) && isDefending;
 
-        if (wasDefending != defending)
+        if (wasDefending != isDefending)
         {
-            GetComponent<Animator>().SetBool("defending", defending);
-            movement.mechArm.SetInteger("gun", defending ? 1 : shooting.currentGunIndex);
-            movement.normalArm.SetInteger("gun", defending ? 1 : shooting.currentGunIndex);
+            GetComponent<Animator>().SetBool("defending", isDefending);
 
-            if (defending)
+            if (isDefending)
             {
-                if (shooting.currentGun)
-                    shooting.currentGun.gameObject.SetActive(false);
-
-                umbrella.SetActive(false);
-                localUmbrella.SetActive(true);
+                gun = shooting.currentGunIndex;
+                defending = true;
             }    
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        canDefend = collider.gameObject.tag == tagUmbrella;
+        if (collider.gameObject.tag == tagUmbrella)
+            canDefend = true;
     }
 
-    public void OnTriggerExit2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == tagUmbrella)
             canDefend = false;

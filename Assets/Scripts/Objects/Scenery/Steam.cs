@@ -54,7 +54,6 @@ public class Steam : InteractionArea
             GetComponent<Animator>().SetTrigger("Open");
             player.interactionIconActive = false;
             player.drying = true;
-            player.transform.SetPositionX(transform.position.x);
             player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
