@@ -87,6 +87,7 @@ public class MarjoryMovement : Movement
 
         UpdateAnimations();
         mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
+        normalArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));
     }
     #endregion
 }
