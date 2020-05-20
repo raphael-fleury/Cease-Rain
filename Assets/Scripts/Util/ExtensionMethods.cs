@@ -125,6 +125,11 @@ public static class ExtensionMethods
         return camera.GetHeight() * camera.aspect;
     }
 
+    public static void SetWidth(this Camera camera, float width)
+    {
+        camera.orthographicSize = (width / camera.aspect) / 2;
+    }
+
     public static Vector2 GetSize(this Camera camera)
     {
         return new Vector2(camera.GetWidth(), camera.GetHeight());

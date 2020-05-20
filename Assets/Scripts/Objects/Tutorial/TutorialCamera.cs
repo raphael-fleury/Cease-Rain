@@ -6,25 +6,21 @@ public class TutorialCamera : MonoBehaviour
 
     Vector2 resolution;
 
-    void Start()
-    {
-        resolution = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height);
-        Fix();
-    }
+    void Start() => Fix();
 
     private void Update()
     {
-        if (Screen.currentResolution.width != resolution.x || Screen.currentResolution.height != resolution.y)
-        {
-            Debug.Log("a");
+        if (Screen.width != resolution.x || Screen.height != resolution.y)
             Fix();
-        }
     }
             
     private void Fix()
-    {
-        Camera.main.orthographicSize = background.size.x * Screen.height / Screen.width / 2;
+    {     
+        Camera.main.SetWidth(background.size.x);
         transform.position = background.transform.position;
-        transform.Translate(0f, Mathf.Abs(30.8f - Camera.main.GetHeight()) / 2, 0f);
+        transform.Translate(0f, (30.8f - Camera.main.GetHeight()) / -2, 0f);
+
+        resolution.x = Screen.width;
+        resolution.y = Screen.height;
     }
 }
