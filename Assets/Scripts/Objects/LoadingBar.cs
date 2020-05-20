@@ -5,20 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadingBar : MonoBehaviour
 {
-    [Header("Options")]
-    [SerializeField] SceneEnum sceneToLoad;
+    void Start() => LoadScene();
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-            LoadScene();
-    }
-
-    public void LoadScene()
-    {
-        int scene = (int)sceneToLoad;
-        StartCoroutine(Loading(scene));
-    }
+    public void LoadScene() => StartCoroutine(Loading(Game.sceneToLoad));
 
     IEnumerator Loading(int scene)
     {

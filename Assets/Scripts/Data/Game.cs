@@ -10,6 +10,7 @@ public static class Game
     public static bool canPause { get; private set; } = true;
     public static bool isPaused { get; private set; } = false;
     public static string currentSave { get; private set; }
+    public static int sceneToLoad { get; private set; }
 
     public static int currentScene
     {
@@ -45,9 +46,10 @@ public static class Game
     #region Load Scene
     public static void LoadScene(int scene)
     {
+        sceneToLoad = scene;
         isPaused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync(scene);        
+        SceneManager.LoadScene((int)SceneEnum.Loading);      
     }
 
     public static void LoadScene(SceneEnum scene) =>

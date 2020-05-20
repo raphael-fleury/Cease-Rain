@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
@@ -9,7 +7,7 @@ public class Cutscene : MonoBehaviour
     #region Fields
     VideoPlayer video;
 
-    [SerializeField] LoadingBar loader;
+    [SerializeField] SceneEnum nextScene;
 
     [Header("Skip")]
     [SerializeField] KeyCode skipButton;
@@ -26,7 +24,7 @@ public class Cutscene : MonoBehaviour
 
     void LoadScene()
     {
-        loader.LoadScene();
+        Game.LoadScene(nextScene);
         textSkip.enabled = false;
     }
 

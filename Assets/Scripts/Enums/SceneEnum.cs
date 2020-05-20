@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public enum SceneEnum
+﻿public enum SceneEnum
 {
     Menu,
+    Loading,
     Cutscene,
     Tutorial,
     FirstLevel,
