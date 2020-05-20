@@ -2,6 +2,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Options : MonoBehaviour
 {
@@ -19,6 +20,16 @@ public class Options : MonoBehaviour
     [SerializeField] AudioMixer  mixer;
     [SerializeField] AudioOption music;
     [SerializeField] AudioOption sound;
+    #endregion
+
+    #region Events
+    private static Action<Resolution> onResolutionChange;
+
+    public static event Action<Resolution> OnResolutionChange
+    {
+        add { onResolutionChange += value; }
+        remove { onResolutionChange -= value; }
+    }
     #endregion
 
     public void Enable(GameObject origin)
@@ -53,10 +64,11 @@ public class Options : MonoBehaviour
 
     public void Resolution(int index)
     {
-        PlayerPrefs.SetInt("Resolution", index);
-        PlayerPrefs.Save();
         Resolution resolution = Screen.resolutions[index];
+        PlayerPrefs.SetInt("Resolution", index);
+        PlayerPrefs.Save();       
         Screen.SetResolution(resolution.width, resolution.height, fullscreen);
+        onResolutionChange?.Invoke(resolution);
     }
     #endregion
 
