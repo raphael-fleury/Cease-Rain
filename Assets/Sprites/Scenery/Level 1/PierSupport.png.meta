@@ -4,10 +4,10 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: CaisMadeira_0
+    second: PierSupport_Top
   - first:
       213: 21300002
-    second: CaisMadeira_1
+    second: PierSupport
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -92,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CaisMadeira_0
+      name: PierSupport_Top
       rect:
         serializedVersion: 2
         x: 105
@@ -100,7 +100,7 @@ TextureImporter:
         width: 162
         height: 195
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,7 +113,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CaisMadeira_1
+      name: PierSupport
       rect:
         serializedVersion: 2
         x: 138
@@ -121,7 +121,7 @@ TextureImporter:
         width: 195
         height: 2061
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 34dd31f4b225fdf41a8f995640d50afd
     internalID: 0
     vertices: []
     indices: 

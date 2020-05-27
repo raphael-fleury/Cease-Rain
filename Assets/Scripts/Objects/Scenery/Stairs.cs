@@ -33,18 +33,22 @@ public class Stairs : MonoBehaviour
         player.OnStepEvent -= StopFollowing;
     }
 
-    //float modifier = 3f;
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Rigidbody2D body = player.GetComponent<Rigidbody2D>();
-            if (player.onFloor && body.velocity.x != 0)
-            {          
-                /*body.velocity = new Vector2( player.direction == 1 ?
-                    Mathf.Pow(body.velocity.x, modifier) :  
-                    -Mathf.Pow(Mathf.Abs(body.velocity.x), 1 / modifier),
-                    body.velocity.y);*/
+            if (player.onFloor)
+            {
+                if (Input.GetAxis("Horizontal") == 0 && player.GetComponent<Movement>().knockback <= 0)
+                {
+                    body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                }
+                else
+                {
+                    body.constraints = RigidbodyConstraints2D.None;
+                    body.constraints = RigidbodyConstraints2D.FreezeRotation;
+                }
             }
         }
     }

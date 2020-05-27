@@ -27,7 +27,7 @@ public class FightMovement : Movement, ILimits
         if(!l.IsBetween(transform.position.x)) //check if the enemy is between the limits
             direction = l.Compare(transform.position.x) * -1;
 
-        _canMove = l.Distance() > minSpace;
+        canMove = l.Distance() > minSpace;
       
         if (l.Distance() <= minSpace)
         {

@@ -8,9 +8,9 @@ public class Movement : MonoBehaviour
     protected Rigidbody2D body;
 
     [Header("Status")]
-    [SerializeField] protected bool _canMove = true;
+    [SerializeField] bool _canMove = true;
     [Range(-1,1)] protected int direction;
-    [SerializeField] [Min(0)] protected float _knockback;
+    [SerializeField] [Min(0)] float _knockback;
 
     [Header("Options")]
     [SerializeField] float _walkSpeed;
@@ -43,6 +43,13 @@ public class Movement : MonoBehaviour
     public float knockback
     {
         get { return _knockback; }
+        private set
+        {
+            if (value < 0)
+                _knockback = 0;
+            else
+                _knockback = value;
+        }
     }
 
     public float walkSpeed
@@ -57,9 +64,9 @@ public class Movement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if (knockback > 0)
-            _knockback -= Time.fixedDeltaTime;
-        else if (canMove)
+        knockback -= Time.fixedDeltaTime;
+        
+        if (canMove)
             Move();
     }
     #endregion
@@ -68,7 +75,7 @@ public class Movement : MonoBehaviour
     public void Knockback(float knockback)
     {
         body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
-        _knockback = knockback;
+        this.knockback = knockback;
     }
 
     protected virtual void Move()
