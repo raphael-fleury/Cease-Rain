@@ -8,7 +8,7 @@ public class Marjory : Character
     MarjoryMovement movement;
     Feet feet;
 
-    [SerializeField] [Range(0, 100)] float _toxicity;
+    [SerializeField, Range(0, 100)] public float _toxicity;
 
     [Header("References")]
     [SerializeField] GameObject interactionIcon;
@@ -20,6 +20,7 @@ public class Marjory : Character
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
 
     #region Properties
+    [SerializeField]
     public float toxicity
     {
         get { return _toxicity; }

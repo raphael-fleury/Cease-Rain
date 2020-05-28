@@ -9,11 +9,11 @@ public class Movement : MonoBehaviour
 
     [Header("Status")]
     [SerializeField] bool _canMove = true;
-    [Range(-1,1)] protected int direction;
-    [SerializeField] [Min(0)] float _knockback;
+    [SerializeField, Range(-1,1)] protected int direction;
+    [SerializeField, Min(0)] float _knockback;
 
     [Header("Options")]
-    [SerializeField] float _walkSpeed;
+    [SerializeField, Min(0)] public float _walkSpeed;
     #endregion
 
     #region Events
