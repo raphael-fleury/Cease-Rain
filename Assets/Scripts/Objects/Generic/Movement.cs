@@ -9,16 +9,16 @@ public class Movement : MonoBehaviour
 
     [Header("Status")]
     [SerializeField] bool _canMove = true;
-    [SerializeField, Range(-1,1)] protected int direction;
+    [SerializeField, Range(-1,1)] int _direction;
     [SerializeField, Min(0)] float _knockback;
 
     [Header("Options")]
-    [SerializeField, Min(0)] public float _walkSpeed;
+    [SerializeField, Min(0)] float _walkSpeed;
     #endregion
 
     #region Events
     private event Action onFlipEvent;
-    private event Action onMoveEvent;
+    protected event Action onMoveEvent;
 
     public event Action OnFlipEvent
     {
@@ -38,6 +38,12 @@ public class Movement : MonoBehaviour
     {
         get { return knockback <= 0 && _canMove; }
         set { _canMove = value; }
+    }
+
+    public int direction
+    {
+        get { return _direction; }
+        protected set { _direction = value; }
     }
 
     public float knockback
@@ -71,6 +77,11 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Methods
+    public bool IsFacing(Transform character)
+    {
+        return Mathf.Sign(transform.localScale.x) == character.position.x.CompareTo(transform.position.x);
+    }
+
     public void Knockback(float knockback)
     {
         body.AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
@@ -79,18 +90,18 @@ public class Movement : MonoBehaviour
 
     protected virtual void Move()
     {
-        Flip();
+        if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
+            Flip();
+
         body.SetVelocityX(direction * walkSpeed);
         onMoveEvent?.Invoke();
     }
 
-    void Flip()
-    {   
-        if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
-        {
-            transform.SetLocalScaleX(-transform.localScale.x);
-            onFlipEvent?.Invoke();
-        }
+    public void Flip()
+    {
+        transform.SetLocalScaleX(-transform.localScale.x);
+        //direction *= -1;
+        onFlipEvent?.Invoke();
     }
     #endregion
 }

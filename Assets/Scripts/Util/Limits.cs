@@ -12,11 +12,6 @@ public struct Limits
         this.higher = higher;
     }
 
-    public bool IsBetween(float pos)
-    {
-        return pos > lower && pos < higher;
-    }
-
     public int Compare(float pos)
     {
         if (pos <= lower)
@@ -57,7 +52,7 @@ public struct Limits2D
 
     public bool IsBetween(Vector2 vector)
     {
-        return x.IsBetween(vector.x) && y.IsBetween(vector.y);
+        return vector.x.IsBetween(x) && vector.y.IsBetween(y);
     }
 
     public Vector2 Compare(Vector2 vector)

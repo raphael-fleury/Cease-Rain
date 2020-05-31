@@ -1,46 +1,58 @@
 ﻿using UnityEngine;
 
-public class Smily : FightMovement
+[RequireComponent(typeof(Feet), typeof(Animator), typeof(FightMovement))]
+public class Smily : Enemy
 {
-    Animator anim;
+    #region Fields
+    Movement movement;
+    Animator animator;
     Feet feet;
-    
-    [Header("Smily")]
-    [SerializeField] CurrentAction _currentAction;
 
-    [Space(10)] 
-    [SerializeField] [Min(0)] float jumpCooldown = 3f;
-
+    [Header("Options")]
     [SerializeField] Shooter shooter;
-    [SerializeField] float knockbackOnShoot;
+    [SerializeField, Min(0)] float cooldown = 2f;
+    #endregion
 
-    enum CurrentAction { Idle, Walking, Recharging, Jumping, Falling }
-
-    CurrentAction currentAction
-    {
-        get { return _currentAction; }
-        set 
-        {
-            _currentAction = value;
-            anim.SetInteger("action", (int)value);
-        }
-    }
-
+    #region Methods
     protected override void Awake()
     {
         base.Awake();
-        anim = GetComponent<Animator>();
-        feet.OnStepEvent += delegate
-        {
-            currentAction = CurrentAction.Walking;
-            if (!IsInvoking("Jump"))
-                Invoke("Jump", jumpCooldown);          
-        };
+        feet = GetComponent<Feet>();
+        movement = GetComponent<Movement>();
+        animator = GetComponent<Animator>();
     }
 
-    public void Shoot()
+    void Start()
     {
-        shooter.Shoot(Vector2.right * direction);
-        body.AddForce(Vector2.right * direction * knockbackOnShoot);
+        Recharge();
+        feet.OnStepEvent += delegate { Invoke("Recharge", cooldown); };
     }
+
+    void FixedUpdate() { animator.SetBool("idle", !movement.canMove); }
+
+    void Recharge()
+    {
+        if (feet.onFloor)
+        {
+            if (transform.localScale.x != Level.marjory.transform.position.x.CompareTo(transform.position.x))
+            {
+                Debug.Log("a");
+                movement.Flip();
+            }
+                
+
+            animator.SetTrigger("recharge");
+            movement.canMove = false;
+        }            
+    }
+
+    void Jump()
+    {
+        feet.Jump();
+        animator.SetTrigger("jump");
+        movement.canMove = true;
+    }
+
+    void Shoot() { shooter.Shoot(Vector2.right * movement.direction * shooter.speed); }
+    #endregion
 }

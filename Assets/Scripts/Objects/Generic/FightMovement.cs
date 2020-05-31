@@ -3,13 +3,21 @@
 public class FightMovement : Movement, ILimits
 {
     #region Fields
+    Limits actualLimits;
+
     protected Transform marjory;
 
-    [SerializeField] [Min(0)] float minSpace = 5;
-    [SerializeField] [Min(0)] float minDistance = 7;
+    [SerializeField, Min(0)] float minSpace = 5;
+    [SerializeField, Min(0)] float minDistance = 7;
     
     [SerializeField] Limits limits;
     #endregion
+
+    public override bool canMove
+    {
+        get { return base.canMove && actualLimits.Distance() > minSpace; }
+        set { base.canMove = value; }
+    }
 
     #region Methods
     public void SetLimits(Limits limits) => this.limits.Set(limits);
@@ -18,22 +26,18 @@ public class FightMovement : Movement, ILimits
 
     protected override void FixedUpdate()
     {
-        Limits l = limits;
         if (transform.position.x > marjory.position.x)
-            l.Set(marjory.position.x + minDistance, limits.higher);
+            actualLimits.Set(marjory.position.x + minDistance, limits.higher);
         else
-            l.Set(limits.lower, marjory.position.x - minDistance);
+            actualLimits.Set(limits.lower, marjory.position.x - minDistance);
         
-        if(!l.IsBetween(transform.position.x)) //check if the en
-            direction = l.Compare(transform.position.x) * -1;
+        if(!transform.position.x.IsBetween(actualLimits))
+            direction = actualLimits.Compare(transform.position.x) * -1;
 
-        canMove = l.Distance() > minSpace;
+        //canMove = actualLimits.Distance() > minSpace;
       
-        if (l.Distance() <= minSpace)
-        {
-            direction = marjory.position.x.CompareTo(transform.position.x);
-            Invoke("Flip", .5f);
-        }
+        if (actualLimits.Distance() <= minSpace && !IsFacing(marjory))
+            Flip();
 
         base.FixedUpdate();
     }

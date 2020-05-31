@@ -35,7 +35,6 @@ public class LadyStorm : Enemy
             SpawnShock(-1);
             SpawnShock(+1);
         };
-        //feet.OnStepEvent += delegate { Debug.Log("p"); };
     }
 
     void FixedUpdate() { animator.SetBool("idle", !movement.canMove); }
