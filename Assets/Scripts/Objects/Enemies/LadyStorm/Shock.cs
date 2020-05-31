@@ -7,8 +7,8 @@ public class Shock : MonoBehaviour
     [Range(-1,1)] public int direction = 1;
 
     [Header("Options")]
-    [SerializeField] [Min(0)] float damage = 5;
-    [SerializeField] [Min(0)] float speed;
+    [SerializeField, Min(0)] float damage = 5;
+    [SerializeField, Min(0)] float speed;
 
     [Header("Overlap")]
     [SerializeField] OverlapCircle circle;

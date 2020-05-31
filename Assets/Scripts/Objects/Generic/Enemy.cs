@@ -4,9 +4,9 @@ public class Enemy : Character
 {
     [SerializeField] GameObject deathAnim;
 
-    protected override void Start()
+    protected override void Awake()
     { 
-        base.Start();
+        base.Awake();
         OnDeathEvent += delegate 
         {
             if (deathAnim)

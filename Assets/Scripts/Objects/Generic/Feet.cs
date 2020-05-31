@@ -8,14 +8,14 @@ public class Feet : MonoBehaviour
     Movement movement;
     Rigidbody2D body;
 
-    bool _onFloor;
+    bool _onFloor = true;
 
     [Header("Status")]
     [SerializeField] bool _canJump = true;
 
     [Header("Jump")]
-    [SerializeField] [Min(0)] float jumpForce;
-    [SerializeField] [Range(0,1)] float jumpModifier;
+    [SerializeField, Min(0)] float jumpForce;
+    [SerializeField, Range(0,1)] float jumpModifier;
 
     [Header("Overlap")]
     [SerializeField] OverlapCircle circle;

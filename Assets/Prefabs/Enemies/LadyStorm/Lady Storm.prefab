@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d007f75e68586984c8e3bd41a9821eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 0
   _life: 50
   deathAnim: {fileID: 2456903781536469119, guid: 42250d5b3f266e3479191736720a539f,
     type: 3}
@@ -117,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  direction: 0
+  direction: 1
   _knockback: 0
   _walkSpeed: 5
   minSpace: 5

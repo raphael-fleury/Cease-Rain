@@ -6,26 +6,17 @@ public class LadyShield : Character
     public Transform lady;
 
     [Header("Options")]
-    [SerializeField] [Min(0)] float damage = 5;
-    [SerializeField] [Min(0)] float knockback = .5f;
-    [SerializeField] [Min(0)] float regenTime = 5f;
+    [SerializeField, Min(0)] float damage = 5;
+    [SerializeField, Min(0)] float knockback = .5f;
+    [SerializeField, Min(0)] float regenTime = 5f;
     #endregion
 
     #region Methods
-    protected override void Death()
-    {       
-        Invoke("Regen", regenTime);
-        gameObject.SetActive(false);
+    void Start()
+    {
+        lady.gameObject.GetComponent<Character>().OnDeathEvent += delegate { Destroy(gameObject); };
     }
 
-    protected override void Start()
-    { 
-        base.Start();
-        lady.gameObject.GetComponent<Character>().OnDeathEvent += Destroy; 
-    }
-
-    void Destroy() { Destroy(gameObject); }
-    
     void Update() { transform.position = lady.position; }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -33,13 +24,19 @@ public class LadyShield : Character
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Character>().life -= damage;
-            other.gameObject.GetComponent<Movement>().Knockback(knockback);
+            other.gameObject.GetComponent<Movement>().Knockback(knockback * transform.position.x.CompareTo(other.transform.position.x));
             Death();
         }
     }
 
+    protected override void Death()
+    {
+        Invoke("Regen", regenTime);
+        gameObject.SetActive(false);
+    }
+
     void Regen()
-    { 
+    {
         life = maxLife;
         gameObject.SetActive(true);
     }

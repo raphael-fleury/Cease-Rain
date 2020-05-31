@@ -6,7 +6,6 @@ public class LadyStorm : Enemy
     Movement movement;
     Animator animator;
     Feet feet;
-    bool jumping;
 
     [Header("Options")]
     [SerializeField] float shockOutputY;
@@ -17,51 +16,39 @@ public class LadyStorm : Enemy
     [SerializeField] GameObject shock;
     #endregion
 
-    #region Unity Methods
-    void Awake()
-    {        
-        movement = GetComponent<Movement>();
-        animator = GetComponent<Animator>();
-        feet = GetComponent<Feet>();
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        Invoke("Jump", jumpCooldown);
-
-        GameObject sh = GameObject.Instantiate(shield);
-        sh.GetComponent<LadyShield>().lady = transform;
-
-        feet.OnStepEvent += SpawnShock;
-    }
-
-    void FixedUpdate() =>
-        animator.SetBool("idle", movement.canMove);
-    #endregion
-
     #region Methods
+    protected override void Awake()
+    {
+        base.Awake();
+        feet = GetComponent<Feet>();
+        movement = GetComponent<Movement>();
+        animator = GetComponent<Animator>();      
+    }
+
+    void Start()
+    {
+        InvokeRepeating("Jump", jumpCooldown, jumpCooldown);
+        Instantiate(shield).GetComponent<LadyShield>().lady = transform;
+
+        feet.OnStepEvent += delegate
+        {
+            SpawnShock(-1);
+            SpawnShock(+1);
+        };
+        //feet.OnStepEvent += delegate { Debug.Log("p"); };
+    }
+
+    void FixedUpdate() { animator.SetBool("idle", !movement.canMove); }
+
     void Jump()
     {    
         feet.Jump();
         animator.SetTrigger("jump");
-        Invoke("Jump", jumpCooldown);
-        jumping = true;
-    }
-
-    void SpawnShock()
-    {
-        if (jumping)
-        {
-            jumping = false;
-            SpawnShock(-1);
-            SpawnShock(+1);
-        } 
     }
 
     void SpawnShock(int direction)
     {
-        GameObject s = GameObject.Instantiate(shock,
+        GameObject s = Instantiate(shock,
             transform.position + Vector3.up * shockOutputY,
             Quaternion.identity);
 

@@ -20,7 +20,6 @@ public class Marjory : Character
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
 
     #region Properties
-    [SerializeField]
     public float toxicity
     {
         get { return _toxicity; }
@@ -37,9 +36,10 @@ public class Marjory : Character
 
     public bool controllable
     {
-        get { return controllable; }
+        get { return _controllable; }
         set
         {
+            controllable = value;
             normalArm.canDefend = value;
             shooting.canShoot = value;
             movement.canMove = value;
@@ -49,7 +49,7 @@ public class Marjory : Character
 
     public bool interactionIconActive
     {
-        get { return interactionIcon.activeInHierarchy; }
+        get { return interactionIcon.activeSelf; }
         set { interactionIcon.SetActive(value); }
     }
 
@@ -67,8 +67,9 @@ public class Marjory : Character
     public void SetGun(Guns gun, int bullets) =>
        shooting.SetGun((int)gun, bullets);
   
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Level.marjory = this;
         feet = GetComponent<Feet>();
         movement = GetComponent<MarjoryMovement>();

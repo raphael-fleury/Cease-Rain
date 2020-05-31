@@ -57,10 +57,9 @@ public class Movement : MonoBehaviour
         get { return _walkSpeed; }
     }
     #endregion
-  
+
     #region Unity Methods
-    protected virtual void Awake() =>
-        body = GetComponent<Rigidbody2D>();
+    protected virtual void Awake() { body = GetComponent<Rigidbody2D>(); }
 
     protected virtual void FixedUpdate()
     {
