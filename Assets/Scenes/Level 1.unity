@@ -25265,7 +25265,7 @@ MonoBehaviour:
   active: 0
   enemiesAlive: 0
   enemiesToSpawn:
-  - enemy: {fileID: 5818812517359551358, guid: 03b55bd5bcf9e0649a4400be538b0bbb, type: 3}
+  - enemy: {fileID: 1752138512611951797, guid: 98857aa8e93ab894896c89c6be65a680, type: 3}
     pos: {fileID: 1961069075}
   colliders: {fileID: 1408292675}
   limits:
@@ -42012,7 +42012,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329913411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.8, y: -2.9, z: 0}
+  m_LocalPosition: {x: 110.6, y: -2.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

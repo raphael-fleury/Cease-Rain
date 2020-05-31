@@ -25,7 +25,11 @@ public class Smily : Enemy
     void Start()
     {
         Recharge();
-        feet.OnStepEvent += delegate { Invoke("Recharge", cooldown); };
+        feet.OnStepEvent += delegate
+        { 
+            Invoke("Recharge", cooldown);
+            movement.canFlip = true;
+        };
     }
 
     void FixedUpdate() { animator.SetBool("idle", !movement.canMove); }
@@ -34,15 +38,12 @@ public class Smily : Enemy
     {
         if (feet.onFloor)
         {
-            if (transform.localScale.x != Level.marjory.transform.position.x.CompareTo(transform.position.x))
-            {
-                Debug.Log("a");
+            if (!movement.IsFacing(Level.marjory.transform))
                 movement.Flip();
-            }
-                
 
             animator.SetTrigger("recharge");
             movement.canMove = false;
+            movement.canFlip = false;
         }            
     }
 

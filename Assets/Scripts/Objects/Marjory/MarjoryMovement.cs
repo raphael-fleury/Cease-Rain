@@ -82,8 +82,8 @@ public class MarjoryMovement : Movement
 
         axisX = Input.GetAxis("Horizontal");
 
-        if (axisX != 0)
-            direction = (int)Mathf.Sign(axisX);
+        if (axisX != 0 && direction != Mathf.Sign(axisX))
+            Flip();
 
         UpdateAnimations();
         mechArm.SetBool("diagonal", Input.GetKey(Controls.FindKey("DiagonalAimKey")));

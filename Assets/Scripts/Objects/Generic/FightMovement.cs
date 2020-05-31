@@ -9,7 +9,8 @@ public class FightMovement : Movement, ILimits
 
     [SerializeField, Min(0)] float minSpace = 5;
     [SerializeField, Min(0)] float minDistance = 7;
-    
+    [SerializeField, Min(0)] float maxDistance = 20;
+
     [SerializeField] Limits limits;
     #endregion
 
@@ -27,15 +28,13 @@ public class FightMovement : Movement, ILimits
     protected override void FixedUpdate()
     {
         if (transform.position.x > marjory.position.x)
-            actualLimits.Set(marjory.position.x + minDistance, limits.higher);
+            actualLimits.Set(marjory.position.x + minDistance, Mathf.Max(limits.higher, marjory.position.x + maxDistance));
         else
-            actualLimits.Set(limits.lower, marjory.position.x - minDistance);
-        
-        if(!transform.position.x.IsBetween(actualLimits))
-            direction = actualLimits.Compare(transform.position.x) * -1;
+            actualLimits.Set(Mathf.Min(limits.lower, marjory.position.x - maxDistance), marjory.position.x - minDistance);
 
-        //canMove = actualLimits.Distance() > minSpace;
-      
+        if (direction == actualLimits.Compare(transform.position.x))
+            Flip();
+       
         if (actualLimits.Distance() <= minSpace && !IsFacing(marjory))
             Flip();
 

@@ -8,6 +8,9 @@ public struct Limits
 
     public Limits(float lower, float higher)
     {
+        if (lower > higher)
+            this = new Limits(higher, lower);
+
         this.lower = lower;
         this.higher = higher;
     }
@@ -42,6 +45,11 @@ public struct Limits
     }
 
     public void Set(Limits limits) => Set(limits.lower, limits.higher);
+
+    public override string ToString()
+    {
+        return lower + " : " + higher;
+    }
 }
 
 [System.Serializable]

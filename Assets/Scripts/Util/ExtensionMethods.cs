@@ -13,10 +13,12 @@ public static class ExtensionMethods
     }
     #endregion
 
+    #region Float
     public static bool IsBetween(this float f, Limits limits)
     {
         return f > limits.lower && f < limits.higher;
     }
+    #endregion
 
     #region Vector2
     public static Vector2 Distance(this Vector2 vector, Vector2 other)

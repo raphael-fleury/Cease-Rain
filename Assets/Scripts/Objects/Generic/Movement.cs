@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 
     [Header("Status")]
     [SerializeField] bool _canMove = true;
-    [SerializeField, Range(-1,1)] int _direction;
+    [SerializeField] bool _canFlip = true;
     [SerializeField, Min(0)] float _knockback;
 
     [Header("Options")]
@@ -40,10 +40,15 @@ public class Movement : MonoBehaviour
         set { _canMove = value; }
     }
 
+    public virtual bool canFlip
+    {
+        get { return knockback <= 0 && _canFlip; }
+        set { _canFlip = value; }
+    }
+
     public int direction
     {
-        get { return _direction; }
-        protected set { _direction = value; }
+        get { return (int)Mathf.Sign(transform.localScale.x); }
     }
 
     public float knockback
@@ -90,18 +95,19 @@ public class Movement : MonoBehaviour
 
     protected virtual void Move()
     {
-        if (direction != 0 && direction != Mathf.Sign(transform.localScale.x))
-            Flip();
-
         body.SetVelocityX(direction * walkSpeed);
         onMoveEvent?.Invoke();
     }
 
-    public void Flip()
+    public bool Flip()
     {
-        transform.SetLocalScaleX(-transform.localScale.x);
-        //direction *= -1;
-        onFlipEvent?.Invoke();
+        if (canFlip)
+        {
+            transform.SetLocalScaleX(-transform.localScale.x);
+            onFlipEvent?.Invoke();
+        }
+
+        return canFlip;
     }
     #endregion
 }
