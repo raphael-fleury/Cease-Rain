@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937966492545100727}
+  - component: {fileID: 937966492545100722}
   - component: {fileID: 937966492545100720}
   - component: {fileID: 937966492545100721}
-  - component: {fileID: 937966492545100722}
   - component: {fileID: 5650114001410574183}
   m_Layer: 13
   m_Name: Bullet
@@ -34,6 +34,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937966492545100722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937966492545100723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b9c5d575589e44cad72061e1fc74d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 5
+  explosion: {fileID: 556164134757127355, guid: d1fa85016acbffd46a181f78f8c8b272,
+    type: 3}
+  targetTag: Player
+  damage: 10
+  knockback: 10
+  toxicity: 10
 --- !u!212 &937966492545100720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70,8 +89,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 989081817
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 74d7a811f530fd947834d81b3d810d5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,25 +119,6 @@ CapsuleCollider2D:
   m_Offset: {x: 1.18, y: 0}
   m_Size: {x: 2.78, y: 1.87}
   m_Direction: 1
---- !u!114 &937966492545100722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937966492545100723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45b9c5d575589e44cad72061e1fc74d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
-  explosion: {fileID: 556164134757127355, guid: d1fa85016acbffd46a181f78f8c8b272,
-    type: 3}
-  targetTag: Player
-  damage: 10
-  knockback: 10
-  toxicity: 10
 --- !u!50 &5650114001410574183
 Rigidbody2D:
   serializedVersion: 4

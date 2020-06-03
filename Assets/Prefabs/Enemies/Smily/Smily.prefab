@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1487383427955095391}
   - component: {fileID: 1487383427955095390}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1487383428255700786}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Shot Output
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -93,9 +93,9 @@ GameObject:
   - component: {fileID: 1752138512611951690}
   - component: {fileID: 1752138512611951691}
   - component: {fileID: 1752138512611951796}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Smily
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,8 @@ MonoBehaviour:
   shooter:
     prefab: {fileID: 937966492545100723, guid: b7b6b47e478ae1e4fbde65f6874e31cc, type: 3}
     output: {fileID: 1487383428255700786}
-    speed: 0
+    speed: 2
+  cooldown: 2
 --- !u!114 &1752138512611951689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,11 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  _direction: -1
+  _canFlip: 1
   _knockback: 0
   _walkSpeed: 5
   minSpace: 5
-  minDistance: 7
+  minDistance: 12
+  maxDistance: 20
   limits:
     lower: 95
     higher: 105

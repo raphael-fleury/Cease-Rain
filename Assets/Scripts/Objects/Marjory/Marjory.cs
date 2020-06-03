@@ -8,7 +8,7 @@ public class Marjory : Character
     MarjoryMovement movement;
     Feet feet;
 
-    [SerializeField, Range(0, 100)] public float _toxicity;
+    [SerializeField, Range(0, 100)] float _toxicity;
 
     [Header("References")]
     [SerializeField] GameObject interactionIcon;
@@ -39,7 +39,7 @@ public class Marjory : Character
         get { return _controllable; }
         set
         {
-            controllable = value;
+            _controllable = value;
             normalArm.canDefend = value;
             shooting.canShoot = value;
             movement.canMove = value;

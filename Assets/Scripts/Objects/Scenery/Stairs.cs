@@ -42,7 +42,7 @@ public class Stairs : MonoBehaviour
             {
                 if (Input.GetAxis("Horizontal") == 0 && player.GetComponent<Movement>().knockback <= 0)
                 {
-                    body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                    body.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
                 }
                 else
                 {

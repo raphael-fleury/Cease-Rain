@@ -8,6 +8,7 @@ TagManager:
   - PlayerShot
   - EnemyShot
   - Umbrella
+  - Inimigo
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2036743579
     locked: 0
   - name: Scenery
     uniqueID: 3170630633

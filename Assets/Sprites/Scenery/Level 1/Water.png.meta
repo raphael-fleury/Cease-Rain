@@ -1,19 +1,70 @@
 fileFormatVersion: 2
-guid: 920b5cfe851bdbd42ad73f7c3665fde5
+guid: 9443edbcfee57c44fb7dcda9d59c8e65
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 21300000
+      213: -6559946417490655688
     second: Water_0
   - first:
-      213: 21300002
-    second: Water_1
-  - first:
-      213: 21300004
+      213: -5495574498418647877
     second: Water_2
   - first:
-      213: 21300006
+      213: 4067552751015703725
+    second: Water2_2
+  - first:
+      213: -1663592659739363303
+    second: Water2_3
+  - first:
+      213: 2381003514513116917
+    second: Water_0
+  - first:
+      213: 2381003514513116917
+    second: Water_1
+  - first:
+      213: -6118227300662613494
+    second: Water2_0
+  - first:
+      213: 6049605792901559095
+    second: Water_0
+  - first:
+      213: -5882170695943828418
+    second: Water_1
+  - first:
+      213: 7591774343886807129
+    second: Water_2
+  - first:
+      213: 8088830456793213489
     second: Water_3
+  - first:
+      213: 4177692092066526168
+    second: Water_4
+  - first:
+      213: 8954592487278907307
+    second: Water_5
+  - first:
+      213: -4906324669642958461
+    second: Water_6
+  - first:
+      213: -4272997025716492783
+    second: Water_7
+  - first:
+      213: -7504709878752999052
+    second: Water_8
+  - first:
+      213: 4432197591406163036
+    second: Water_3
+  - first:
+      213: 6063391491622706893
+    second: Water_4
+  - first:
+      213: -7045013148364823412
+    second: Water_5
+  - first:
+      213: 1294563635360641803
+    second: Water_6
+  - first:
+      213: 4168522879971078862
+    second: Water_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -81,7 +132,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -93,7 +144,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -103,17 +154,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 411
-        height: 519
+        width: 276
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
+      spriteID: 8368fd74d7366f4a0800000000000000
+      internalID: -6559946417490655688
       vertices: []
       indices: 
       edges: []
@@ -122,19 +173,19 @@ TextureImporter:
       name: Water_1
       rect:
         serializedVersion: 2
-        x: 462
+        x: 69
         y: 0
-        width: 411
-        height: 519
+        width: 276
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
+      spriteID: e3c4e08cae45e5ea0800000000000000
+      internalID: -5882170695943828418
       vertices: []
       indices: 
       edges: []
@@ -143,19 +194,19 @@ TextureImporter:
       name: Water_2
       rect:
         serializedVersion: 2
-        x: 924
+        x: 138
         y: 0
-        width: 411
-        height: 519
+        width: 276
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
+      spriteID: 9502c46fa866b5960800000000000000
+      internalID: 7591774343886807129
       vertices: []
       indices: 
       edges: []
@@ -164,19 +215,40 @@ TextureImporter:
       name: Water_3
       rect:
         serializedVersion: 2
-        x: 1393
+        x: 207
         y: 0
-        width: 411
-        height: 519
+        width: 276
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62305410000000000800000000000000
-      internalID: 21300006
+      spriteID: c543b120a34528d30800000000000000
+      internalID: 4432197591406163036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 276
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce1c48bf6e752450800000000000000
+      internalID: 6063391491622706893
       vertices: []
       indices: 
       edges: []
@@ -184,7 +256,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d8d4c225358bb3e49abc77a694144cbc
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

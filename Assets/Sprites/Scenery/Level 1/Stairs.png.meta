@@ -116,10 +116,10 @@ TextureImporter:
       name: Stairs_0
       rect:
         serializedVersion: 2
-        x: 1700
-        y: 118
-        width: 195
-        height: 1808
+        x: 1845
+        y: 0
+        width: 10
+        height: 1804
       alignment: 4
       pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: Stairs_1
       rect:
         serializedVersion: 2
-        x: 117
-        y: 118
+        x: 0
+        y: 0
         width: 1583
-        height: 1808
+        height: 1804
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,27 +150,6 @@ TextureImporter:
       bones: []
       spriteID: 4839d6d74ddeb594da3dece4630f9e58
       internalID: 21300002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stairs_2
-      rect:
-        serializedVersion: 2
-        x: 117
-        y: 118
-        width: 4343
-        height: 1808
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24b1d957d7e717f489da5d1f074252cb
-      internalID: 21300004
       vertices: []
       indices: 
       edges: []

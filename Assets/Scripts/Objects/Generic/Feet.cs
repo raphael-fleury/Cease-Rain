@@ -7,8 +7,7 @@ public class Feet : MonoBehaviour
     #region Fields
     Movement movement;
     Rigidbody2D body;
-
-    bool _onFloor = true;
+    bool wasOnFloor;
 
     [Header("Status")]
     [SerializeField] bool _canJump = true;
@@ -74,14 +73,16 @@ public class Feet : MonoBehaviour
             if (!onFloor)
                 body.velocity *= new Vector2(jumpModifier, 1f);           
         };
+
+        wasOnFloor = onFloor;
     }
 
     void FixedUpdate()
     {
-        if (!_onFloor && onFloor)
+        if (!wasOnFloor && onFloor)
             onStepEvent?.Invoke();
 
-        _onFloor = onFloor;
+        wasOnFloor = onFloor;
     }
     #endregion
 }

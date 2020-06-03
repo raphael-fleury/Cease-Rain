@@ -10,6 +10,7 @@ public class SmilyShot : Shot
         base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag(targetTag))
         {
+            Debug.Log(collision.gameObject.tag);
             collision.gameObject.GetComponent<Movement>().Knockback(knockback);
             collision.gameObject.GetComponent<Marjory>().toxicity += toxicity;
         }

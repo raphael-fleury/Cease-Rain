@@ -15,6 +15,7 @@ public class OverlapCircle : MonoBehaviour
 
     public bool Overlap(LayerMask layerMask)
     {
+        //Debug.Log(Physics2D.OverlapCircle((Vector2)transform.position + offset, radius, layerMask));
         return Physics2D.OverlapCircle((Vector2)transform.position + offset, radius, layerMask);
     }
 }
