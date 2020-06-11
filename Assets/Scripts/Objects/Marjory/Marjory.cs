@@ -20,6 +20,10 @@ public class Marjory : Character
     public enum Guns { None, Umbrella, Codomoon, Footloose, Elvisnator, WordShooter, Crossline }
 
     #region Properties
+    public static Marjory instance { get; private set; }
+
+    public bool umbrellaNear { get; private set; }
+
     public float toxicity
     {
         get { return _toxicity; }
@@ -64,13 +68,15 @@ public class Marjory : Character
     #endregion
 
     #region Methods
-    public void SetGun(Guns gun, int bullets) =>
+    public void SetGun(Guns gun, ushort bullets) =>
        shooting.SetGun((int)gun, bullets);
+
+    public void ResetGuns() => SetGun(Guns.Codomoon, ushort.MaxValue);
   
     protected override void Awake()
     {
         base.Awake();
-        Level.marjory = this;
+        instance = this;
         feet = GetComponent<Feet>();
         movement = GetComponent<MarjoryMovement>();
         shooting = GetComponent<MarjoryShooting>();
@@ -90,15 +96,23 @@ public class Marjory : Character
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Umbrella")
-            normalArm.canDefend = true;
+            umbrellaNear = true;
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Umbrella")
-            normalArm.canDefend = false;
+            umbrellaNear = false;
     }
 
-    protected override void Death() {}
+    protected override void Death() 
+    {
+        /*
+        //Set Death Animation
+        controllable = false;
+        */
+    }
+
+    void OnDestroy() => instance = null;
     #endregion
 }

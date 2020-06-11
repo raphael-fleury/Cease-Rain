@@ -18,11 +18,18 @@ public class Steam : InteractionArea
 
     #region Events
     private Action onEnableEvent;
+    private Action onDisableEvent;
 
     public event Action OnEnableEvent
     {
         add { onEnableEvent += value; }
         remove { onEnableEvent -= value; }
+    } 
+
+    public event Action OnDisableEvent
+    {
+        add { onDisableEvent += value; }
+        remove { onDisableEvent -= value; }
     }
     #endregion
 
@@ -39,9 +46,10 @@ public class Steam : InteractionArea
     {
         active = false;
         particles.Stop();
+        onDisableEvent?.Invoke();
         GetComponent<Collider2D>().enabled = false;
 
-        Level.marjory.drying = false;
+        Marjory.instance.drying = false;
     }
 
     private void Update()

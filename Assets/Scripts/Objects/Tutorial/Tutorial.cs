@@ -7,7 +7,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] int eventIndex = -1;
 
     [Header("References")]
-    public IndicatorArrow arrow;
+    [SerializeField] IndicatorArrow arrow;
+    [SerializeField] Steam steam;
+
+    [Space(10)]
     [SerializeField] UnityEvent[] events;
 
     public void NextEvent()
@@ -18,7 +21,7 @@ public class Tutorial : MonoBehaviour
 
     public void End()
     {
-        Destroy(Level.marjory.gameObject);
+        Destroy(Marjory.instance.gameObject);
         Game.LoadScene(SceneEnum.FirstLevel);
     }
 
@@ -29,5 +32,15 @@ public class Tutorial : MonoBehaviour
         arrow.PointAt(pointingAt);
     }
 
-    void Start() { NextEvent(); }
+    public void ActivateArrow(float posX, float posY, float rightX, float rightY) =>
+        //ActivateArrow(new Vector3(posX, posY, 0), new Vector2(rightX, rightY));
+        ActivateArrow(Vector3.one, Vector2.zero);
+
+    public void DeactivateArrow() => arrow.gameObject.SetActive(false);
+
+    void Start()
+    {
+        steam.OnDisableEvent += NextEvent;
+        NextEvent();
+    }
 }

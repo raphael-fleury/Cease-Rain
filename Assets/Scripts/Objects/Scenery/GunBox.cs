@@ -11,7 +11,7 @@ public class GunBox : MonoBehaviour
 
     [Header("Gun")]
     [SerializeField] Marjory.Guns gun;
-    [SerializeField] int amount;
+    [SerializeField] ushort amount;
 
     [Header("Jump")]
     [SerializeField] float force;
@@ -21,7 +21,7 @@ public class GunBox : MonoBehaviour
     #region Methods
     public void Disappear()
     {
-        Level.marjory.SetGun(gun, amount);
+        Marjory.instance.SetGun(gun, amount);
         Destroy(gameObject);
     }
 

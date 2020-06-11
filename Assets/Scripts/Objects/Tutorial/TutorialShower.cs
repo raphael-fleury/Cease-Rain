@@ -26,7 +26,6 @@ public class TutorialShower : MonoBehaviour
     #region Actions
     private void OnEnable()
     {
-        Debug.Log("a");
         water.SetActive(false);
         state = State.Going;
     }
@@ -56,7 +55,7 @@ public class TutorialShower : MonoBehaviour
 
         if (state == State.Idle)
         {
-            if (Level.marjory.toxicity > minToxicity)
+            if (Marjory.instance.toxicity > minToxicity)
                 Return();
         }
         else

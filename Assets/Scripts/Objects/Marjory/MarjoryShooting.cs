@@ -50,7 +50,7 @@ public class MarjoryShooting : MonoBehaviour
     #endregion
 
     #region Methods
-    public void SetGun(int gun, int bullets)
+    public void SetGun(int gun, ushort bullets)
     {
         Gun newGun = guns[gun];
         if (currentGun) //if the current is a gun

@@ -3,19 +3,25 @@
 public class FakeUmbrella : MonoBehaviour
 {
     [SerializeField] GameObject prefab;
-    
-    Transform marjory;
+    [SerializeField] GameObject dialog;
 
-    void Start()
+    Marjory marjory;
+
+    void OnEnable()
     {
-        marjory = Level.marjory.transform;
-        transform.SetPositionX(marjory.position.x);
+        marjory = Marjory.instance;
+        transform.SetPositionX(marjory.transform.position.x);
     }
+
+    void Update() => marjory.controllable = false;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
+            if (!dialog.activeSelf)
+                marjory.controllable = true;
+
             Instantiate(prefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

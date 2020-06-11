@@ -18,6 +18,12 @@ public class TutorialShooter : MonoBehaviour
 
     #region Methods
 
+    public void Enable(bool needToDefend)
+    {
+        gameObject.SetActive(true);
+        this.needToDefend = needToDefend;
+    }
+
     #region Animator
     private void Go()
     {
@@ -34,7 +40,7 @@ public class TutorialShooter : MonoBehaviour
     private void Close()
     {
         gameObject.SetActive(false);
-        tutorial.arrow.gameObject.SetActive(false);
+        tutorial.DeactivateArrow();
         tutorial.NextEvent();
     }
     #endregion
@@ -47,7 +53,7 @@ public class TutorialShooter : MonoBehaviour
 
     private void CallCloseAnimation()
     {
-        tutorial.arrow.gameObject.SetActive(false);
+        tutorial.DeactivateArrow();
         GetComponent<Animator>().SetTrigger("Close");
     }
 
@@ -57,7 +63,7 @@ public class TutorialShooter : MonoBehaviour
         {
             Invoke("CallShootAnimation", cooldown);
             playerIn = true;
-            tutorial.arrow.gameObject.SetActive(false);
+            tutorial.DeactivateArrow();
         }
     }
 
@@ -66,14 +72,14 @@ public class TutorialShooter : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             playerIn = false;
-            tutorial.arrow.gameObject.SetActive(true);
+            tutorial.DeactivateArrow();
         }           
     }
 
     private void OnShotCollision(Collision2D collision)
     {
-        string tag = collision.gameObject.tag;
-        
+        string tag = collision.GetContact(0).collider.gameObject.tag;
+
         if(tag != "Player")
         {
             if (!needToDefend || tag == "Umbrella")
@@ -84,7 +90,6 @@ public class TutorialShooter : MonoBehaviour
         else
             Invoke("CallShootAnimation", cooldown);
     }
-
 
     #endregion
 }

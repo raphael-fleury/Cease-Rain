@@ -26,20 +26,17 @@ public class Shot : AutoDestroy
     #endregion
 
     #region Methods
-    protected virtual void Awake() =>
-        body = GetComponent<Rigidbody2D>();
+    protected virtual void Awake() => body = GetComponent<Rigidbody2D>();
 
-    protected virtual void Rotate() =>
-        transform.right = body.velocity;
+    protected virtual void Rotate() => transform.right = body.velocity;
 
     protected virtual void Flip() =>
         transform.SetLocalScaleX(Mathf.Sign(body.velocity.x) * transform.localScale.x);
-
     
     protected virtual void Update()
     {
         Rotate();
-        Flip();
+        //Flip();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)

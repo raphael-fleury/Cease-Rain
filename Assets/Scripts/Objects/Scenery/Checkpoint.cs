@@ -20,8 +20,8 @@ public class Checkpoint : MonoBehaviour
         GetComponent<Steam>().OnEnableEvent += UpdateCheckpoint;
 
         if (Level.checkpoint == index)
-        {           
-            Level.marjory.transform.position = transform.position;
+        {
+            Marjory.instance.transform.position = transform.position;
             Level.activeCamera.GetComponent<PlayerCamera>().limits.lower = transform.position.x;
 
             if (colliders)

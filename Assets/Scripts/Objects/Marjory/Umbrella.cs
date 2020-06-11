@@ -2,15 +2,24 @@
 
 public class Umbrella : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] Transform marjory;
+    Transform marjory;
 
     [Header("Options")]
     [SerializeField] [Range(0,1)] float speedMultiplier;
     [SerializeField] float height;
 
+    public static Umbrella instance { get; private set; }
+
+    void Awake()
+    {
+        marjory = Marjory.instance.transform;
+        instance = this;
+    }
+
     void FixedUpdate()
     {
+        if (!marjory) { return; }
+
         Vector2 distance = transform.position.Distance(marjory.position);
         Vector2 destination = marjory.position + Vector3.up * height;
 
@@ -24,4 +33,6 @@ public class Umbrella : MonoBehaviour
         transform.position = transform.position.MoveTowards(destination,
             speed * distance * speedMultiplier / 100);
     }
+
+    void OnDestroy() => instance = null;
 }

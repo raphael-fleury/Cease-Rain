@@ -7,18 +7,17 @@ public class Gun : MonoBehaviour
 
     public Shooter shooter;
     [Header("Status")]
-    [SerializeField] int _bullets;
+    [SerializeField] ushort _bullets;
 
     [Header("Options")]
     [Min(0)] public float rechargeTime;
     [SerializeField] float rotationFix;
 
     [Header("References")]
-    [SerializeField] Marjory marjory;
     [SerializeField] AudioSource sound; 
     #endregion  
 
-    public int bullets
+    public ushort bullets
     {
         get { return _bullets; }
         private set { _bullets = value; }
@@ -27,16 +26,17 @@ public class Gun : MonoBehaviour
     #region Methods
     public virtual void Shoot()
     {
-        Vector2 vector = new Vector2(Mathf.Sign(Level.marjory.transform.localScale.x), Mathf.Abs(transform.rotation.z) * 2 - rotationFix);
+        Vector2 vector = new Vector2(Mathf.Sign(Marjory.instance.transform.localScale.x),
+                                     Mathf.Abs(transform.rotation.z) * 2 - rotationFix);
 
         shot = shooter.Shoot(vector);
            
         bullets--;
         if (bullets < 1)
-            marjory.SetGun(Marjory.Guns.Codomoon, int.MaxValue);
+            Marjory.instance.SetGun(Marjory.Guns.Codomoon, ushort.MaxValue);
     }
 
-    public void Activate(int bullets)
+    public void Activate(ushort bullets)
     {
         gameObject.SetActive(true);
         this.bullets = bullets;
@@ -44,6 +44,6 @@ public class Gun : MonoBehaviour
 
     public void Deactivate() => gameObject.SetActive(false);
 
-    public void Recharge(int bullets) => this.bullets += bullets;
+    public void Recharge(ushort bullets) => this.bullets += bullets;
     #endregion
 }

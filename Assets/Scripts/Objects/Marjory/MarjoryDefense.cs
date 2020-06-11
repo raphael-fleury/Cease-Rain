@@ -8,13 +8,18 @@ public class MarjoryDefense : MonoBehaviour
     int gun;
 
     [Header("Status")]
-    public bool canDefend;
+    [SerializeField] bool _canDefend;
     [SerializeField] bool _defending;
 
     [Header("References")]
-    [SerializeField] GameObject umbrella;
     [SerializeField] GameObject localUmbrella;
     #endregion
+
+    public bool canDefend
+    {
+        get { return _canDefend && Marjory.instance.umbrellaNear; }
+        set { _canDefend = value; }
+    }
 
     public bool defending
     {
@@ -22,7 +27,7 @@ public class MarjoryDefense : MonoBehaviour
         private set
         {
             _defending = value;
-            umbrella.SetActive(!value);
+            Umbrella.instance.gameObject.SetActive(!value);
             localUmbrella.SetActive(value);
             shooting.SetGun(value ? 1 : gun, 0);
         }
@@ -31,13 +36,13 @@ public class MarjoryDefense : MonoBehaviour
     #region Methods
     void ReleaseUmbrella()
     {
-        umbrella.transform.position = localUmbrella.transform.position;
+        Umbrella.instance.gameObject.transform.position = localUmbrella.transform.position;
         defending = false;
     }
 
     void Start()
     { 
-        shooting = Level.marjory.GetComponent<MarjoryShooting>();
+        shooting = Marjory.instance.GetComponent<MarjoryShooting>();
     }
 
     void Update()

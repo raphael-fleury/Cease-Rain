@@ -38,7 +38,7 @@ public class Smily : Enemy
     {
         if (feet.onFloor)
         {
-            if (!movement.IsFacing(Level.marjory.transform))
+            if (!movement.IsFacing(Marjory.instance.transform))
                 movement.Flip();
 
             animator.SetTrigger("recharge");

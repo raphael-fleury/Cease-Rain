@@ -23,7 +23,7 @@ public class TutorialDialog : MonoBehaviour
         this.text = text;
         textBox.text = "";
         gameObject.SetActive(true);
-        Level.marjory.controllable = false;
+        Marjory.instance.controllable = false;
     }
 
     private void Update()
@@ -50,7 +50,7 @@ public class TutorialDialog : MonoBehaviour
 
     private void End()
     {
-        Level.marjory.controllable = true;
+        Marjory.instance.controllable = true;
         gameObject.SetActive(false);
         tutorial.NextEvent();
     }
