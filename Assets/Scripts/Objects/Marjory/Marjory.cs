@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(MarjoryShooting), typeof(MarjoryMovement), typeof(Feet))]
-public class Marjory : Character
+public class Marjory : MonoBehaviour, IMarjory
 {
     #region Fields
+    CharacterLife _life;
+    OneJump _jump;
     MarjoryShooting shooting;
-    MarjoryMovement movement;
-    Feet feet;
+    MarjoryMovement movement;  
 
     [SerializeField, Range(0, 100)] float _toxicity;
 
@@ -21,6 +22,10 @@ public class Marjory : Character
 
     #region Properties
     public static Marjory instance { get; private set; }
+    
+    public ILife life => _life;
+    public IJump jump => _jump;
+    //public IStep step => feet;
 
     public bool umbrellaNear { get; private set; }
 
@@ -47,7 +52,7 @@ public class Marjory : Character
             normalArm.canDefend = value;
             shooting.canShoot = value;
             movement.canMove = value;
-            feet.canJump = value;
+            _jump.canPerform = value;
         }
     }
 
@@ -73,11 +78,12 @@ public class Marjory : Character
 
     public void ResetGuns() => SetGun(Guns.Codomoon, ushort.MaxValue);
   
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
+        //_life.Awake();
         instance = this;
-        feet = GetComponent<Feet>();
+        _life = GetComponent<CharacterLife>();
+        _jump = GetComponent<OneJump>();
         movement = GetComponent<MarjoryMovement>();
         shooting = GetComponent<MarjoryShooting>();
     }
@@ -87,7 +93,7 @@ public class Marjory : Character
         if (toxicity > 0)
             toxicity -= Time.fixedDeltaTime / 2;
         if (toxicity > 20)
-            life -= Time.fixedDeltaTime;
+            life.Hurt(Time.fixedDeltaTime);
     }
 
     void OnParticleCollision(GameObject other) =>
@@ -103,14 +109,6 @@ public class Marjory : Character
     {
         if (collider.gameObject.tag == "Umbrella")
             umbrellaNear = false;
-    }
-
-    protected override void Death() 
-    {
-        /*
-        //Set Death Animation
-        controllable = false;
-        */
     }
 
     void OnDestroy() => instance = null;

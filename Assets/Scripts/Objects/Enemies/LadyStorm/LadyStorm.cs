@@ -5,6 +5,7 @@ public class LadyStorm : Enemy
     #region Fields
     Movement movement;
     Animator animator;
+    OneJump jump;
     Feet feet;
 
     [Header("Options")]
@@ -21,6 +22,7 @@ public class LadyStorm : Enemy
     {
         base.Awake();
         feet = GetComponent<Feet>();
+        jump = GetComponent<OneJump>();
         movement = GetComponent<Movement>();
         animator = GetComponent<Animator>();      
     }
@@ -41,8 +43,8 @@ public class LadyStorm : Enemy
 
     void Jump()
     {    
-        feet.Jump();
-        animator.SetTrigger("jump");
+        if (jump.TryPerform())
+            animator.SetTrigger("jump");
     }
 
     void SpawnShock(int direction)

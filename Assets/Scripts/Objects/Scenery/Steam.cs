@@ -67,7 +67,7 @@ public class Steam : InteractionArea
 
         if (active)
         {
-            player.life += Time.deltaTime * (totalHeal / duration);
+            player.life.Heal(Time.deltaTime * (totalHeal / duration));
             player.toxicity -= Time.deltaTime * (totalDry / duration);
         }
     }

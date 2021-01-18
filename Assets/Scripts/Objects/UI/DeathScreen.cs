@@ -1,5 +1,5 @@
 ﻿public class DeathScreen : LevelScreen
 {
     private void Start() =>
-        Marjory.instance.OnDeathEvent += () => gameObject.SetActive(true);
+        Marjory.instance.life.OnDeathEvent += () => gameObject.SetActive(true);
 }

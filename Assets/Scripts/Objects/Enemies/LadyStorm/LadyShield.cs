@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class LadyShield : Character
+public class LadyShield : CharacterLife
 {
     #region Fields
     public Transform lady;
@@ -14,7 +14,7 @@ public class LadyShield : Character
     #region Methods
     void Start()
     {
-        lady.gameObject.GetComponent<Character>().OnDeathEvent += delegate { Destroy(gameObject); };
+        lady.gameObject.GetComponent<CharacterLife>().OnDeathEvent += delegate { Destroy(gameObject); };
     }
 
     void Update() { transform.position = lady.position; }
@@ -23,7 +23,7 @@ public class LadyShield : Character
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Character>().life -= damage;
+            other.gameObject.GetComponent<CharacterLife>().Hurt(damage);
             other.gameObject.GetComponent<Movement>().Knockback(knockback * transform.position.x.CompareTo(other.transform.position.x));
             Death();
         }
@@ -37,7 +37,7 @@ public class LadyShield : Character
 
     void Regen()
     {
-        life = maxLife;
+        amount = maxAmount;
         gameObject.SetActive(true);
     }
     #endregion

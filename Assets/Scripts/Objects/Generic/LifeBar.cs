@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof (Image))]
+[RequireComponent(typeof(Image))]
 public class LifeBar : MonoBehaviour
 {
-    public Character character;
+    public CharacterLife life;
     
     void Awake()
     {
-        character.OnLifeChangeEvent += () =>
-            GetComponent<Image>().fillAmount = character.life / character.maxLife;        
+        life.OnChangeEvent += () =>
+            GetComponent<Image>().fillAmount = life.amount / life.maxAmount;        
     }
 }

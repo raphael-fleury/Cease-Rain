@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class Character : MonoBehaviour, ILife
+public class CharacterLife : MonoBehaviour, ILife
 {
     [SerializeField] float _life;
 
     #region Events
     private event Action onDeathEvent;
-    private event Action onLifeChangeEvent;
+    private event Action onChangeEvent;
 
     public event Action OnDeathEvent
     {
@@ -15,31 +15,31 @@ public class Character : MonoBehaviour, ILife
         remove { onDeathEvent -= value; }
     }
 
-    public event Action OnLifeChangeEvent
+    public event Action OnChangeEvent
     {
-        add { onLifeChangeEvent += value; }
-        remove { onLifeChangeEvent -= value; }
+        add { onChangeEvent += value; }
+        remove { onChangeEvent -= value; }
     }
     #endregion
 
     #region Properties
-    public float maxLife { get; private set; }
+    public float maxAmount { get; private set; }
 
-    public float life
+    public float amount
     {
         get { return _life; }
         set
         {
-            if (value > maxLife)
-                _life = maxLife;
+            if (value > maxAmount)
+                _life = maxAmount;
             else if (value < 0)
                 _life = 0;
             else
                 _life = value;
 
-            onLifeChangeEvent?.Invoke();
+            onChangeEvent?.Invoke();
 
-            if (life <= 0)
+            if (amount <= 0)
             {
                 onDeathEvent?.Invoke();
                 Death(); 
@@ -51,9 +51,9 @@ public class Character : MonoBehaviour, ILife
     #region Methods
     protected virtual void Death() { Destroy(gameObject); }
 
-    protected virtual void Awake() { maxLife = life; }
+    protected virtual void Awake() { maxAmount = amount; }
 
-    public void Hurt(float amount) => life -= amount;
-    public void Heal(float amount) => life += amount;
+    public void Hurt(float amount) => this.amount -= amount;
+    public void Heal(float amount) => this.amount += amount;
     #endregion
 }

@@ -6,6 +6,7 @@ public class MarjoryMovement : Movement
 {   
     #region Fields
     Feet feet;
+    OneJump jump;
 
     [Header("Marjory")]
     [SerializeField] CurrentMovement movement;
@@ -78,7 +79,7 @@ public class MarjoryMovement : Movement
     void Update()
     {
         if (Input.GetKeyDown(Controls.FindKey("JumpKey")))
-            feet.Jump();
+            jump.TryPerform();
 
         axisX = Input.GetAxis("Horizontal");
 

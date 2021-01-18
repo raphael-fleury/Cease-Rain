@@ -6,6 +6,7 @@ public class Smily : Enemy
     #region Fields
     Movement movement;
     Animator animator;
+    OneJump jump;
     Feet feet;
 
     [Header("Options")]
@@ -49,9 +50,11 @@ public class Smily : Enemy
 
     void Jump()
     {
-        feet.Jump();
-        animator.SetTrigger("jump");
-        movement.canMove = true;
+        if (jump.TryPerform())
+        {
+            animator.SetTrigger("jump");
+            movement.canMove = true;
+        }       
     }
 
     void Shoot() { shooter.Shoot(Vector2.right * movement.direction * shooter.speed); }

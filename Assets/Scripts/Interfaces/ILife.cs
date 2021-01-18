@@ -2,11 +2,11 @@
 
 public interface ILife
 {
-    float maxLife { get; }
-    float life { get; }
+    float maxAmount { get; }
+    float amount { get; }
 
     event Action OnDeathEvent;
-    event Action OnLifeChangeEvent;
+    event Action OnChangeEvent;
 
     void Hurt(float amount);
     void Heal(float amount);
