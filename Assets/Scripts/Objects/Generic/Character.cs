@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, ILife
 {
     [SerializeField] float _life;
 
@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     {
         get { return _life; }
         set
-        { 
+        {
             if (value > maxLife)
                 _life = maxLife;
             else if (value < 0)
@@ -52,5 +52,8 @@ public class Character : MonoBehaviour
     protected virtual void Death() { Destroy(gameObject); }
 
     protected virtual void Awake() { maxLife = life; }
+
+    public void Hurt(float amount) => life -= amount;
+    public void Heal(float amount) => life += amount;
     #endregion
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Movement), typeof(Rigidbody2D))]
-public class Feet : MonoBehaviour
+public class Feet : MonoBehaviour, IJump, IStep
 {
     #region Fields
     Movement movement;
