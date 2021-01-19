@@ -4,10 +4,11 @@
 public class Marjory : MonoBehaviour, IMarjory
 {
     #region Fields
-    CharacterLife _life;
-    OneJump _jump;
-    MarjoryShooting shooting;
-    MarjoryMovement movement;  
+    ILife _life;
+    IJump _jump;
+    IStep _step;
+    MarjoryShooting _shooting;
+    MarjoryMovement _movement;  
 
     [SerializeField, Range(0, 100)] float _toxicity;
 
@@ -25,7 +26,7 @@ public class Marjory : MonoBehaviour, IMarjory
     
     public ILife life => _life;
     public IJump jump => _jump;
-    //public IStep step => feet;
+    public IStep step => _step;
 
     public bool umbrellaNear { get; private set; }
 
@@ -50,8 +51,8 @@ public class Marjory : MonoBehaviour, IMarjory
         {
             _controllable = value;
             normalArm.canDefend = value;
-            shooting.canShoot = value;
-            movement.canMove = value;
+            _shooting.canShoot = value;
+            _movement.canMove = value;
             _jump.canPerform = value;
         }
     }
@@ -66,7 +67,7 @@ public class Marjory : MonoBehaviour, IMarjory
     {
         set
         {
-            movement.face.SetBool("eyesClosed", value);
+            _movement.face.SetBool("eyesClosed", value);
             controllable = !value;
         }
     }
@@ -74,7 +75,7 @@ public class Marjory : MonoBehaviour, IMarjory
 
     #region Methods
     public void SetGun(Guns gun, ushort bullets) =>
-       shooting.SetGun((int)gun, bullets);
+       _shooting.SetGun((int)gun, bullets);
 
     public void ResetGuns() => SetGun(Guns.Codomoon, ushort.MaxValue);
   
@@ -83,9 +84,9 @@ public class Marjory : MonoBehaviour, IMarjory
         //_life.Awake();
         instance = this;
         _life = GetComponent<CharacterLife>();
-        _jump = GetComponent<OneJump>();
-        movement = GetComponent<MarjoryMovement>();
-        shooting = GetComponent<MarjoryShooting>();
+        _jump = GetComponent<SingleJump>();
+        _movement = GetComponent<MarjoryMovement>();
+        _shooting = GetComponent<MarjoryShooting>();
     }
 
     void FixedUpdate()

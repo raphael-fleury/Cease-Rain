@@ -5,7 +5,7 @@ public class LadyStorm : Enemy
     #region Fields
     Movement movement;
     Animator animator;
-    OneJump jump;
+    SingleJump jump;
     Feet feet;
 
     [Header("Options")]
@@ -22,7 +22,7 @@ public class LadyStorm : Enemy
     {
         base.Awake();
         feet = GetComponent<Feet>();
-        jump = GetComponent<OneJump>();
+        jump = GetComponent<SingleJump>();
         movement = GetComponent<Movement>();
         animator = GetComponent<Animator>();      
     }

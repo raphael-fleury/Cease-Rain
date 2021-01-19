@@ -5,8 +5,8 @@ using UnityEngine;
 public class MarjoryMovement : Movement
 {   
     #region Fields
-    Feet feet;
-    OneJump jump;
+    IStep feet;
+    IJump jump;
 
     [Header("Marjory")]
     [SerializeField] CurrentMovement movement;
@@ -66,6 +66,7 @@ public class MarjoryMovement : Movement
         base.Awake();
 
         feet = GetComponent<Feet>();
+        jump = GetComponent<IJump>();
 
         GetComponent<MarjoryShooting>().OnGunChangeEvent += (int value) =>
         {

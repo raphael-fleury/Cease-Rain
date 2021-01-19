@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class OneJump : Jump
+public class SingleJump : Jump
 {
     protected Movement movement;
-    protected Feet feet;
+    protected Feet _feet;
 
     public override bool canPerform
     {
@@ -11,10 +11,13 @@ public class OneJump : Jump
         set { base.canPerform = value; }
     }
 
+    public Feet feet => _feet;
+
     protected override void Awake()
     {         
+        base.Awake();
         movement = GetComponent<Movement>();
-        feet = GetComponent<Feet>();
+        _feet = GetComponent<Feet>();
 
         movement.OnMoveEvent += delegate
         {

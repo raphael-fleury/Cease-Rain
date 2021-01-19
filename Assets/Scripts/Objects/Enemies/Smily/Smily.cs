@@ -6,7 +6,7 @@ public class Smily : Enemy
     #region Fields
     Movement movement;
     Animator animator;
-    OneJump jump;
+    SingleJump jump;
     Feet feet;
 
     [Header("Options")]

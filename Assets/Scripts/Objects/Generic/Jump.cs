@@ -10,7 +10,7 @@ public class Jump : MonoBehaviour, IJump
     [Header("Status")]
     [SerializeField] bool _canPerform = true;
 
-    [Header("Jump")]
+    [Header("Options")]
     [SerializeField, Min(0)] protected float force;
     [SerializeField, Range(0,1)] protected float modifier;
     #endregion
