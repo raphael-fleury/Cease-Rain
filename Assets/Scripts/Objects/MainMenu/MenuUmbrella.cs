@@ -11,8 +11,7 @@ public class MenuUmbrella : MonoBehaviour
 
     float height;
 
-    void Start() =>
-        height = transform.position.y;
+    void Start() => height = transform.position.y;
 
     void FixedUpdate()
     {

@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float rotationFix;
 
     [Header("References")]
+    [SerializeField] Marjory marjory; 
     [SerializeField] AudioSource sound; 
     #endregion  
 
@@ -26,14 +27,14 @@ public class Gun : MonoBehaviour
     #region Methods
     public virtual void Shoot()
     {
-        Vector2 vector = new Vector2(Mathf.Sign(Marjory.instance.transform.localScale.x),
+        Vector2 vector = new Vector2(Mathf.Sign(marjory.transform.localScale.x),
                                      Mathf.Abs(transform.rotation.z) * 2 - rotationFix);
 
         shot = shooter.Shoot(vector);
            
         bullets--;
         if (bullets < 1)
-            Marjory.instance.SetGun(Marjory.Guns.Codomoon, ushort.MaxValue);
+            marjory.SetGun(Marjory.Guns.Codomoon, ushort.MaxValue);
     }
 
     public void Activate(ushort bullets)

@@ -2,19 +2,11 @@
 
 public class Umbrella : MonoBehaviour
 {
-    Transform marjory;
+    [SerializeField] Transform marjory;
 
     [Header("Options")]
     [SerializeField] [Range(0,1)] float speedMultiplier;
     [SerializeField] float height;
-
-    public static Umbrella instance { get; private set; }
-
-    void Awake()
-    {
-        marjory = Marjory.instance.transform;
-        instance = this;
-    }
 
     void FixedUpdate()
     {
@@ -34,5 +26,4 @@ public class Umbrella : MonoBehaviour
             speed * distance * speedMultiplier / 100);
     }
 
-    void OnDestroy() => instance = null;
 }
