@@ -27,7 +27,7 @@ public class Shock : MonoBehaviour
     {
         if (target.gameObject.CompareTag("Player"))
         {
-            target.gameObject.GetComponent<Character>().life -= damage;
+            target.gameObject.GetComponent<CharacterLife>().Hurt(damage);
             Destroy(gameObject);
         }
     }

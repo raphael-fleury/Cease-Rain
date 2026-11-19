@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TutorialDoor : Character
+public class TutorialDoor : CharacterLife
 {
     [SerializeField] bool broken;
 

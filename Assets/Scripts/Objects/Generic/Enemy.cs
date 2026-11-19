@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Enemy : Character
+public class Enemy : CharacterLife
 {
     [SerializeField] GameObject deathAnim;
 

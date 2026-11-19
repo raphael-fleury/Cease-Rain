@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(MarjoryShooting), typeof(MarjoryMovement), typeof(Feet))]
-public class Marjory : Character
+public class Marjory : MonoBehaviour, IMarjory
 {
     #region Fields
-    MarjoryShooting shooting;
-    MarjoryMovement movement;
-    Feet feet;
+    ILife _life;
+    IJump _jump;
+    IStep _step;
+    MarjoryShooting _shooting;
+    MarjoryMovement _movement;  
 
     [SerializeField, Range(0, 100)] float _toxicity;
 
@@ -21,6 +23,10 @@ public class Marjory : Character
 
     #region Properties
     public static Marjory instance { get; private set; }
+    
+    public ILife life => _life;
+    public IJump jump => _jump;
+    public IStep step => _step;
 
     public bool umbrellaNear { get; private set; }
 
@@ -45,9 +51,9 @@ public class Marjory : Character
         {
             _controllable = value;
             normalArm.canDefend = value;
-            shooting.canShoot = value;
-            movement.canMove = value;
-            feet.canJump = value;
+            _shooting.canShoot = value;
+            _movement.canMove = value;
+            _jump.canPerform = value;
         }
     }
 
@@ -61,7 +67,7 @@ public class Marjory : Character
     {
         set
         {
-            movement.face.SetBool("eyesClosed", value);
+            _movement.face.SetBool("eyesClosed", value);
             controllable = !value;
         }
     }
@@ -69,17 +75,18 @@ public class Marjory : Character
 
     #region Methods
     public void SetGun(Guns gun, ushort bullets) =>
-       shooting.SetGun((int)gun, bullets);
+       _shooting.SetGun((int)gun, bullets);
 
     public void ResetGuns() => SetGun(Guns.Codomoon, ushort.MaxValue);
   
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
+        //_life.Awake();
         instance = this;
-        feet = GetComponent<Feet>();
-        movement = GetComponent<MarjoryMovement>();
-        shooting = GetComponent<MarjoryShooting>();
+        _life = GetComponent<CharacterLife>();
+        _jump = GetComponent<SingleJump>();
+        _movement = GetComponent<MarjoryMovement>();
+        _shooting = GetComponent<MarjoryShooting>();
     }
 
     void FixedUpdate()
@@ -87,7 +94,7 @@ public class Marjory : Character
         if (toxicity > 0)
             toxicity -= Time.fixedDeltaTime / 2;
         if (toxicity > 20)
-            life -= Time.fixedDeltaTime;
+            life.Hurt(Time.fixedDeltaTime);
     }
 
     void OnParticleCollision(GameObject other) =>
@@ -103,14 +110,6 @@ public class Marjory : Character
     {
         if (collider.gameObject.tag == "Umbrella")
             umbrellaNear = false;
-    }
-
-    protected override void Death() 
-    {
-        /*
-        //Set Death Animation
-        controllable = false;
-        */
     }
 
     void OnDestroy() => instance = null;

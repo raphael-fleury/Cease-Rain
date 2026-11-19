@@ -44,7 +44,7 @@ public class Shot : AutoDestroy
         onCollisionEvent?.Invoke(collision);
 
         if (collision.gameObject.CompareTag(targetTag))
-            collision.gameObject.GetComponent<Character>().life -= damage;
+            collision.gameObject.GetComponent<CharacterLife>().Hurt(damage);
 
         Destroy();
     }

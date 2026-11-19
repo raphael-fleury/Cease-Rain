@@ -5,7 +5,8 @@ using UnityEngine;
 public class MarjoryMovement : Movement
 {   
     #region Fields
-    Feet feet;
+    IStep feet;
+    IJump jump;
 
     [Header("Marjory")]
     [SerializeField] CurrentMovement movement;
@@ -65,6 +66,7 @@ public class MarjoryMovement : Movement
         base.Awake();
 
         feet = GetComponent<Feet>();
+        jump = GetComponent<IJump>();
 
         GetComponent<MarjoryShooting>().OnGunChangeEvent += (int value) =>
         {
@@ -78,7 +80,7 @@ public class MarjoryMovement : Movement
     void Update()
     {
         if (Input.GetKeyDown(Controls.FindKey("JumpKey")))
-            feet.Jump();
+            jump.TryPerform();
 
         axisX = Input.GetAxis("Horizontal");
 
